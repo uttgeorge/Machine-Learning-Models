@@ -13,7 +13,7 @@ Basic idea is Max Margin Classifier, we have to find the widest road between cla
 $$
 max:margin(w,b)
 \\\\
-s.t.\Biggl\{\begin{matrix}
+s.t.\Big\{\begin{matrix}
 w^Tx_i +b>0,y_i=+1\\\\
 w^Tx_i +b<0,y_i=-1
 \}\end{matrix}
