@@ -12,8 +12,7 @@ Basic idea is Max Margin Classifier, we have to find the widest road between cla
 
 $$
 max:margin(w,b)
-\\st.
-\left\{\begin{matrix}
+\\s.t.\left\{\begin{matrix}
 w^Tx_i +b>0,y_i=+1\\ 
 w^Tx_i +b<0,y_i=-1
 \end{matrix}\right.
@@ -37,7 +36,7 @@ $$
 Suppose we have two classes X and O, for class X:
 
    1. When X is correctly classified, means X locates outside the margin, then $\xi=0$
-   2. WHen X is incorrecly classified and locates on the right side of $y_i(w^Tx_i+b)\ge0$,then $0<\xi\le0$ 
+   2. When X is incorrecly classified and locates on the right side of $y_i(w^Tx_i+b)\ge0$,then $0<\xi\le0$ 
    3. When X is on the other side of margin, which means $y_i(w^Tx_i+b)\le0$, then $\xi>1$
    
 Based on these 3 conditions, we get the new target funtion:
