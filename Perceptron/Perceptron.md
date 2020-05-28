@@ -4,7 +4,6 @@ Combination of Linear Models
 ## 1.Perceptron
 
 * Idea: Driven by mistakes
-
 * Model:
 
 \begin{align}
@@ -19,7 +18,7 @@ sign(a) = \left\{\begin{matrix}
 * Loss funtion:
 
     1. Use the number of missclassification as loss
- 
+
  \begin{align}
 L(w)=\sum_{i=1}^{N}I\left \{y_i(w^Tx_i+b)<0\right \}\\
 \left.\begin{matrix}
@@ -36,7 +35,7 @@ w^Tx_i+b<0, False
     **But in this case, the funtion is not derivative.**
     
     2. Use the distance as loss
-  
+
  \begin{align}
 min:L(w)=\sum_{x_i{\in}D}^{}-y_i(w^Tx_i+b)\\D:\left \{ Miss\ Classified\ Points\right \}\\
 \Delta _{w}L = \sum_{}^{} -y_ix_i\\
