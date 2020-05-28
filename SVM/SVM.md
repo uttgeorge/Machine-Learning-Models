@@ -24,7 +24,7 @@ $$
 
 1. For the hard margin:
 
-   * We set margin equals 1, and $y_i(w^Tx_i+b)\geqslant1$;
+   * We set margin equals 1, and $y_i(w^Tx_i+b)\ge1$;
     
 2. For the soft margin:
 
@@ -32,27 +32,27 @@ $$
    
    * We introduced slckness variable $\xi$, which represent **loss**. 
    
-   * And now the margin function changes to $y_i(w^Tx_i+b)\geqslant1-\xi_i,s.t.xi\geqslant0$
+   * And now the margin function changes to $y_i(w^Tx_i+b)\ge1-\xi_i,s.t.xi\ge0$
 
 Suppose we have two classes X and O, for class X:
 
    1. When X is correctly classified, means X locates outside the margin, then $\xi=0$
-   2. WHen X is incorrecly classified and locates on the right side of $y_i(w^Tx_i+b)\geqslant0$,then $0<\xi\leqslant0$ 
-   3. When X is on the other side of margin, which means $y_i(w^Tx_i+b)\leqslant0$, then $\xi>1$
+   2. WHen X is incorrecly classified and locates on the right side of $y_i(w^Tx_i+b)\ge0$,then $0<\xi\le0$ 
+   3. When X is on the other side of margin, which means $y_i(w^Tx_i+b)\le0$, then $\xi>1$
    
 Based on these 3 conditions, we get the new target funtion:
 
 $$
 min_{w,b,\xi }:\frac{1}{2}\left \| w \right \|^{2}+C\sum_{i=1}^{N}\xi_i\\
-s.t. \left\{\begin{matrix}y_i(w^Tx_i + b)\geqslant 1-\xi_i
-\\ \xi_i\geqslant0\\
+s.t. \left\{\begin{matrix}y_i(w^Tx_i + b)\ge 1-\xi_i
+\\ \xi_i\ge0\\
 \end{matrix}\right.
 \\
 $$
 
 The loss function here called **Hinge Loss**, basically it uses distance to measure **loss**: $\xi$ represents the distance from a point to its corresponding margin $w^Tx+b=1$ when it is miss-classified.
 
-   1. If $w^Tx+b\geqslant1$, $\xi_i=0$, No loss, correct.
+   1. If $w^Tx+b\ge1$, $\xi_i=0$, No loss, correct.
    2. If $w^Tx+b<1$, $\xi_i=1-y_i(w^Tx+b)$
    
 So now we have:
