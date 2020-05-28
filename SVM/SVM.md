@@ -10,7 +10,7 @@ Prerequisite：Linearly separable
 
 Basic idea is Max Margin Classifier, we have to find the widest road between class1 and class2.
 
-\begin{align}
+$$
 max:margin(w,b)
 \\st.
 \left\{\begin{matrix}
@@ -20,7 +20,7 @@ w^Tx_i +b<0,y_i=-1
 \\
  \Rightarrow y_i(w^{T}x_{i}+b) > 0\\
  \forall i=1,2,...,N
-\end{align}
+$$
 
 1. For the hard margin:
 
@@ -42,13 +42,13 @@ Suppose we have two classes X and O, for class X:
    
 Based on these 3 conditions, we get the new target funtion:
 
-\begin{align}
+$$
 min_{w,b,\xi }:\frac{1}{2}\left \| w \right \|^{2}+C\sum_{i=1}^{N}\xi_i\\
 s.t. \left\{\begin{matrix}y_i(w^Tx_i + b)\geqslant 1-\xi_i
 \\ \xi_i\geqslant0\\
 \end{matrix}\right.
 \\
-\end{align}
+$$
 
 The loss function here called **Hinge Loss**, basically it uses distance to measure **loss**: $\xi$ represents the distance from a point to its corresponding margin $w^Tx+b=1$ when it is miss-classified.
 
@@ -56,22 +56,22 @@ The loss function here called **Hinge Loss**, basically it uses distance to meas
    2. If $w^Tx+b<1$, $\xi_i=1-y_i(w^Tx+b)$
    
 So now we have:
-   \begin{align}
+$$
 \xi_i =max\left \{ 0,1-y_i(w^Tx_i + b) \right \}
-\end{align}
+$$
    
 Base on lagrange duality and KKT conditions, now we get the new target:
 
 
 
-\begin{align}
+$$
 min: \sum_{i=1}^{N}\alpha_i - \frac{1}{2}\sum_{i=1}^{N}\sum_{j=1}^{N}\alpha_i\alpha_jy_iy_jX_i^TX_j\\
 s.t.  \left\{\begin{matrix}
 0< \alpha_i<C\\
 \sum_{i=1}^{N}\alpha_iy_i=0
 \end{matrix}\right.
 \\
-\end{align}
+$$
 
 Optimal Solutions:
 
