@@ -16,7 +16,7 @@ max:margin(w,b)
 s.t.\Bigg\{\begin{matrix}
 w^Tx_i +b>0,y_i=+1\\\\
 w^Tx_i +b<0,y_i=-1
-\end{matrix}
+\}\end{matrix}
 \\\\
  \Rightarrow y_i(w^{T}x_{i}+b) > 0
  \\\\
