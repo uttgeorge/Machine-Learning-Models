@@ -45,9 +45,9 @@ Suppose we have two classes X and O, for class X:
 Based on these 3 conditions, we get the new target funtion:
 
 $$
-min_{w,b,\xi }:\frac{1}{2}\left \| w \right \|^{2}+C\sum_{i=1}^{N}\xi_i\\
+min_{w,b,\xi }:\frac{1}{2}\left \| w \right \|^{2}+C\sum_{i=1}^{N}\xi_i\\\\
 s.t. \Bigg\lbrace\begin{matrix}y_i(w^Tx_i + b)\ge 1-\xi_i
-\\ \xi_i\ge0\\
+\\\\ \xi_i\ge0\\
 \end{matrix}\
 \\
 $$
@@ -59,7 +59,7 @@ The loss function here called **Hinge Loss**, basically it uses distance to meas
    
 So now we have:
 $$
-\xi_i =max\left \{ 0,1-y_i(w^Tx_i + b) \right \}
+\xi_i =max\lbrace 0,1-y_i(w^Tx_i + b) \rbrace
 $$
    
 Base on lagrange duality and KKT conditions, now we get the new target:
@@ -67,9 +67,9 @@ Base on lagrange duality and KKT conditions, now we get the new target:
 
 
 $$
-min: \sum_{i=1}^{N}\alpha_i - \frac{1}{2}\sum_{i=1}^{N}\sum_{j=1}^{N}\alpha_i\alpha_jy_iy_jX_i^TX_j\\
+min: \sum_{i=1}^{N}\alpha_i - \frac{1}{2}\sum_{i=1}^{N}\sum_{j=1}^{N}\alpha_i\alpha_jy_iy_jX_i^TX_j\\\\
 s.t.  \Big\lbrace\begin{matrix}
-0< \alpha_i<C\\
+0< \alpha_i<C\\\\
 \sum_{i=1}^{N}\alpha_iy_i=0
 \end{matrix}\
 \\
