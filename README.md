@@ -7,7 +7,12 @@ This is the combanation of some models.
 
 [Perceptron Code](https://github.com/uttgeorge/Machine-Learning-Models/blob/master/Perceptron/Perceptron.ipynb)
 
-## 2.SVM
+## 2. KNN
+[KNN.md](https://github.com/uttgeorge/Machine-Learning-Models/blob/master/KNN/KNN.md)
+
+[KNN.ipynd](https://github.com/uttgeorge/Machine-Learning-Models/blob/master/KNN/KNN.ipynb)
+
+## 3.SVM
 
 [SVM Intro](https://github.com/uttgeorge/Machine-Learning-Models/blob/master/SVM/SVM.md)
 
