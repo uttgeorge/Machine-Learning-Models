@@ -21,7 +21,7 @@ $$
 
 * Loss funtion:
 
-    1. Use the number of missclassification as loss
+1. Use the number of missclassification as loss
 
  $$
 L(w)=\sum_{i=1}^{N}I\lbrace y_i(w^Tx_i+b)<0\rbrace\\\\
@@ -41,6 +41,7 @@ $$
     
     2. Use the distance as loss
 
+
 $$
 \begin{align*}
 min:L(w)=\sum_{x_i{\in}D}^{}-y_i(w^Tx_i+b)\\\\D:\lbrace Miss\ Classified\ Points\rbrace\\\\
@@ -49,7 +50,9 @@ min:L(w)=\sum_{x_i{\in}D}^{}-y_i(w^Tx_i+b)\\\\D:\lbrace Miss\ Classified\ Points
 \end{align*}
 $$
 
+
 * Algorithm: **SGD**
+
 
 $$
 \begin{align*}
@@ -59,5 +62,6 @@ b^{(t+1)}&=b^{(t)}\lambda\Delta _{b}L \\\\
 &=b^{(t)} + \lambda\sum_{}^{} y_i
 \end{align*}
 $$
+
 
     b could be treated as w0
