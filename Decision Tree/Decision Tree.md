@@ -125,9 +125,63 @@ w_2 & =\frac{N_3+N_4}{N_1+N_2+N_3+N_4}\end{matrix}
 $$
 
 
+
+#### 6. **Feature Selection:** 
+
+Choose the ***Lowest*** $C(T)$, which means the data are more pure.
     
-* **Feature Selection:** Choose the ***Lowest*** $C(T)$
     
+## Generate Decision Tree (CART)
+#### A. Classification Tree
+
+Start from the root, train the binary tree.
+
+1. Dataset correspond to current node: $D = {training data}$.
+    a. Continuous Features
+    * Sort: Low --> High
+    * Calculate the **average** of ***all adjacent data point***: $a_i$
+    * Split $D$ into $D_1$ and $D_2$ by $a_i$
+
+    b. Discrete Features
+    * Ranked Data (eg. 1, 2, 3, 4)
+        * Use every value ***except*** the last one (eg. 4) to split D
+    * Categorical Data (eg. Red, Green, Blue)
+        * Use every combination ***except*** the **universal set** (eg. $[R, G, B]$):
+        $[R],[G],[B],[R,G],[R,B],[G,B]$
+        
+2. Calculate Gini Scores for all features X with their split points S. Choose the feature and its split point S with **the minimum Gini score** as the current node, and split dataset $D$ at this node into $D_1$ and $D_2$.
+3. Repeat step1 and step2 on child nodes, till meet the terminative condition.
+
+    **Note:** Step3 will stop automatically when the Gini Score of child nodes is higher than their parent's Gini Score. ***(Auto Feature Selection)***
+    
+#### B. Regression Tree
+
+***Objective: Minimize sum of square error.***
+
+Start from the root, train the binary tree.
+
+1. Dataset correspond to current node: $D = {training data}$.
+
+    a. Continuous Features
+    * Sort: Low --> High
+    * Calculate the **average** of ***all adjacent data point***: $a_i$
+    * Split $D$ into $D_1$ and $D_2$ by $a_i$
+    * Calculate the average $y_1$,$y_2$ (Target) for $D_1$ and $D_2$.
+
+    b. Discrete Features
+    * Ranked Data (eg. 1, 2, 3, 4)
+        * __Same as Classification Tree__
+    * Categorical Data (eg. Red, Green, Blue)
+        * Use every combination ***except*** the **universal set** (eg. $[R, G, B]$):
+        $[R],[G],[B],[R,G],[R,B],[G,B]$
+        * Calculate the average $y_1$,$y_2$ (Target) for $D_1$ and $D_2$.
+        
+1. Calculate 
+
+2. Repeat step1 and step2 on child nodes, till meet the terminative condition.
+
+    
+
     
 
 ## References
