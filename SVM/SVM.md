@@ -16,7 +16,8 @@ max:margin(w,b)
 s.t.\Bigg\lbrace\begin{matrix}
 w^Tx_i +b>0,y_i=+1\\\\
 w^Tx_i +b<0,y_i=-1
-\rbrace.\end{matrix}
+\
+\end{matrix}
 \\\\
  \Rightarrow y_i(w^{T}x_{i}+b) > 0
  \\\\
@@ -45,9 +46,9 @@ Based on these 3 conditions, we get the new target funtion:
 
 $$
 min_{w,b,\xi }:\frac{1}{2}\left \| w \right \|^{2}+C\sum_{i=1}^{N}\xi_i\\
-s.t. \left\{\begin{matrix}y_i(w^Tx_i + b)\ge 1-\xi_i
+s.t. \Bigg\lbrace\begin{matrix}y_i(w^Tx_i + b)\ge 1-\xi_i
 \\ \xi_i\ge0\\
-\end{matrix}\right.
+\end{matrix}\rbrace.
 \\
 $$
 
