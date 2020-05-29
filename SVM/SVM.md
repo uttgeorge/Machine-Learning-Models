@@ -48,7 +48,7 @@ $$
 min_{w,b,\xi }:\frac{1}{2}\left \| w \right \|^{2}+C\sum_{i=1}^{N}\xi_i\\
 s.t. \Bigg\lbrace\begin{matrix}y_i(w^Tx_i + b)\ge 1-\xi_i
 \\ \xi_i\ge0\\
-\end{matrix}\rbrace.
+\end{matrix}\
 \\
 $$
 
@@ -68,10 +68,10 @@ Base on lagrange duality and KKT conditions, now we get the new target:
 
 $$
 min: \sum_{i=1}^{N}\alpha_i - \frac{1}{2}\sum_{i=1}^{N}\sum_{j=1}^{N}\alpha_i\alpha_jy_iy_jX_i^TX_j\\
-s.t.  \left\{\begin{matrix}
+s.t.  \Big\lbrace\begin{matrix}
 0< \alpha_i<C\\
 \sum_{i=1}^{N}\alpha_iy_i=0
-\end{matrix}\right.
+\end{matrix}\
 \\
 $$
 
