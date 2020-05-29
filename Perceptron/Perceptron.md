@@ -12,7 +12,7 @@ f(x)=sign(w^Tx+b),
 \\\\
 x{\in}R^p,w{\in}R^p\\\\
 sign(a) = \Big\lbrace\begin{matrix}
-+1,a\geqslant0
++1,a\ge0
 \\\\
 -1,a<0
 \end{matrix}\
