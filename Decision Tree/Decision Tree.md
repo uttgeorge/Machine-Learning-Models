@@ -67,7 +67,8 @@ $$
 & IGR(Y|X)=\frac{IG(Y|X)}{H_X(Y)}
 \\\\
 & where \ H_X(Y) = -\sum_{i=1}^{v} \frac{|Y_i|}{|Y|} log \frac{|Y_i|}{|Y|}\\\\
-& Note:\\ \\ 
+& Note:\\\\
+
 & 1.\ v\ is\ the \ number \ of \ different\ categories\ in\ feature\ X\\\\
 & 2.\ |Y_i|\ is \ the\ number\ of \ samples\ corresponding\ to \ ith\ category \ in \ X\\\\
 & 3.\ |Y| \ is \ the \ total\ number\ of\ samples
