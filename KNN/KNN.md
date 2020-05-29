@@ -110,6 +110,14 @@ If K is too small, the result may easily be affected by noise. The bias will be 
 * Highly depend on training data
 
 -------
+## References
+[wikipedia](https://en.wikipedia.org/wiki/K-nearest_neighbors_algorithm)
+
+[ApacheCN](http://apachecn.org/)
+
+
+-------
+
 
 ## Algorithms
 
