@@ -10,7 +10,7 @@ Combination of Linear Models
 $$
 f(x)=sign(w^Tx+b),
 \\\\
-\\x{\in}R^p,w{\in}R^p\\\\
+x{\in}R^p,w{\in}R^p\\\\
 sign(a) = \Big\lbrace\begin{matrix}
 +1,a\geqslant0
 \\\\
@@ -40,19 +40,15 @@ $$
     
     2. Use the distance as loss
 
-$$
-min:L(w)=\sum_{x_i{\in}D}^{}-y_i(w^Tx_i+b)\\\\D:\lbrace Miss\ Classified\ Points\rbrace\\\\
+$$min:L(w)=\sum_{x_i{\in}D}^{}-y_i(w^Tx_i+b)\\\\D:\lbrace Miss\ Classified\ Points\rbrace\\\\
 \Delta _{w}L = \sum_{}^{} -y_ix_i\\\\
-\Delta _{b}L = \sum_{}^{} -y_i
-$$
+\Delta _{b}L = \sum_{}^{} -y_i$$
 
 * Algorithm: **SGD**
 
-$$
-w^{(t+1)}=w^{(t)}-\lambda\Delta _{w}L \\
+$$w^{(t+1)}=w^{(t)}-\lambda\Delta _{w}L \\
 =w^{(t)} + \lambda\sum_{}^{} y_ix_i\\\\
 b^{(t+1)}=b^{(t)}\lambda\Delta _{b}L \\
-=b^{(t)} + \lambda\sum_{}^{} y_i
-$$
+=b^{(t)} + \lambda\sum_{}^{} y_i$$
 
     b could be treated as w0
