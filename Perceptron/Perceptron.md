@@ -56,7 +56,7 @@ $$
 
 $$
 \begin{align*}
-w^{(t+1)} & =w^{(t)}-\lambda\Delta _{w}L \\\\
+w^{(t+1)} & =w^{(t)}-\lambda\Delta_{w}L \\\\
 & =w^{(t)} + \lambda\sum y_ix_i\\\\
 b^{(t+1)}&=b^{(t)}\lambda\Delta_{b}L \\\\
 &=b^{(t)} + \lambda\sum y_i
