@@ -36,7 +36,8 @@ w^Tx_i+b<0, False
 \end{matrix}\
 $$
 
-    **But in this case, the funtion is not derivative.**
+
+**But in this case, the funtion is not derivative.**
     
     2. Use the distance as loss
 
@@ -46,9 +47,10 @@ $$min:L(w)=\sum_{x_i{\in}D}^{}-y_i(w^Tx_i+b)\\\\D:\lbrace Miss\ Classified\ Poin
 
 * Algorithm: **SGD**
 
-$$w^{(t+1)}=w^{(t)}-\lambda\Delta _{w}L \\
-=w^{(t)} + \lambda\sum_{}^{} y_ix_i\\\\
-b^{(t+1)}=b^{(t)}\lambda\Delta _{b}L \\
-=b^{(t)} + \lambda\sum_{}^{} y_i$$
+$$\begin{split}w^{(t+1)} & =w^{(t)}-\lambda\Delta _{w}L \\
+& =w^{(t)} + \lambda\sum_{}^{} y_ix_i\end{split}\\\\
+\begin{split}
+b^{(t+1)}&=b^{(t)}\lambda\Delta _{b}L \\
+&=b^{(t)} + \lambda\sum_{}^{} y_i\end{split}$$
 
     b could be treated as w0
