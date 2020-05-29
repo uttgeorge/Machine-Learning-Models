@@ -21,8 +21,7 @@ $$
 
 * Loss funtion:
 
-1. Use the number of missclassification as loss
-
+     **1. Use the number of missclassification as loss**
  $$
 L(w)=\sum_{i=1}^{N}I\lbrace y_i(w^Tx_i+b)<0\rbrace\\\\
 \begin{matrix}
@@ -36,11 +35,9 @@ w^Tx_i+b<0, False
 \end{matrix}\
 $$
 
+    But in this case, the funtion is not derivative.
 
-**But in this case, the funtion is not derivative.**
-    
-    2. Use the distance as loss
-
+     **2. Use the distance as loss**
 
 $$
 \begin{align*}
@@ -51,9 +48,7 @@ $$
 $$
 
 
-* Algorithm: **SGD**
-
-
+* Algorithm: SGD
 $$
 \begin{align*}
 w^{(t+1)} & =w^{(t)}-\lambda\Delta_{w}L\\\\
@@ -62,7 +57,9 @@ b^{(t+1)}&=b^{(t)}\lambda\Delta_{b}L\\\\
 &=b^{(t)} + \lambda\sum y_i
 \end{align*}
 $$
+    **b could be treated as w0**
 
 
 
-    b could be treated as w0
+
+ 
