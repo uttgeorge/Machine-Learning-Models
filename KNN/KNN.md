@@ -8,7 +8,9 @@ K-nearest Neighbor algorithm (k-NN) is a non-parametric method used for classifi
 The KNN algorithm assumes that similar things exist in close proximity. In other words, similar things are near to each other. 
 
 It only based one or several nearest neighbors to determine its category or value. And since it only rely on limited number of neighbors, KNN is more preferable when the data overlap a lot.
+
 ![](media/15907186358436/15907194200984.jpg)
+
 
 -------
 
@@ -31,7 +33,7 @@ $$
 $$
 \begin{align*}
 & Distance\ from\ x_1\ to\ x_2:\\\\
-& x_{I}^{'} = \frac{x_i-\mu_i}{s_i}\\\\
+& x_{i}^{'} = \frac{x_i-\mu_i}{s_i}\\\\
 & \mu: mean,\ s:standard\ variance\\\\
 & d(x_1,x_2) = \sqrt{\sum_{i=1}^{N}(\frac{x_{1i}-x_{2i}}{s_i})^2}
 \end{align*}
