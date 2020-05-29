@@ -16,7 +16,7 @@ It only based one or several nearest neighbors to determine its category or valu
 
 ## Basic Concept
 We measure the distance from **query point** to each sample points, find the **K-nearest neighbors**, and determine the **label** or **value** of this query point.
-### 1. Distance Metrics
+#### 1. Distance Metrics
 We use **distance** to measure the similarity of different samples. Euclidean distance, Minkowski Distance, Mahalanobis Distance, Haversine Distance and Manhattan Distance are most commonly used.
 
 * Euclidean distance
@@ -75,25 +75,39 @@ $$
     
 * Haversine Distance
 
-### 2. Choosing K
-#### a. Impact of K
+#### 2. Choosing K
+###### a. Impact of K
 
 * Large K
 If K is too large, then we will take those not similar points into consideration. The system bias will be low but the variance will be high. The system will be very robust.
 * Small K
 If K is too small, the result may easily be affected by noise. The bias will be high and variance will be low. The system will be very sensitive. 
 
-#### b. How to choose the best K
+###### b. How to choose the best K
 
 * **Using Cross Validation**
 
 * Empirical rule: K is normally less than the square root of number of sample size.
 
-### 3. Decision Rule
+#### 3. Decision Rule
 
 * **Classification:**  The majority wins.
 * **Regression:** Mean of K-nearest neighbors.
 
+
+-------
+## Pros and Cons
+###### Pros:
+* Super simple algorithm, can be used for both classification and regression. 
+* There is no need to train the model.
+* Perform well on multi-classification problems.
+* Insensitive to outliers
+
+###### Cons:
+* Time complexity and Space complexity are pretty high, especially when dimension is high.
+* Can not be explained
+* Not good for unbalanced dataset
+* Highly depend on training data
 
 -------
 
