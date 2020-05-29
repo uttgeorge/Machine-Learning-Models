@@ -9,13 +9,13 @@ Combination of Linear Models
 
 $$
 f(x)=sign(w^Tx+b),
-\\
+\\\\
 \\x{\in}R^p,w{\in}R^p\\\\
-sign(a) = \left\{\begin{matrix}
+sign(a) = \Big\lbrace\begin{matrix}
 +1,a\geqslant0
-\\ 
+\\\\
 -1,a<0
-\end{matrix}\right.
+\end{matrix}\
 $$
 
 
@@ -24,16 +24,16 @@ $$
     1. Use the number of missclassification as loss
 
  $$
-L(w)=\sum_{i=1}^{N}I\left \{y_i(w^Tx_i+b)<0\right \}\\
-\left.\begin{matrix}
+L(w)=\sum_{i=1}^{N}I\lbrace y_i(w^Tx_i+b)<0\rbrace\\\\
+\begin{matrix}
 w^Tx_i+b>0,y_i>0
-\\ 
+\\\\
 w^Tx_i+b<0,y_i<0
-\end{matrix}\right\}\Rightarrow \left\{\begin{matrix}
+\end{matrix}\Big\rbrace\Rightarrow \Big\lbrace\begin{matrix}
 w^Tx_i+b>0, True
-\\ 
+\\\\
 w^Tx_i+b<0, False
-\end{matrix}\right.
+\end{matrix}\
 $$
 
     **But in this case, the funtion is not derivative.**
@@ -41,8 +41,8 @@ $$
     2. Use the distance as loss
 
 $$
-min:L(w)=\sum_{x_i{\in}D}^{}-y_i(w^Tx_i+b)\\D:\left \{ Miss\ Classified\ Points\right \}\\
-\Delta _{w}L = \sum_{}^{} -y_ix_i\\
+min:L(w)=\sum_{x_i{\in}D}^{}-y_i(w^Tx_i+b)\\\\D:\lbrace Miss\ Classified\ Points\rbrace\\\\
+\Delta _{w}L = \sum_{}^{} -y_ix_i\\\\
 \Delta _{b}L = \sum_{}^{} -y_i
 $$
 

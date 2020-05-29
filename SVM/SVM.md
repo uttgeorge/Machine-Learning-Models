@@ -46,7 +46,7 @@ Based on these 3 conditions, we get the new target funtion:
 
 $$
 min_{w,b,\xi }:\frac{1}{2}\left \| w \right \|^{2}+C\sum_{i=1}^{N}\xi_i\\\\
-s.t. \Bigg\lbrace\begin{matrix}y_i(w^Tx_i + b)\ge 1-\xi_i
+s.t. \Big\lbrace\begin{matrix}y_i(w^Tx_i + b)\ge 1-\xi_i
 \\\\ \xi_i\ge0\\
 \end{matrix}\
 \\
