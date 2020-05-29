@@ -24,9 +24,9 @@ Information can be viewed as the **degree of surprise**. If one thing is for sur
 So it is easy to come up with the relationship between information and probability:
 
 1. **Information $h(\cdot)$ is monotonically decreasing in probability $p(\cdot)$:** an increase in the probability of an event decreases the information from an observed event, and vice versa.
-* **$h(\cdot)\ge 0$:** information can not be negative.
-* **$h(1)= 0$:** events that always occur do not communicate information.
-* **$h(x,y) = h(x)+h(y)$:** when event x and event y are exactly independent, information is additive. **$p(x,y)=p(x)\cdotp(y)$**
+2. **$h(\cdot)\ge 0$:** information can not be negative.
+3. **$h(1)= 0$:** events that always occur do not communicate information.
+4. **$h(x,y) = h(x)+h(y)$:** when event x and event y are exactly independent, information is additive. **$p(x,y)=p(x)\cdotp(y)$**
 
 Based the last very important property, we can find a proper relationship between information and probability:
 
@@ -68,7 +68,6 @@ $$
 \\\\
 & where \ H_X(Y) = -\sum_{i=1}^{v} \frac{|Y_i|}{|Y|} log \frac{|Y_i|}{|Y|}\\\\
 & Note:\\\\
-
 & 1.\ v\ is\ the \ number \ of \ different\ categories\ in\ feature\ X\\\\
 & 2.\ |Y_i|\ is \ the\ number\ of \ samples\ corresponding\ to \ ith\ category \ in \ X\\\\
 & 3.\ |Y| \ is \ the \ total\ number\ of\ samples
