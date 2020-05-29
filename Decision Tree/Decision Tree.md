@@ -19,7 +19,7 @@ Nodes include:
 
 ## Feature Selection
 #### 1. Information
-Information can be viewed as the ***degree of surprise***. If one thing is for sure to happen, for example tomorrow Trump is still an asshole, then this gives us no information because we know it always holds. If one thing is unlikely to happen, for example Trump stop Twittering, then everyone will be surprised, and this message gives us a huge amount of information.
+Information can be viewed as the ***degree of surprise***. If one thing is for sure, for example tomorrow Trump is still an asshole, then this gives us no information because we know it always holds. If one thing is unlikely to happen, for example Trump stop Twittering, then everyone will be surprised, and this message gives us a huge amount of information.
 
 So it is easy to come up with the relationship between information and probability:
 
