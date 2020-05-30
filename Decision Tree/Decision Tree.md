@@ -161,7 +161,7 @@ Start from the root, train the binary tree.
 Start from the root, train the binary tree.
 
 1. Dataset correspond to current node: $D = {training data}$.
-
+    
     a. Continuous Features
     * Sort: Low --> High
     * Calculate the **average** of ***all adjacent data point***: $a_i$
@@ -176,10 +176,31 @@ Start from the root, train the binary tree.
         $[R],[G],[B],[R,G],[R,B],[G,B]$
         * Calculate the average $y_1$,$y_2$ (Target) for $D_1$ and $D_2$.
         
-1. Calculate 
+2. For all features **J** and their corresponding split points **S**, calculate **Least Square Error** of $y_1$ and $y_2$. Choose the **x** and **s** that has the minimum error, use that **s** split **D** into $D_1$ and $D_2$, and calculate their **averages**.
 
-2. Repeat step1 and step2 on child nodes, till meet the terminative condition.
+$$
+\begin{align*}
+& \underset{J,S}{min} \Big [\underset{C_1}{min} \sum_{X_i \in R_1(j,s)}(y_i-C_1)^2 + \underset{C_2}{min} \sum_{X_i \in R_2(j,s)}(y_i-C_2)^2 \Big ]\\\\
+& s.t.\\\\
+& R_1(j,s) = \lbrace x|x^{(j)}\le s \rbrace\\\\
+& R_2(j,s) = \lbrace x|x^{(j)}> s \rbrace\\\\
+& C_m=\frac{1}{N_m}\sum_{X_i \in R_m(j,s)}y_i\\\\
+& x \in R_m, m = 1, 2
+\end{align*}
+$$
 
+
+3. Repeat step1 and step2 on child nodes, till meet the terminative condition.
+    * All records in a leaf belongs to same class.
+    * Minimum Sum of Square Error (SSE) is larger than some threshold.
+
+4. Output Values:
+
+    $
+    f(x) = \sum_{m=1}^{M}c_mI(x \in R_m)
+    $
+    
+    ***Each leaf $R_m$ has a output value $C_m$***
     
 
     
