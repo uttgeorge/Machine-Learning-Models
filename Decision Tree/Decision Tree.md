@@ -236,7 +236,7 @@ $$
 R(T) & =\sum_{m=1}^{|T|}\sum_{X_i \in R_m}(y_i - \hat{y}_{R_m})^2\\\\
 & s.t.\ T \subset T_0\\\\
 where\ & R_m \ is\ mth\ terminal\ node.\\\\
-& \hat{y}_{R_m}\ is\ the \ predicted\ value \ of\ R_m\ -\ that\ is \ mean.\\\\
+& \hat{y}_{R_m}\ is\ the \ predicted\ value \ of\ R_m\ -\ that\ is \ mean.
 \end{align*}
 $$
 
@@ -251,6 +251,35 @@ where\ w_t=\frac{n(t)}{N} \ & with\ n(t)\ being\ the\ number\ of\ records\ in \ 
 & and\ N \ being\ total \ number\ of\ records.\\\\
 \end{align*}
 $$
+
+#### Prune a subtree
+
+***Now prune a subtree $T_t$***
+
+$R_{\alpha}(T-T_t)-R_{\alpha}(T)$ is the variation of the cost-complexity when pruning a subtree $T_t$.
+
+Now set:
+* T: a tree that is going to be pruned.
+* $T_t$: a subtree with root t that is being cut off.
+* t: the root of $T_t$.
+
+
+***Question arises.***
+
+How to choose a subtree $T_t$, such that overall error does not change or has a very small change after pruning it? In other words, how to minimize $R_{\alpha}(T-T_t)-R_{\alpha}(T)$.
+
+***Cut off $T_t$ will leave node t as a leaf. (A terminal node)***
+
+$$
+\begin{align*}
+Obj:\ min\ & R_{\alpha}(T-T_t)-R_{\alpha}(T)\\\\
+= & R(T-T_t) -R(T)+\alpha(|T-T_t|-|T|)\\\\
+= & R(t)-R(T_t)+\alpha(1-|T_t|)\\\\
+\end{align*}
+$$
+
+To explain this equation, let's draw a simple tree.
+
     
 
 ## References
