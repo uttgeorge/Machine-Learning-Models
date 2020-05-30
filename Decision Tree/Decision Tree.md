@@ -286,6 +286,46 @@ $$
 
 To explain this equation, let's draw a simple tree.
 
+![Subtree](https://github.com/uttgeorge/Machine-Learning-Models/blob/master/Decision%20Tree/media/subtree%20prune.png)
+
+$T_t$ is a subtree that we are going to cut off, and t is its root. If we cut off it, t will be a leaf node, and rest of tree will not change at all. $R(T-T_t) -R(T)$ means the cost of a tree **after** prune subtract the cost of a tree **before** prune, and because the rest of tree does not change, the cost difference is equal to the cost of leaf t (after) subtract the cost of subtree $T_t$ (before).
+
+It is clear that pruning a subtree will always increase the total error if $\alpha=0$, in other words, $R(t)-R(T_t)>0\ when\ \alpha = 0$. 
+
+***So when do we prune this subtree?***
+
+When the decrease in complexity offsets the increase of error/cost, in other words, when $R_{\alpha}(T-T_t)-R_{\alpha}(T)=0$, we prune this subtree.
+
+$$
+\begin{align*}
+& R_{\alpha}(T-T_t)-R_{\alpha}(T)=0\\\\
+& R(t)-R(T_t)+\alpha(1-|T_t|) = 0\\\\
+\rightarrow\ & \alpha = \frac{R(t)-R(T_t)}{|T_t|-1}
+\end{align*}
+$$ 
+
+#### Prune steps
+
+**Set $g(t)=\frac{R(t)-R(T_t)}{|T_t|-1}$**
+
+**Initialization**
+
+When $\alpha'$=0, get a set of subtrees T'
+        
+**Step 1.**
+
+$t \in T'$, calculate all $g(t)$, suppose we get the minimum value at $t_1$, then the second $\alpha$ is $\alpha^{(2)}=g(t_1)$, $T^{(2)}=T'-T'_{t_1}$
+
+**Step i.**
+
+$t \in T^i$, calculate all $g(t)$, suppose we get the minimum value at $t_i$, then the $ith$ $\alpha$ is $\alpha^{(i)}=g(t_i)$, $T^{(i+1)}=T^{(i)}-T^{(i)}_{t_i}$
+
+**Output**
+
+$T^{(1)} \supseteq T^{(2)} \supseteq T^{(3)} ... \supseteq T^{(k)}  ...\supseteq \lbrace root \rbrace$
+
+$\alpha^{(1)} \le \alpha^{(2)} \le \alpha^{(3)} \le ...\le \alpha^{(k)} \le...$
+
     
 
 ## References
