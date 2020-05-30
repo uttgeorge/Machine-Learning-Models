@@ -234,6 +234,15 @@ $$
 $$
 \begin{align*}
 R(T) & =\sum_{m=1}^{|T|}\sum_{X_i \in R_m}(y_i - \hat{y}_{R_m})^2\\\\
+& = \sum_{t \in |T|}w_tG(t)\\\\
+& s.t.\ T \subset T_0\\\\
+where\ w_t=\frac{n(t)}{N} \ & with\ n(t)\ being\ the\ number\ of\ records\ in \ leaf\ t\\\\
+& and\ N \ being\ total \ number\ of\ records.\\\\
+\end{align*}
+$$
+$$
+\begin{align*}
+R(T) & =\sum_{m=1}^{|T|}\sum_{X_i \in R_m}(y_i - \hat{y}_{R_m})^2\\\\
 & s.t.\ T \subset T_0\\\\
 where\ & R_m \ is\ mth\ terminal\ node.\\\\
 & \hat{y}_{R_m}\ is\ the\ predicted\ value\ of\ R_m-that\ is \ mean.
