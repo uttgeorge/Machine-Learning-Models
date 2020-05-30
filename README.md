@@ -12,7 +12,11 @@ This is the combanation of some models.
 
 [KNN.ipynd](https://github.com/uttgeorge/Machine-Learning-Models/blob/master/KNN/KNN.ipynb)
 
-## 3.SVM
+## 3.Decision Tree
+
+[Decision Tree Intro](https://github.com/uttgeorge/Machine-Learning-Models/blob/master/Decision%20Tree/Decision%20Tree.md)
+
+## 4.SVM
 
 [SVM Intro](https://github.com/uttgeorge/Machine-Learning-Models/blob/master/SVM/SVM.md)
 
