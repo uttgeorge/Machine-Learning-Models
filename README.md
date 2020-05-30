@@ -1,5 +1,5 @@
 # Models
-This is the combanation of some models.
+This is the combination of some models.
 
 ## 1.Perceptron
 
