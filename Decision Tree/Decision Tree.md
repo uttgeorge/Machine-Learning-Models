@@ -237,6 +237,7 @@ $$
 R(T) & =\sum_{m=1}^{|T|}\sum_{X_i \in R_m}(y_i - \hat{y}_{R_m})^2\\\\
 & s.t.\ T \subset T_0\\\\
 where\ & R_m \ is\ mth\ terminal\ node.\\\\
+& \hat{y}_{R_m}\ is\ the\ predicted\ value\ of\ R_m-that\ is \ mean.
 \end{align*}
 $$
 
