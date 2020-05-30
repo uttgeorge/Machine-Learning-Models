@@ -202,7 +202,55 @@ $$
     
     ***Each leaf $R_m$ has a output value $C_m$***
     
+## Pruning: a. Smallest Error  b. Smallest Tree
+#### Pre and Post Prune
+1. Pre-pruning: early stopping
 
+    a. Set min_depth
+    b. Set min_sample
+    c. Set min_leaves
+    d. Set min_Gini_threshold
+    e. Chi-square test of Independent
+     
+1. Post-pruning
+    a. Grow a perfect tree
+    b. Prune the nodes buttom-up
+    
+#### Cost Complexity Function (Weak Link Pruning)
+
+***We want to find a balance between minimum cost and minimum tree.***
+
+$$
+\begin{align*}
+& min: R_{\alpha}(T)=R(T)+ \alpha |T|\\\\
+where:\ & R(T)\ is\ the\ total\ error.\\\\
+&  |T|\ is\ the\ number\ of \ terminal\ nodes\ of \ tree\ T.\\\\
+& \alpha\ is \ a \ regularization\ parameter.
+\end{align*}
+$$
+
+**For regression:**
+
+$$
+\begin{align*}
+R(T) & =\sum_{m=1}^{|T|}\sum_{X_i \in R_m}(y_i - \hat{y}_{R_m})^2\\\\
+& s.t.\ T \subset T_0\\\\
+where\ & R_m \ is\ mth\ terminal\ node.\\\\
+& \hat{y}_{R_m}\ is\ the \ predicted\ value \ of\ R_m\ -\ that\ is \ mean.\\\\
+\end{align*}
+$$
+
+**For classification:**
+
+$$
+\begin{align*}
+R(T) & =\sum_{t \in |T|}R(t)\\\\
+& = \sum_{t \in |T|}w_tG(t)\\\\
+& s.t.\ T \subset T_0\\\\
+where\ w_t=\frac{n(t)}{N} \ & with\ n(t)\ being\ the\ number\ of\ records\ in \ leaf\ t\\\\
+& and\ N \ being\ total \ number\ of\ records.\\\\
+\end{align*}
+$$
     
 
 ## References
