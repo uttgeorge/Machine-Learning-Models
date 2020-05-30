@@ -240,6 +240,8 @@ where\ w_t=\frac{n(t)}{N} \ & with\ n(t)\ being\ the\ number\ of\ records\ in \ 
 & and\ N \ being\ total \ number\ of\ records.\\\\
 \end{align*}
 $$
+
+
 $$
 \begin{align*}
 R(T) & =\sum_{m=1}^{|T|}\sum_{X_i \in R_m}(y_i - \hat{y}_{R_m})^2\\\\
