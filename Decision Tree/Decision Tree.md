@@ -312,21 +312,21 @@ $$
 
 **Set $g(t)=\frac{R(t)-R(T_t)}{|T_t|-1}$**
 
-**Initialization**
+* **Initialization**
 
-When $\alpha'$=0, get a set of subtrees T'
+    When $\alpha'$=0, get a set of subtrees T'
         
-**Step 1.**
+* **Step 1.**
 
-$t \in T'$, calculate all $g(t)$, suppose we get the minimum value at $t_1$, then the second $\alpha$ is $\alpha^{(2)}=g(t_1)$, $T^{(2)}=T'-T'_{t_1}$
+    $t \in T'$, calculate all $g(t)$, suppose we get the minimum value at $t_1$, then the second $\alpha$ is $\alpha^{(2)}=g(t_1)$, $T^{(2)}=T'-T'_{t_1}$
 
-**Step i.**
+* **Step i.**
 
-$t \in T^i$, calculate all $g(t)$, suppose we get the minimum value at $t_i$, then the $ith$ $\alpha$ is $\alpha^{(i)}=g(t_i)$, $T^{(i+1)}=T^{(i)}-T^{(i)}_{t_i}$
+    $t \in T^i$, calculate all $g(t)$, suppose we get the minimum value at $t_i$, then the $ith$ $\alpha$ is $\alpha^{(i)}=g(t_i)$, $T^{(i+1)}=T^{(i)}-T^{(i)}_{t_i}$
 
-**Output**
+* **Output**
 
-$T^{(1)} \supseteq T^{(2)} \supseteq T^{(3)} ... \supseteq T^{(k)}  ...\supseteq \lbrace root \rbrace$
+    $T^{(1)} \supseteq T^{(2)} \supseteq T^{(3)} ... \supseteq T^{(k)}  ...\supseteq \lbrace root \rbrace$
 
 $\alpha^{(1)} \le \alpha^{(2)} \le \alpha^{(3)} \le ...\le \alpha^{(k)} \le...$
 
