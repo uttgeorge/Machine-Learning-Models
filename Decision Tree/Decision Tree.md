@@ -350,7 +350,7 @@ $\alpha^{(1)} \le \alpha^{(2)} \le \alpha^{(3)} \le ...\le \alpha^{(k)} \le...$
 
 1. Pick the most common option
 
-***To be fixed this part.***
+***To be fixed***
 
 ## Advantage & Disadvantage
 
