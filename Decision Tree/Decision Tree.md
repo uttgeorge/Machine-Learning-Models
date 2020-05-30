@@ -18,7 +18,7 @@ Nodes include:
 * **Leaf node**: labels
 
 ## Feature Selection
-#### 1. Information
+### 1. Information
 Information can be viewed as the ***degree of surprise***. If one thing is for sure, for example tomorrow Trump is still an asshole, then this gives us no information because we know it always holds. If one thing is unlikely to happen, for example Trump stop Twittering, then everyone will be surprised, and this message gives us a huge amount of information.
 
 So it is easy to come up with the relationship between information and probability:
@@ -34,7 +34,7 @@ $$h(x) = -log\ p(x)$$
 
 Since p(x) is between 0 and 1, the negative sign makes sure that h(x) is non-negative.
 
-#### 2. Entropy
+### 2. Entropy
 If there is a distribution where event $i$ can happen with probability $p_i$, and it is sampled $N$ times with an outcome $i$ occurring $n_i = N\times p_i$ times, the total amount of information we have received is:
 
 $$
@@ -47,7 +47,7 @@ $$
 H(x) = - \sum_{i}^{N} p(x_i)\ logp(x_i)
 $$
 
-#### 3. Information Gain (ID3)
+### 3. Information Gain (ID3)
 When introducing a feature X, then entropy (Uncertainty) of Y will decrease. The amount of decrease is ***information we gained*** from X, and we prefer a X that leads to a large amount of information gain.
 
 For example, the probability of rainy weather (Y) tomorrow is 0.5, so the entropy of it is 1. And now it starts lightening (X), the probability of Y increase to 0.9, entropy decrease to 0.15. Because of introducing X (lightening), now the information we get from Y given X decreases $(1 - 0.15) = 0.85$, the amount of information we gain is $0.85$. ***Love it***
@@ -58,7 +58,7 @@ $$
 
 **Note:** Suppose there exists a X, for example ***Index***, even though it is meaningless but it leads to correctly classify all Y, then $H(Y|X) = 0$, and ***Information Gain*** is ***maximum***. ID3 algorithm prefer choosing features like this, which will lead to ***over-fitting***.
 
-#### 4. Information Gain Ratio (C4.5)
+### 4. Information Gain Ratio (C4.5)
 In order to deal the problem we mentioned in ID3, we add a ***Penalty*** to X that has too many categories. If a X has too many categories, then $H_X(Y)$ will be huge, which offsets its high information gain.
 
 
@@ -76,7 +76,7 @@ $$
 
 **Note:** Logarithm requires huge amount of computation power.
 
-#### 5. Gini Index (CART)
+### 5. Gini Index (CART)
 Since Logarithm requires heavily computation, we want to find another way to calculate the uncertainty or impurity of information.
 * **Gini Impurity**
 
@@ -126,13 +126,13 @@ $$
 
 
 
-#### 6. **Feature Selection:** 
+### 6. **Feature Selection:** 
 
 Choose the ***Lowest*** $C(T)$, which means the data are more pure.
     
     
 ## Generate Decision Tree (CART)
-#### A. Classification Tree
+### A. Classification Tree
 
 Start from the root, train the binary tree.
 
@@ -154,7 +154,7 @@ Start from the root, train the binary tree.
 
     **Note:** Step3 will stop automatically when the Gini Score of child nodes is higher than their parent's Gini Score. ***(Auto Feature Selection)***
     
-#### B. Regression Tree
+### B. Regression Tree
 
 ***Objective: Minimize sum of square error.***
 
@@ -202,8 +202,12 @@ $$
     
     ***Each leaf $R_m$ has a output value $C_m$***
     
-## Pruning: a. Smallest Error  b. Smallest Tree
-#### Pre and Post Prune
+## Pruning: 
+
+a. Smallest Error  
+b. Smallest Tree
+
+### Pre and Post Prune
 1. Pre-pruning: early stopping
 
     a. Set min_depth
@@ -216,7 +220,7 @@ $$
     a. Grow a perfect tree
     b. Prune the nodes buttom-up
     
-#### Cost Complexity Function (Weak Link Pruning)
+### Cost Complexity Function (Weak Link Pruning)
 
 ***We want to find a balance between minimum cost and minimum tree.***
 
@@ -258,7 +262,7 @@ where\ w_t=\frac{n(t)}{N} \ & with\ n(t)\ being\ the\ number\ of\ records\ in \ 
 \end{align*}
 $$
 
-#### Prune a subtree
+### Prune a subtree
 
 ***Now prune a subtree $T_t$***
 
@@ -304,7 +308,7 @@ $$
 \end{align*}
 $$ 
 
-#### Prune steps
+### Prune Algorithm
 
 **Set $g(t)=\frac{R(t)-R(T_t)}{|T_t|-1}$**
 
@@ -325,6 +329,7 @@ $t \in T^i$, calculate all $g(t)$, suppose we get the minimum value at $t_i$, th
 $T^{(1)} \supseteq T^{(2)} \supseteq T^{(3)} ... \supseteq T^{(k)}  ...\supseteq \lbrace root \rbrace$
 
 $\alpha^{(1)} \le \alpha^{(2)} \le \alpha^{(3)} \le ...\le \alpha^{(k)} \le...$
+
 
     
 
