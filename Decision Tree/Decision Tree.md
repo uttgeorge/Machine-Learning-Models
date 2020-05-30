@@ -205,19 +205,26 @@ $$
 ## Pruning: 
 
 a. Smallest Error  
+
 b. Smallest Tree
 
 ### Pre and Post Prune
 1. Pre-pruning: early stopping
 
     a. Set min_depth
+    
     b. Set min_sample
+    
     c. Set min_leaves
+    
     d. Set min_Gini_threshold
+    
     e. Chi-square test of Independent
      
-1. Post-pruning
+2. Post-pruning
+
     a. Grow a perfect tree
+    
     b. Prune the nodes buttom-up
     
 ### Cost Complexity Function (Weak Link Pruning)
@@ -331,7 +338,38 @@ $$
 $\alpha^{(1)} \le \alpha^{(2)} \le \alpha^{(3)} \le ...\le \alpha^{(k)} \le...$
 
 
-    
+### Choose a $\alpha$
+
+1. 10-fold cross validation
+
+2. Find a subtree $T^{(k)}$ with minimum **average validation error** from output subtree sets
+
+3. Use $\alpha^{(k)}$ that corresponds to $T^{(k)}$ to build the final tree
+ 
+## Handling Missing Data
+
+1. Pick the most common option
+
+***To be fixed this part.***
+
+## Advantage & Disadvantage
+
+### Advantage
+
+1. Easy to explain!
+2. Standardization or normalization is not necessary 
+3. Not sensitive to missing data
+4. Can process few unrelated data
+5. Can process a huge amount of data: O(w), w is the depth of the tree
+6. After pruning, decision tree is not very sensitive to noises
+7. Redundant feature: a feature is highly correlated to another, will not affect accuracy.
+
+### Disadvantage
+
+1. Easy to overfitting
+2. Not fit for too many features
+3. Noise will make decision tree very complex
+
 
 ## References
 [wikipedia](https://en.wikipedia.org/wiki/Decision_tree)
