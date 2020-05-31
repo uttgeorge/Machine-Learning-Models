@@ -77,7 +77,7 @@ $$
 **Note:** Logarithm requires huge amount of computation power.
 
 ### 5. Gini Index (CART)
-Since Logarithm requires heavily computation, we want to find another way to calculate the uncertainty or impurity of information.
+Since Logarithm requires heavy computation, we want to find another way to calculate the uncertainty or impurity of information.
 * **Gini Impurity**
 
     Expand $log(x)$ when $x=1$ by using ***1st Taylor Polynomial***.
