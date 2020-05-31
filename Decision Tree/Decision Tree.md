@@ -136,7 +136,8 @@ Choose the ***Lowest*** $C(T)$, which means the data are more pure.
 
 Start from the root, train the binary tree.
 
-1. Dataset correspond to current node: $D = {training data}$.
+1. Dataset correspond to current node: $D = {training\ data}$.
+
     a. Continuous Features
     * Sort: Low --> High
     * Calculate the **average** of ***all adjacent data point***: $a_i$
