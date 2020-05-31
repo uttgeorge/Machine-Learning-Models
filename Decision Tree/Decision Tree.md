@@ -118,7 +118,7 @@ $$
 \begin{align*}
 G_1(x) & = 1 - (\frac{N_1}{N_1+N_2})^2 - (\frac{N2}{N1+N2})^2\\\\
 G_2(x) & = 1 - (\frac{N_3}{N_3+N_4})^2 - (\frac{N4}{N3+N4})^2\\\\
-Total\ Gini\ Impurity: G(x) & = \sum_{i=1}^{2}w_iG_i(x)\\\\
+Total\ Gini\ Impurity: C(x) & = \sum_{i=1}^{2}w_iG_i(x)\\\\
 w_i: & \Bigg \lbrace \begin{matrix}w_1 & = \frac{N_1+N_2}{N_1+N_2+N_3+N_4}\\\\
 w_2 & =\frac{N_3+N_4}{N_1+N_2+N_3+N_4}\end{matrix}
 \end{align*}
