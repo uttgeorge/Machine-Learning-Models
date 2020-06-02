@@ -53,7 +53,10 @@ When introducing a feature X, then entropy (Uncertainty) of Y will decrease. The
 For example, the probability of rainy weather (Y) tomorrow is 0.5, so the entropy of it is 1. And now it starts lightening (X), the probability of Y increase to 0.9, entropy decrease to 0.15. Because of introducing X (lightening), now the information we get from Y given X decreases $(1 - 0.15) = 0.85$, the amount of information we gain is $0.85$. ***Love it***
 
 $$
-IG(Y|X) = H(Y) - H(Y|X)
+\begin{align*}
+& IG(Y|X) = H(Y) - H(Y|X)\\\\
+& H(Y|X) = \sum_{x\in X}p(x)H(Y|X=x)
+\end{align*}
 $$
 
 **Note:** Suppose there exists a X, for example ***Index***, even though it is meaningless but it leads to correctly classify all Y, then $H(Y|X) = 0$, and ***Information Gain*** is ***maximum***. ID3 algorithm prefer choosing features like this, which will lead to ***over-fitting***.
