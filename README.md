@@ -25,6 +25,9 @@ Email: [jin.qi1@northeastern.edu](jin.qi1@northeastern.edu)
 * [Decision Tree Intro](https://github.com/uttgeorge/Machine-Learning-Models/blob/master/Decision%20Tree/Decision%20Tree.md)
 
 #### Coding
+
+**Note:** Pruning is not included, will be fixed.
+
 * [Decision Tree Classifier](https://github.com/uttgeorge/Machine-Learning-Models/blob/master/Decision%20Tree/Decision%20Tree.ipynb)
 
 * [Decision Tree Regressor](https://github.com/uttgeorge/Machine-Learning-Models/blob/master/Decision%20Tree/Decision%20Tree%20Regressor.ipynb)
