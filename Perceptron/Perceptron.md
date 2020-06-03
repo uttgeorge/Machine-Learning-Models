@@ -57,7 +57,7 @@ b^{(t+1)}&=b^{(t)}\lambda\Delta_{b}L\\\\
 &=b^{(t)} + \lambda\sum y_i
 \end{align*}
 $$
-    **b could be treated as w0**
+$b$ could be treated as $w_0$
 
 
 
