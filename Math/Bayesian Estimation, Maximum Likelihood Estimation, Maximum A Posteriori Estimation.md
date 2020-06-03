@@ -1,8 +1,8 @@
-# Bayesian Estimation, Maximum Likelihood Estimation, Maximum A Posteriori Estimation
+# Bayesian Estimation, MLE, MAP
 
 ## **1. Overview**
 
-Basic concepts of Bayesian Estimation, MLE, MAP
+Basic concepts of Bayesian Estimation, Maximum Likelihood Estimation, Maximum A Posteriori Estimation
 
 ## **2. Background Knowledge**
 
