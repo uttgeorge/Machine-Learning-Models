@@ -141,10 +141,7 @@ $$
 where $\theta$ is an unknown constant, and $x$ is a random variable.  
 For mathematical convenient, we convert likelihood function to log likelihood function:
 
-$$\begin{align*}
-log\ L(\theta|x) = \sum_{i=0}^{N}\log\Big(P(x_i|\theta)\Big) = 6*log\ \theta+4*log\ (1-\theta)
-\end{align*}
-$$   
+$$log\ L(\theta|x) = \sum_{i=0}^{N}\ log\Big(P(x_i|\theta)\Big) = 6*log\ \theta+4*log\ (1-\theta)$$   
 
 Then calculate the maximum likelihood by derivative:
 
