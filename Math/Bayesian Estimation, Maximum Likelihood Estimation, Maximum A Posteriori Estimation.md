@@ -169,7 +169,7 @@ $$
 $$
 \begin{align*}
 \Bigg\lbrace\begin{matrix}\frac{\partial\ log\ L(\mu,\sigma^2)}{\partial\ \mu}=&\frac{1}{\sigma^2}\sum_{i=1}^{N}(x_i-\mu)&=0 
-\\
+\\\\
 \frac{\partial\ log\ L(\mu,\sigma^2)}{\partial\ \sigma^2}=&-\frac{N}{2\sigma^2}-\frac{1}{2\sigma^4}\sum_{i=1}^{N}(x_i-\mu)^2& =0
 \end{matrix}
 \end{align*}
@@ -180,7 +180,7 @@ $$
 \begin{align*}
 \Bigg\lbrace\begin{matrix}
 \hat \mu =& \bar x 
-\\
+\\\\
 \hat \sigma^2 =& \frac{1}{N}\sum_{i=1}^{N}(x_i-\bar x)^2
 \end{matrix}
 \end{align*}
