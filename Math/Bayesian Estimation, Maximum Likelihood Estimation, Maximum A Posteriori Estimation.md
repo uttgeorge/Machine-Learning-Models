@@ -135,14 +135,14 @@ Given observations, MLE is to find a parameter that maximize the probability of 
 
 For a i.i.d sample set, the overall likelihood is the product of likelihood of every sample. And to estimate $\theta$ in the example question, we have likelihood function as
 $$
-L(\theta|x) = \prod_{i=0}^{N}P(x_i|\theta) = \theta^6(1-\theta)^4
+L(\theta|x) = \prod_{i=1}^{N}P(x_i|\theta) = \theta^6(1-\theta)^4
 $$
 
 where $\theta$ is an unknown constant, and $x$ is a random variable.  
 For mathematical convenient, we convert likelihood function to log likelihood function:
 
 $$
-log\ L(\theta|x) = \sum_{i=0}^{N}log(P(x_i|\theta)) = 6log\theta + 4log(1-\theta)
+log\ L(\theta|x) = \sum_{i=1}^{N}log(P(x_i|\theta)) = 6log\theta + 4log(1-\theta)
 $$
 
 Then calculate the maximum likelihood by derivative:
@@ -155,15 +155,39 @@ $$\begin{align*}
 $$
  
 #### MLE of Normal Distribution
-Suppose a sample set follows normal distribution iid $N \sim (\mu, \sigma^2 )$, its likelihood function is
+Suppose a sample set follows normal distribution i.i.d. $N \sim (\mu, \sigma^2 )$, its likelihood function is
 $$
-L(\mu,\sigma^2)=\prod_{i=0}^{N}\frac{1}{\sqrt{2\pi}\sigma} e^{-\frac{(x_i-\mu)^2}{2\sigma^2}}
+L(\mu,\sigma^2)=\prod_{i=1}^{N}\frac{1}{\sqrt{2\pi}\sigma} e^{-\frac{(x_i-\mu)^2}{2\sigma^2}}
 $$
 
 **Log Likelihood:**
 $$
-log\ L(\mu,\sigma^2)=
+log\ L(\mu,\sigma^2)=-\frac{N}{2}log2\pi-\frac{N}{2}log \sigma^2 -\frac{1}{2\sigma^2}\sum_{i=1}^{N}(x_i-\mu)^2
 $$
+
+**Derivatives**
+$$
+\begin{align*}
+\Bigg\lbrace\begin{matrix}\frac{\partial\ log\ L(\mu,\sigma^2)}{\partial\ \mu}=&\frac{1}{\sigma^2}\sum_{i=1}^{N}(x_i-\mu)&=0 
+\\
+\frac{\partial\ log\ L(\mu,\sigma^2)}{\partial\ \sigma^2}=&-\frac{N}{2\sigma^2}-\frac{1}{2\sigma^4}\sum_{i=1}^{N}(x_i-\mu)^2& =0
+\end{matrix}
+\end{align*}
+$$
+ 
+ **Results**
+ $$
+\begin{align*}
+\Bigg\lbrace\begin{matrix}
+\hat \mu =& \bar x 
+\\
+\hat \sigma^2 =& \frac{1}{N}\sum_{i=1}^{N}(x_i-\bar x)^2
+\end{matrix}
+\end{align*}
+$$
+
+## 4. Maximum A Posteriori Estimation
+
  
 
 
