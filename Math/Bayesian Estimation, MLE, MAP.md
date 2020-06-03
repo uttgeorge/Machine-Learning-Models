@@ -245,9 +245,9 @@ $$
 
 It is impossible to calculate this integral $P(X) = \int_{\theta}P(X|\theta)P(\theta)d\theta$, the option is we choose using conjugate distribution. 
 
-#***With a conjugate prior the posterior is of the same type, in our example, for binomial likelihood the beta prior becomes a beta posterior. ***
+# ***With a conjugate prior the posterior is of the same type, in our example, for binomial likelihood the beta prior becomes a beta posterior.***
 
-#**To be fixed**
+# **To be fixed**
 
 ## Conclusion
 MLE, MAP and Bayesian Estimation can be viewed as 3 steps of estimation, for each step, we use more information.
