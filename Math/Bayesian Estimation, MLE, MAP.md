@@ -123,6 +123,8 @@ $x \sim p(x|\theta)$
 
 _If a posterior distribution and prior probability distribution are in the same probability distribution family, then they are called conjugate distributions, and the prior is called a conjugate prior for the likelihood function._
 
+Conjugate priors are useful because they reduce Bayesian updating to modifying the parameters of the prior distribution (so-called hyperparameters) rather than computing integrals.
+
 **Will have a topic focus on this.**
 
 
@@ -187,11 +189,75 @@ $$
 $$
 
 ## 4. Maximum A Posteriori Estimation
+MLE treats $\theta$ as an unknown constant, and estimates it by maximizing likelihood function, while MAP thinks $\theta$ as a random variable in some distribution, which is called prior probability distribution. When we estimate $\theta$, we should not only consider likelihood $P(X|\theta)$, but also priori $P(\theta)$. And the best estimate of $\theta$ is the $\theta$ that maximize $P(X|\theta)P(\theta)$. 
 
- 
+Now, we want to maximize $P(X|\theta)P(\theta)$. Since $P(X)$ is a fix value, we can find $\theta$ by maximizing $\frac{P(X|\theta)P(\theta)}{P(X)}$. Based on Bayes Theorem, $P(\theta|X)=\frac{P(X|\theta)P(\theta)}{P(X)}$, and $P(\theta|X)$ is the posterior probability of $\theta$, our target become maximizing a posteriori.
 
+--------------
+NOTE: __MAP estimation as regularization of MLE, $P(\theta)$ is the regularizer.__
+--------------
+
+***Equation:***
+$$
+\begin{align*}
+\hat\theta_{MAP} &= \underset{\theta}{argmax}\ P(\theta|X) 
+\\\\&=\underset{\theta}{argmax}\ \frac{P(X|\theta)P(\theta)}{P(X)}
+\\\\&\propto \underset{\theta}{argmax}\ P(X|\theta) P(\theta)
+\end{align*}
+$$
+
+Back to the example, now we have a priori. We normally assume that the coin is a fair one, and it follows normal distribution. So we assume $\theta = 0.5$ and $\sigma^2=0.1$, and $P(\theta)$ is:
+$$
+\frac{1}{\sqrt{2\pi}\sigma} e^{-\frac{(x_i-\mu)^2}{2\sigma^2}}=\frac{1}{\sqrt{0.2\pi}} e^{-\frac{(x_i-0.5)^2}{0.2}}
+$$
+**Estimate $\hat\theta$:**
+$$
+\begin{align*}
+\hat\theta_{MAP} =\ &\underset{\theta}{argmax}\ P(X|\theta) P(\theta)\\\\
+=\  & \underset{\theta}{argmax}\ \theta^6\times(1-\theta)^4\times \frac{1}{\sqrt{0.2\pi}} e^{-\frac{(x_i-0.5)^2}{0.2}}\\\\
+\Rightarrow\ &\underset{\theta}{argmax}\ log\ P(X|\theta) P(\theta)
+\\\\
+ =\ &\underset{\theta}{argmax}\ 6\theta + 4(1-\theta)+ log(\frac{1}{\sqrt{0.2\pi}}) - \frac{(x_i-0.5)^2}{0.2}\\\\
+ \end{align*}
+$$
+
+After Derivative, $\hat\theta_{MAP} \approx 0.529$
+
+## 5. Bayesian Estimation
+Bayesian Estimation is an extension of MAP. Similar to the MAP, Bayesian Estimation assumes that $\theta$ is a random variable, but instead of estimating a specific value for $\theta$, **it estimates the probability distribution of $\theta$. (This is the difference between MAP and Bayesian Estimation)**  In Bayesian Estimation, $P(X)$ ***can not be neglected.***
+
+In our example, we've already known $X$**(events)**, so the probability distribution of $\theta$ given events is $P(\theta|X)$, and this is a posterior distribution. 
+
+If this posterior distribution has a narrow range, then the estimation is more precise, on the contrary, if the posterior distribution has a large range, then the accuracy of estimation is lower.
+
+**Bayes Theorem:**
+$$\begin{align*}
+P(\theta|X) &= \frac{P(X| \theta) \cdot P(\theta)}{P(X)}
+\end{align*}
+$$
+
+When X is a continuous random variable, $P(X) = \int_{\theta}P(X|\theta)P(\theta)d\theta$, and
+
+$$\begin{align*}
+P(\theta|X) &= \frac{P(X| \theta) \cdot P(\theta)}{\int_{\theta}P(X|\theta)P(\theta)d\theta}
+\end{align*}
+$$
+
+It is impossible to calculate this integral $P(X) = \int_{\theta}P(X|\theta)P(\theta)d\theta$, the option is we choose using conjugate distribution. 
+
+#***With a conjugate prior the posterior is of the same type, in our example, for binomial likelihood the beta prior becomes a beta posterior. ***
+
+#**To be fixed**
+
+## Conclusion
+MLE, MAP and Bayesian Estimation can be viewed as 3 steps of estimation, for each step, we use more information.
+
+MLE and MAP, both of them assume $\theta$ is an unknown constant. The difference here is MAP takes priori into consideration $\Big(P(X|\theta)P(X)\Big)$, while MLE $\Big(P(X|\theta)\Big)$ does not. 
+
+Bayesian Estimation, on the other hand, assumes $\theta$ is an unknown random variable, and gives us the posterior distribution of $\theta$ given $X$, $P(\theta|X)$.
 
 
 ## References
 * [Bayesian inference From Wikipedia](https://en.wikipedia.org/wiki/Bayesian_inference#:~:text=Bayesian%20inference%20is%20a%20method,and%20especially%20in%20mathematical%20statistics.)
 * [贝叶斯估计、最大似然估计、最大后验概率估计](https://blog.csdn.net/Quincuntial/article/details/80528489)
+* [Conjugate priors: Beta and normal](https://ocw.mit.edu/courses/mathematics/18-05-introduction-to-probability-and-statistics-spring-2014/readings/MIT18_05S14_Reading15a.pdf)
