@@ -1,5 +1,5 @@
-# Models
-This is the combination of some models.
+# Machine Learning
+This is the combination of some algorithms.
 
 Email: [jin.qi1@northeastern.edu](jin.qi1@northeastern.edu)
 ## Basics
