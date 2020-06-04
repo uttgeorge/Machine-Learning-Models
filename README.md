@@ -36,7 +36,7 @@ Email: [jin.qi1@northeastern.edu](jin.qi1@northeastern.edu)
 ## 4.Naive Bayes
 
 #### Introductions
-[Naive Bayes Intro](https://github.com/uttgeorge/Machine-Learning-Models/blob/master/Naive%20Bayes/Naive%20Bayes.md)
+* [Naive Bayes Intro](https://github.com/uttgeorge/Machine-Learning-Models/blob/master/Naive%20Bayes/Naive%20Bayes.md)
 
 #### Coding
 
