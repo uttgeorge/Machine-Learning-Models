@@ -55,10 +55,10 @@ What is the quality of an apple if it is (Big, Red, Sphere)?
 
 $$\begin{align*}
 P(Good|Big, Red, Sphere) & \propto P(Good)P(Big|Good)P(Red|Good)P(Sphere|Good)\\\\
-&=0.4*\frac{3}{4}*\frac{4}{4}*\frac{3}{4}\\\\
+&=0.4\cdot\frac{3}{4}\cdot\frac{4}{4}\cdot\frac{3}{4}\\\\
 &=0.225\\\\
 P(Bad|Big, Red, Sphere) & \propto P(Bad)P(Big|Bad)P(Red|Bad)P(Sphere|Bad)\\\\
-&=0.6*\frac{2}{6}*\frac{1}{6}*\frac{2}{6}\\\\
+&=0.6\cdot\frac{2}{6}\cdot\frac{1}{6}\cdot\frac{2}{6}\\\\
 &=0.0111\\
 \end{align*}
 $$
@@ -74,10 +74,10 @@ Suppose we want to measure the quality of an apple if it is (Medium, Red, Shpere
 
 $$\begin{align*}
 P(Good|Medium, Red, Sphere) & \propto P(Good)P(Medium|Good)P(Red|Good)P(Sphere|Good)\\\\
-&=0.4*\frac{0}{4}*\frac{4}{4}*\frac{3}{4}\\\\
+&=0.4\cdot\frac{0}{4}\cdot\frac{4}{4}\cdot\frac{3}{4}\\\\
 &=0\\\\
 P(Bad|Medium, Red, Sphere) & \propto P(Bad)P(Medium|Bad)P(Red|Bad)P(Sphere|Bad)\\\\
-&=0.6*\frac{1}{6}*\frac{1}{6}*\frac{2}{6}\\\\
+&=0.6\cdot\frac{1}{6}\cdot\frac{1}{6}\cdot\frac{2}{6}\\\\
 &=0.006\\
 \end{align*}
 $$
