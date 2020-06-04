@@ -108,12 +108,12 @@ When $\alpha=0$, there is no smoothing. And normally we set $\alpha=1$
 
 ## Pro & Con
 
-###Pro
+### Pro
 1. Super easy
 2. Not very sensitive to the missing data
 3. Low variance: model is too simple.
 
-###Con
+### Con
 1. **Strict independent assumption.** If features are highly correlated, naive bayes will ignore that and lead to poor result.
 2. High Bias: model is too simple.
 
