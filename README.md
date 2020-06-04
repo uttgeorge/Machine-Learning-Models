@@ -33,7 +33,14 @@ Email: [jin.qi1@northeastern.edu](jin.qi1@northeastern.edu)
 
 * [Decision Tree Regressor](https://github.com/uttgeorge/Machine-Learning-Models/blob/master/Decision%20Tree/Decision%20Tree%20Regressor.ipynb)
 
-## 4.SVM
+## 4.Naive Bayes
+
+#### Introductions
+[Naive Bayes Intro](https://github.com/uttgeorge/Machine-Learning-Models/blob/master/Naive%20Bayes/Naive%20Bayes.md)
+
+#### Coding
+
+## 5.SVM
 #### Introductions
 
 * [SVM Intro](https://github.com/uttgeorge/Machine-Learning-Models/blob/master/SVM/SVM.md)
