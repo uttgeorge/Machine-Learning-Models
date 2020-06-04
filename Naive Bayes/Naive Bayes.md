@@ -121,4 +121,5 @@ When $\alpha=0$, there is no smoothing. And normally we set $\alpha=1$
 ## References
 
 [Additive smoothing](https://en.wikipedia.org/wiki/Additive_smoothing)
+
 [理解朴素贝叶斯分类的拉普拉斯平滑](https://zhuanlan.zhihu.com/p/26329951)
