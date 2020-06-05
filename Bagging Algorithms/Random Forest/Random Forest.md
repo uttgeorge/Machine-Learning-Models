@@ -10,6 +10,10 @@ Random forests or random decision forests are an ensemble learning method for cl
     **Note: Practically, we use cross validation to get $N_{sub}$, here are some tricks:**
     * **For Classification Problem: $\sqrt{N}$** 
     * **For Regression Problem: $\frac{N}{3}\ but\ greater\ than\ 5.$**
+    
+1. Decision Trees in Random Forest are _**fully grown and unpruned.**_
+
+
 
 ## Parameter M
 1. **Correlation of any two decision trees:** higher correlation leads to higher error rate.
@@ -61,8 +65,11 @@ Error\ Rate=\frac{X}{O}
 $$
 and this is an unbiased estimation.
 
+
 **A.** Calculate OOB Error Rate 1 at each tree.
+
 **B.** Add noise to the feature we want to know importance, calculate OOB Error Rate 2.
+
 **C.** Importance of feature n:
 $$
 VIM_n=\frac{\sum_{t=1}^{|T|}(OOB\ ER1 - OOB\ ER2)}{|T|}
