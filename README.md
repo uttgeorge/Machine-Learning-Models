@@ -44,6 +44,13 @@ Email: [jin.qi1@northeastern.edu](jin.qi1@northeastern.edu)
 * [Bagging](https://github.com/uttgeorge/Machine-Learning-Models/blob/master/Bagging%20Algorithms/Ensemble%20Method%20-%20Bagging.md)
 
 ### 5.1 Random Forest
+#### Introductions:
+
+* [Random Forest](https://github.com/uttgeorge/Machine-Learning-Models/blob/master/Bagging%20Algorithms/Random%20Forest/Random%20Forest.md)
+
+#### Coding
+
+
 
 ## 6.SVM
 #### Introductions
