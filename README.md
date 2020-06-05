@@ -40,14 +40,19 @@ Email: [jin.qi1@northeastern.edu](jin.qi1@northeastern.edu)
 
 #### Coding
 
-## 5.SVM
+## 5.Ensemble Method - Bagging
+* [Bagging](https://github.com/uttgeorge/Machine-Learning-Models/blob/master/Bagging%20Algorithms/Ensemble%20Method%20-%20Bagging.md)
+
+### 5.1 Random Forest
+
+## 6.SVM
 #### Introductions
 
 * [SVM Intro](https://github.com/uttgeorge/Machine-Learning-Models/blob/master/SVM/SVM.md)
 
 #### Coding
 
-**2.1** Linear SVM
+**1.** Linear SVM
 
 * [Linear SVM Code](https://github.com/uttgeorge/Machine-Learning-Models/blob/master/SVM/LinearSVM.ipynb)
 
