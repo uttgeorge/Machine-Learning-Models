@@ -140,10 +140,10 @@ A distribution of the sum of n times independent Bernoulli trails.
 
 If the random variable X follows the binomial distribution with parameters $n\in N$ and $p\in [0,1]$, we write $X \sim B(n,p)$. The probability of getting exactly k successes in n independent Bernoulli trials is given by the probability mass function:
 $$\begin{align*}
-    & P(X=k) = \begin{pmatrix} n \\k\end{pmatrix}p^k(1-p)^{(n-k)}
-    \\\\ where\ &k=0,1,2,..,n\\\\
+    & P(X=k) = \begin{pmatrix} n \\\\ k\end{pmatrix}p^k(1-p)^{(n-k)}\\\\ 
+    where\ &k = 0,1,2,..,n\\\\
     & q=1-p
-    \end{align*}
+\end{align*}
 $$
 
 * Expectation:
