@@ -149,8 +149,8 @@ $$
 * Expectation:
 
 $$\begin{align*}
-E[X] &= \sum_{k=0}^{n}k\begin{pmatrix} n \\k\end{pmatrix}p^k(1-p)^{(n-k)}\\\\
-&= \sum_{k=1}^{n}k\begin{pmatrix} n \\k\end{pmatrix}p^k(1-p)^{(n-k)}\\\\
+E[X] &= \sum_{k=0}^{n}k\begin{pmatrix} n \\\\k\end{pmatrix}p^k(1-p)^{(n-k)}\\\\
+&= \sum_{k=1}^{n}k\begin{pmatrix} n \\\\k\end{pmatrix}p^k(1-p)^{(n-k)}\\\\
 &= \sum_{k=1}^{n}k\frac{n!}{k!(n-k)!}p^k q^{(n-k)}\\\\
 &= np \sum_{k=1}^{n} \frac{(n-1)!}{(k-1)!(n-k)!}p^{(k-1)} q^{(n-1)-(k-1)}\\\\
 &= np \underset{1}{\underbrace{\sum_{K=0}^{N} \begin{pmatrix} N \\K  \end{pmatrix}p^{(K)} q^{(N-K)}}}, N=N-1,K=K-1\\\\
@@ -162,7 +162,7 @@ $$
 
 $$\begin{align*}
 E[X^2]&=\sum_{k=1}^{n}k^2 \frac{n!}{k!(n-k)!}p^kq^{(n-k)}\\\\
-&=\sum_{k=1}^{n}k(k-1)\begin{pmatrix} n \\k  \end{pmatrix} p^kq^{(n-k)}+\underset{np}{\underbrace{\sum_{k=1}^{n}k\begin{pmatrix} n \\k  \end{pmatrix}p^kq^{(n-k)}}}\\\\
+&=\sum_{k=1}^{n}k(k-1)\begin{pmatrix} n \\\\k  \end{pmatrix} p^kq^{(n-k)}+\underset{np}{\underbrace{\sum_{k=1}^{n}k\begin{pmatrix} n \\k  \end{pmatrix}p^kq^{(n-k)}}}\\\\
 &=\sum_{k=1}^{n}\frac{n!}{(k-2)!(n-k)!}p^kq^{(n-k)}+np\\\\
 &=n(n-1)p^2 \underset{1}{\underbrace{\sum_{k=1}^{n}\frac{(n-2)!}{(k-2)!(n-k)!}p^{(k-2)}q^{(n-k)}}} +np\\\\
 &=n^2p^2-np^2+np\\\\
@@ -178,7 +178,7 @@ $$
 
 * Sum of Binomials
 
-      If $X \sim B(n, p)$ and $Y \sim B(m, p)$ are independent binomial variables with the same probability p, then $X + Y$ is again a binomial variable; its distribution is $Z=X+Y \sim B(n+m, p)$
+    If $X \sim B(n, p)$ and $Y \sim B(m, p)$ are independent binomial variables with the same probability p, then $X + Y$ is again a binomial variable; its distribution is $Z=X+Y \sim B(n+m, p)$
       
 
 **4. Poisson**
