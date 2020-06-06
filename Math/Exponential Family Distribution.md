@@ -1,11 +1,17 @@
 # Exponential Family Distribution
 
 高斯分布
+
 伯努利分布----> 类别分布
+
 二项分布----> 多项式分布
+
 泊松分布
+
 beta
+
 dirichlet
+
 gamma
 
 指数族标准形式：
@@ -134,7 +140,7 @@ A distribution of the sum of n times independent Bernoulli trails.
 
 If the random variable X follows the binomial distribution with parameters $n\in N$ and $p\in [0,1]$, we write $X \sim B(n,p)$. The probability of getting exactly k successes in n independent Bernoulli trials is given by the probability mass function:
 $$\begin{align*}
-    & P(X=k) = \begin{pmatrix} n \\k  \end{pmatrix}p^k(1-p)^{(n-k)}
+    & P(X=k) = \begin{pmatrix} n \\k\end{pmatrix}p^k(1-p)^{(n-k)}
     \\\\ where\ &k=0,1,2,..,n\\\\
     & q=1-p
     \end{align*}
@@ -143,9 +149,9 @@ $$
 * Expectation:
 
 $$\begin{align*}
-E[X] &= \sum_{k=0}^{n}k \begin{pmatrix} n \\k  \end{pmatrix}p^k(1-p)^{(n-k)}\\\\
-&= \sum_{k=1}^{n}k \begin{pmatrix} n \\k  \end{pmatrix}p^k(1-p)^{(n-k)}\\\\
-&= \sum_{k=1}^{n}k \frac{n!}{k!(n-k)!}p^k q^{(n-k)}\\\\
+E[X] &= \sum_{k=0}^{n}k\begin{pmatrix} n \\k\end{pmatrix}p^k(1-p)^{(n-k)}\\\\
+&= \sum_{k=1}^{n}k\begin{pmatrix} n \\k\end{pmatrix}p^k(1-p)^{(n-k)}\\\\
+&= \sum_{k=1}^{n}k\frac{n!}{k!(n-k)!}p^k q^{(n-k)}\\\\
 &= np \sum_{k=1}^{n} \frac{(n-1)!}{(k-1)!(n-k)!}p^{(k-1)} q^{(n-1)-(k-1)}\\\\
 &= np \underset{1}{\underbrace{\sum_{K=0}^{N} \begin{pmatrix} N \\K  \end{pmatrix}p^{(K)} q^{(N-K)}}}, N=N-1,K=K-1\\\\
 & = np
