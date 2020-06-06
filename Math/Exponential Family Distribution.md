@@ -79,7 +79,7 @@ $$
 
 1. 概率图模型
 
-五向图：RBM
+无向图：RBM
 
 1. 变分推断
 
@@ -186,9 +186,8 @@ $$
 柏松分布描述单位时间内随机事件发生的次数的概率分布。A distribution to expresses the probability of a given number of events occurring in a fixed interval of time or space if these events occur with a known constant mean rate and independently of the time since the last event. 
 The Poisson distribution can also be used for the number of events in other specified intervals such as distance, area or volume.
 A discrete random variable X is said to have a Poisson distribution with parameter λ > 0, if, for k = 0, 1, 2, ..., the probability mass function of X is given by:
-$$
 
-$$
+
 We write as $X \sim \pi(\lambda)$.
 
 
