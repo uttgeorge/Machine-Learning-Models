@@ -148,7 +148,7 @@ $$
 
 ### 2. Learning Rate
 
-If we set $\Delta x = -\nabla f(X)$, $x+\Delta x$ may be out of the neighbor, in other words, $||x-x^*||> \delta $ . In this case, we can not ignore quadratic term for approximation. So we set a learning rate that is between 0 and 1 to make sure $||x-x^*||\le \delta$, then we can ignore higher terms.
+If we set $\Delta x = -\nabla f(X)$, $x+\Delta x$ may be out of the neighbor, in other words, $\left \| x-x^* \right \| > \delta$ . In this case, we can not ignore quadratic term for approximation. So we set a learning rate that is between 0 and 1 to make sure $\left \| x-x^* \right \| \le \delta$ , then we can ignore higher terms.
 
 
 ==So we get:==
