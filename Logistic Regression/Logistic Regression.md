@@ -349,9 +349,5 @@ $$
 1. StatQuest!
 
 
-## Sigmoid Function
-
-**Linear Regression --(Activation Function)--> Linear Classification (Probability)**
-
-**MLE:**
+## Softmax
 
