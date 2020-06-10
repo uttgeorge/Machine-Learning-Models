@@ -2,9 +2,12 @@
 This is the combination of some algorithms.
 
 Email: [jin.qi1@northeastern.edu](jin.qi1@northeastern.edu)
-## Basics
+## 1. Math
 1. [Bayesian Estimation, MLE, MAP](https://github.com/uttgeorge/Machine-Learning-Models/blob/master/Math/Bayesian%20Estimation%2C%20MLE%2C%20MAP.md)
-## 1.Perceptron
+2. [Exponential Family Distribution](https://github.com/uttgeorge/Machine-Learning-Models/blob/master/Math/Exponential%20Family%20Distribution.md)
+3. [Gradient Descent](https://github.com/uttgeorge/Machine-Learning-Models/blob/master/Math/Gradient%20Descent.md)
+
+## 2. Perceptron
 #### Introductions
 
 * [Perceptron Intro](https://github.com/uttgeorge/Machine-Learning-Models/blob/master/Perceptron/Perceptron.md)
@@ -12,14 +15,17 @@ Email: [jin.qi1@northeastern.edu](jin.qi1@northeastern.edu)
 #### Coding
 * [Perceptron Code](https://github.com/uttgeorge/Machine-Learning-Models/blob/master/Perceptron/Perceptron.ipynb)
 
-## 2. KNN
+
+
+## 3. KNN
 #### Introductions
 * [KNN.md](https://github.com/uttgeorge/Machine-Learning-Models/blob/master/KNN/KNN.md)
 
 #### Coding
 * [KNN.ipynd](https://github.com/uttgeorge/Machine-Learning-Models/blob/master/KNN/KNN.ipynb)
 
-## 3.Decision Tree
+
+## 4. Decision Tree
 
 #### Introductions
 
@@ -33,17 +39,23 @@ Email: [jin.qi1@northeastern.edu](jin.qi1@northeastern.edu)
 
 * [Decision Tree Regressor](https://github.com/uttgeorge/Machine-Learning-Models/blob/master/Decision%20Tree/Decision%20Tree%20Regressor.ipynb)
 
-## 4.Naive Bayes
+## 5. Logistic Regression
+
+#### Introductions
+* [Logistic Regression](https://github.com/uttgeorge/Machine-Learning-Models/blob/master/Logistic%20Regression/Logistic%20Regression.md)
+
+
+## 6. Naive Bayes
 
 #### Introductions
 * [Naive Bayes Intro](https://github.com/uttgeorge/Machine-Learning-Models/blob/master/Naive%20Bayes/Naive%20Bayes.md)
 
 #### Coding
 
-## 5.Ensemble Method - Bagging
+## 7. Ensemble Method - Bagging
 * [Bagging](https://github.com/uttgeorge/Machine-Learning-Models/blob/master/Bagging%20Algorithms/Ensemble%20Method%20-%20Bagging.md)
 
-### 5.1 Random Forest
+### 7.1 Random Forest
 #### Introductions:
 
 * [Random Forest](https://github.com/uttgeorge/Machine-Learning-Models/blob/master/Bagging%20Algorithms/Random%20Forest/Random%20Forest.md)
@@ -52,7 +64,7 @@ Email: [jin.qi1@northeastern.edu](jin.qi1@northeastern.edu)
 
 
 
-## 6.SVM
+## 8. SVM
 #### Introductions
 
 * [SVM Intro](https://github.com/uttgeorge/Machine-Learning-Models/blob/master/SVM/SVM.md)

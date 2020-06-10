@@ -58,7 +58,7 @@ The log of the ratio of the probabilities is called the **logit function** and f
 
 
 ## 3. Odds Ratio and Log(Odds Ratios)         
-# **Statistic Test!!!**
+# **Statistical Test!!!**
 
 ### 3.1 Concept
 
@@ -157,6 +157,8 @@ $$
 
 ### 6.1 Gradient Descent
 
+_For more about Gradient Descent, check [Gradient Descent](https://github.com/uttgeorge/Machine-Learning-Models/blob/master/Math/Gradient%20Descent.md)._
+
 Lost Function:
 
 $$\begin{align*}
@@ -198,7 +200,7 @@ Similar to the **Gradient Descent**, Newton's method is an iterative approach to
 
 The key point of Newton's method is using quadratic function including 1st derivative and 2nd derivative to approximate the target function.
 
-_**1. One Dimensional (one variable) function**_
+#### _**1. One Dimensional (one variable) function**_
 
 The Taylor polynomial of target function at point $x_0$:
 $$
@@ -216,10 +218,12 @@ $$
 x=x_0-\frac{f'(x_0)}{f''(x_0)}
 $$
 
-_**2. High-Dimensional (Multivariate) function**_
+#### _**2. High-Dimensional (Multivariate) function**_
 
 Again, the Taylor polynomial of target function at point $x_0$:
-
+$$
+f(X+\Delta X)\approx f(X)+(\Delta X)^T \nabla f(X)+\frac{1}{2}(\Delta X)^T\nabla^2 f(X)(\Delta X)
+$$
 $$
 f(X)\approx f(X_0)+\nabla f(X_0)^T(X-X_0)+\frac{1}{2}(X-X_0)^T\nabla^2 f(X_0)(X-X_0)
 $$
@@ -252,10 +256,92 @@ Start from the beginning point $X_0$, iterate the process
 $$
 X_{k+1}=X_{k} - H_k^{-1}g_k
 $$
+#### 3. Line Search
+
+#### 4. Pitfalls of Newton's method
+
+### 6.3 Quasi-Newton method
+
+Newton's method requires computing Hessian Matrix every iteration, then computing a set of equations based on Hessian Matrix. Besides that, Hessian Matrix may not invertible. 
+
+A revised approach is Quasi-Newton method. It does not compute Hessian Matrix and its inverse, but builds a symmetric positive-definite matrix that approximate Hessian Matrix. 
+
+The Taylor polynomial at $x_{k+1}$:
 
 
+$$
+f(X)\approx f(X_{k+1})+\nabla f(X_{k+1})^T(X-X_{k+1})+\frac{1}{2}(X-X_{k+1})^T\nabla^2 f(X_{k+1})(X-X_{k+1})
+$$
 
-Quasi-Newton method
+$$
+\nabla f(X)\approx \nabla f(X_{k+1})+\nabla^2 f(X_{k+1})(X-X_{k+1})
+$$
+
+Set $X=X_k$:
+
+$$
+\nabla f(X_k)\approx \nabla f(X_{k+1})+\nabla^2 f(X_{k+1})(X_k-X_{k+1})
+$$
+
+$$
+\nabla f(X_{k+1})- \nabla f(X_k)\approx \nabla^2 f(X_{k+1})(X_{k+1}-X_k)
+$$
+
+$$
+g_{k+1}- g_k\approx \nabla^2 f(X_{k+1})(X_{k+1}-X_k)
+$$
+
+If we set:
+
+$$
+s_k=X_{k+1}-X_k\\\\
+y_k=g_{k+1}- g_k
+$$
+
+Then we get:
+
+$$
+y_k \approx H_{k+1}s_k\\\\
+s_k\approx H_{k+1}^{-1} y_k
+$$
+
+And this is called quasi-newton condition.
+
+#### **BFGS**
+
+Build a approximate matrix B of Hessian Matrix:
+
+$$
+B_k \approx H_k
+$$
+
+and iterative update it:
+
+$$
+B_{k+1}=B_k+\Delta B_k
+$$
+
+$B_0$ is an Identity Matrix. So the problem now is to solve $\Delta B_k$.
+
+$$
+\Delta B_k = \alpha uu^T+\beta vv^T
+$$
+
+where
+
+$$\begin{align*}
+u&=y_k\\\\
+v&=B_ks_k\\\\
+\alpha&=\frac{1}{y_k^Ts_k}\\\\
+\beta&=-\frac{1}{s_k^TB_ks_k}
+\end{align*}
+$$
+
+$$\begin{align*}
+\Delta B_k=\frac{y_ky_k^T}{y_k^Ts_k}-\frac{B_ks_ks_k^TB_k}{s_k^TB_ks_k}
+\end{align*}
+$$
+
 
 
 ## References
