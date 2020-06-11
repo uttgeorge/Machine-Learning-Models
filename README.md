@@ -9,7 +9,8 @@ Email: [jin.qi1@northeastern.edu](jin.qi1@northeastern.edu)
 
 ## 2. Evaluation Metrics
 1. [Classification 中文](https://github.com/uttgeorge/Machine-Learning-Models/blob/master/Evaluation%20Metrics/Evaluation%20Metrics%20-%20Classification.md)
-2. 
+2. [Regression](https://github.com/uttgeorge/Machine-Learning-Models/blob/master/Evaluation%20Metrics/Evaluation%20Metrics%20-%20Regression.md)
+3. 
 
 
 ## 3. Perceptron
