@@ -5,7 +5,7 @@
 ## Confusion Matrix 混淆矩阵
 
 
-<!--<tbody>
+<tbody>
 <td>
 <table class="wikitable" style="border:none; float:left; margin-top:0;">
 <tbody><tr>
@@ -36,7 +36,7 @@
 </td></tr>
 </tbody></table>
 </td>
-</tbody>-->
+</tbody>
 
 **TP:** 预测为真，实际为真。
 **TN:** 预测为假，实际为假。
