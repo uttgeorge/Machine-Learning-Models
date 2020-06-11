@@ -4,7 +4,7 @@
 
 ## 1. Confusion Matrix 混淆矩阵
 
-<table>
+
 <tbody>
 <td>
 <table class="wikitable" style="border:none; float:left; margin-top:0;">
@@ -36,7 +36,7 @@
 </td></tr>
 </tbody></table>
 </td>
-</tbody></table>
+</tbody>
 
 
 
