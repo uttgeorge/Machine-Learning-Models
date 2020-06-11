@@ -135,10 +135,13 @@ True Positive Rate (Sensitivity) 为y轴。
 
 现在的threshold是0.5，从小到大，从0开始，一旦confusion matrix有改变，就在ROC上对应的点做上标记。另外，右上角顶点(1,0)是所有负样本都预测成正样本的极端情况，原点(0,0)是所有正样本都预测成负样本的极端情况。他们的连线是一条对角线，这条线上：$Sensitivity=1-Specificity$，即正样本中，正确分类的概率等于在负样本，错误分类的概率，这种情况相当于是随机的结果，如果模型结果和随机结果一致，那就相当差了。
 左上角顶点是最优情况，右下角为最差。
+
 ![ROC](https://github.com/uttgeorge/Machine-Learning-Models/blob/master/Evaluation%20Metrics/media/ROC.png)
+
 AUC(Area Under Curve) 衡量曲线或者折线与x轴所围成的面积，是一个概率值，衡量的是正样本排列在负样本之前的概率值。AUC越大越好。
 
 #### 优点
+
 ROC的优点就是他的缺点， ROC不会收到数据不平衡的影响，能够更加准确的衡量系统的优劣。
 
 
