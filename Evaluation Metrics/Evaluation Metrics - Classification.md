@@ -9,7 +9,7 @@
 <td>
 <table class="wikitable" style="border:none; float:left; margin-top:0;">
 <tbody><tr>
-<th style="background:none;border:none;" colspan="2" rowspan="2">
+<th style="background:none; border:none;" colspan="2" rowspan="2">
 </th>
 <th colspan="2" style="background:none;">Actual class
 </th></tr>
