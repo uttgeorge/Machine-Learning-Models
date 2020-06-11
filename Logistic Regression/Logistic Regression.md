@@ -307,7 +307,7 @@ $$
 
 And this is called quasi-newton condition.
 
-#### **BFGS**
+#### **BFGS** ？？？？？？？？？？
 
 Build a approximate matrix B of Hessian Matrix:
 
