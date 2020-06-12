@@ -47,6 +47,7 @@ But if I win 10 times, and only loss once, then the odds of winning is 10/1=10.
 
 ![](media/15916369484248/15916507071693.jpg)
 
+
 The asymmetry makes it difficult to compare the odds for or against winning.
 
 
@@ -350,4 +351,3 @@ $$
 
 
 ## Softmax
-
