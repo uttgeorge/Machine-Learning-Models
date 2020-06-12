@@ -1,5 +1,6 @@
 # Machine Learning
-This is the combination of some algorithms.
+
+This is the combination of some algorithms and codes from scratch.
 
 Email: [jin.qi1@northeastern.edu](jin.qi1@northeastern.edu)
 ## 1. Math
