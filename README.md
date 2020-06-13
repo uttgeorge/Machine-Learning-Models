@@ -58,6 +58,7 @@ Email: [jin.qi1@northeastern.edu](jin.qi1@northeastern.edu)
 * [Naive Bayes Intro](https://github.com/uttgeorge/Machine-Learning-Models/blob/master/Naive%20Bayes/Naive%20Bayes.md)
 
 #### Coding
+* [Naive Bayes Classifier](https://github.com/uttgeorge/Machine-Learning-Models/blob/master/Naive%20Bayes/NB%20Classifier.ipynb)
 
 ## 8. Ensemble Method - Bagging
 * [Bagging](https://github.com/uttgeorge/Machine-Learning-Models/blob/master/Bagging%20Algorithms/Ensemble%20Method%20-%20Bagging.md)
