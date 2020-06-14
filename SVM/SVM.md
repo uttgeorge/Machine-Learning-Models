@@ -64,7 +64,7 @@ $Proof:$
 $$\begin{align*}
 \theta(\alpha^{\star},\beta^{\star})&=\underset{x\in \mathbb{R}^p}{inf} \big\lbrace L(x,\alpha,\beta) \big\rbrace\\\\
 &\le L(x,\alpha,\beta)\\\\
-&= f(x^{\star})+\sum_{i=1}^{k}\alpha_i^*g_i(x^{\star})+\sum_{j=1}^{l}\beta_j^{\star}h_j(x^{\star}),\ s.t.\ \alpha^{\star}\ge 0,\ g_i(x)\le 0, h_j(x)=0\\\\
+&= f(x^{\star})+\sum_{i=1}^{k}\alpha_i^{\star}g_i(x^{\star})+\sum_{j=1}^{l}\beta_j^{\star}h_j(x^{\star}),\ s.t.\ \alpha^{\star}\ge 0,\ g_i(x)\le 0, h_j(x)=0\\\\
 &le f(x^{\star})
 \end{align*}
 $$
@@ -99,6 +99,7 @@ $$
 
 2. $g_i(x) \le 0, h_j(x)=0$
 3. $\alpha_i \cdot g_i(x) =0,i=1,2,...,k$
+
 
 $$
 in\ order\ to\ let:\ f(x^{\star})+\sum \alpha_ig_i(x)+0=f(x^{\star})\\\\
