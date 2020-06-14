@@ -75,6 +75,12 @@ $$
     
 * Haversine Distance
 
+* Cosine similarity
+
+$$
+similarity(A,B)=cos(\theta)=\frac{A\cdot B}{\left\|A\right\|\left\|B\right\|}
+$$
+
 #### 2. Choosing K
 ###### a. Impact of K
 
