@@ -206,27 +206,84 @@ $$
 
 
 
-###### 3.1 Solve $\underset{w,b}{\min}  \frac{1}{2} \left\|w\right\|^2+\sum_{i=1}^{N}\alpha_i (1-y_i(w^Tx_i+b))$, aka $\underset{w,b}{\min}L(w,b,\alpha)$
+###### 3.1 Solve $\underset{w,b}{\min}L(w,b,\alpha)$
+
+$$
+\underset{w,b}{\min}L(w,b,\alpha) = \underset{w,b}{\min}  \frac{1}{2} \left\|w\right\|^2+\sum_{i=1}^{N}\alpha_i (1-y_i(w^Tx_i+b))
+$$
 
 Calculate the derivative of $L$.
 
 $$\begin{align*}
 &\frac{\partial L}{\partial w}=w-\sum_{i=1}^{N}\alpha_ix_iy_i=0 &\Rightarrow\ & w=\sum_{i=1}^{N}\alpha_ix_iy_i\\\\
 &\frac{\partial L}{\partial b}=-\sum_{i=1}^{N}\alpha_iy_i=0 &\Rightarrow\ & \sum_{i=1}^{N}\alpha_iy_i=0\\\\
+\end{align*}
+$$
+
+$$\begin{align*}
 &\underset{w,b}{\min}L(w,b,\alpha)\\\\
-=&
+=&\frac{1}{2}(\sum_{i=1}^{N}\alpha_ix_iy_i)^T(\sum_{j=1}^{N}\alpha_jx_jy_j)+\sum_{i=1}^{N}\alpha_i-\sum_{i=1}^{N}\alpha_iy_i(\sum_{j=1}^{N}\alpha_jx_jy_j)^Tx_i\\\\
+=&\sum_{i=1}^{N}\alpha_i-\frac{1}{2}(\sum_{i=1}^{N}\alpha_ix_iy_i)^T(\sum_{j=1}^{N}\alpha_jx_jy_j)
+\end{align*}
+$$
+
+###### 3.2 Solve $\underset{\alpha}{\max}\left[\underset{w,b}{\min}L(w,b,\alpha)\right]$
+
+$$\begin{align*}
+&\underset{\alpha}{\max}\sum_{i=1}^{N}\alpha_i-\frac{1}{2}(\sum_{i=1}^{N}\alpha_ix_iy_i)^T(\sum_{j=1}^{N}\alpha_jx_jy_j),\ \ \ \ \ s.t.\ \alpha_i\ge0;\ \sum_{i=1}^{N}\alpha_iy_i=0\\\\
+\Rightarrow\ &\underset{\alpha}{\min}\frac{1}{2}(\sum_{i=1}^{N}\alpha_ix_iy_i)^T(\sum_{j=1}^{N}\alpha_jx_jy_j)-\sum_{i=1}^{N}\alpha_i\\\\
+=\ &\underset{\alpha}{\min}\frac{1}{2}\sum_{i=1}^{N}\sum_{j=1}^{N}\alpha_i\alpha_jy_iy_jx_i^Tx_j-\sum_{i=1}^{N}\alpha_i
+\end{align*}
+$$
+
+$x_i^Tx_j$, this dot product allows us to use kernel function to solve higher dimensional, non-linear separable data.
+ 
+ And under KKT condition, primal and dual problem have strong duality, so that $\underset{\alpha}{\min}\frac{1}{2}\sum_{i=1}^{N}\sum_{j=1}^{N}\alpha_i\alpha_jy_iy_jx_i^Tx_j-\sum_{i=1}^{N}\alpha_i=\frac{1}{2}\left\|w^{\star}\right\|^2$, where $w^{\star}$ is the optimal solution for $w$.
+    
+###### 3.3 Find $w^{\star}$ and $b^{\star}$
+
+*  $w^{\star}=\sum_{i=1}^{N}\alpha_ix_iy_i$
+
+See 3.1.
+
+* $b^{\star} = y_j-\sum_{i=1}^{N}\alpha_iy_ix_i^Tx_j$
+
+
+$Proof:$
+
+$$\begin{align*}
+    & Based\ on\ KKT\ condition\ No.\ 4:\\\\
+    & \alpha_i(1-y_i(w^Tx_i+b))=0\\\\
+\end{align*}
+$$
+
+$$\begin{align*}
+    1,\ &When\ \alpha_i>0:\\\\
+   & y_i(w^Tx_i+b)=1\\\\
+    \Rightarrow\ & y_i^2(w^Tx_i+b)=y_i,\ y_i\in \lbrace+1,-1\rbrace\\\\
+    \Rightarrow\ & w^Tx_i+b=y_i\\\\
+    \Rightarrow\ & b = y_i-w^Tx_i,\ now\ we\ change\ the \ denote\ of\ x_i\ to\ x_k, y_i\ to\ y_k\\\\
+    \Rightarrow\ & b^{\star}=y_k-w^Tx_k,\ replace\ w\ with\ its\ optimal\ solution\\\\\
+    \Rightarrow\ & b^{\star}=y_k-\sum_{i=1}^{N}\alpha_iy_ix_i^Tx_k
 \end{align*}
 $$
 
 
+$$\begin{align*}
+    2,\ &When\ \alpha_i=0\\\\
+    & y_i(w^Tx_i+b)\ge 0
+\end{align*}
+$$
+
+$O.E.D$    
     
-2. For the soft margin:
+## Soft Margin:
 
    * We allow some noise, so that we can increase the robustness of our system. 
    
    * We introduced slckness variable $\xi$, which represent **loss**. 
    
-   * And now the margin function changes to $y_i(w^Tx_i+b)\ge1-\xi_i,s.t.xi\ge0$
+   * And now the margin function changes to $y_i(w^Tx_i+b)\ge1-\xi_i,\ s.t.\ \xi\ge0$
 
 Suppose we have two classes X and O, for class X:
 
