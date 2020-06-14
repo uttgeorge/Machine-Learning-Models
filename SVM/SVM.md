@@ -55,7 +55,7 @@ s.t.\ &\alpha_i\ge 0
 \end{align*}
 $$
 
-<font color="red">**If $x^*$ is the solution of the primal problem, and $\alpha^*$, $\beta^*$ are the solutions of the dual problem, then $$f(x^*)\ge\theta(\alpha^*,\beta^*)$$**</font>
+**If $x^*$ is the solution of the primal problem, and $\alpha^*$, $\beta^*$ are the solutions of the dual problem, then $$f(x^*)\ge\theta(\alpha^*,\beta^*)$$**
 
 $Proof:$
 
