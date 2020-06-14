@@ -2,8 +2,112 @@
 
 **Please check the .ipynb files instead of readme files**
 
+## Duality
 
-SVM code from scratch
+#### 1. Primal Problem: 
+
+$$\begin{align*}
+\min:\ &f(x)\\\\
+s.t.\ &g_i(x)\le0,i=1,2,...,k\\\\
+&h_j(x)=0,j=1,2,...,l
+\end{align*}
+$$
+
+Introduce **Generalized Lagrange Function(Find extrema under contraints):**
+
+$$\begin{align*}
+L(x,\alpha,\beta)&=f(x)+\sum_{i=1}^{k}\alpha_ig_i(x)+\sum_{j=1}^{l}\beta_jh_j(x)\\\\
+s.t.\ &\alpha_i\ge 0
+\end{align*}
+$$
+
+
+This function means: let $\alpha$ and $\beta$ be fixed, iterate every $x$ to find the minimum $L(x,\alpha,\beta)$.
+
+<font color="red">**Based on Generalized Lagrange Function, the primal problem is equivalent to:**</font>
+
+
+
+$$\begin{align*}
+\underset{x}{\min}\ \underset{\alpha,\beta }{\max}\ &L(x,\alpha,\beta)\\\ 
+s.t.\ &\alpha_i\ge0
+\end{align*}
+$$
+
+$Proof:$
+$$\begin{align*}
+ &L(x,\alpha,\beta)=f(x)+\sum_{i=1}^{k}\alpha_ig_i(x)+\sum_{j=1}^{l}\beta_jh_j(x),\alpha_i\ge 0\\\\
+&if\ g_i(x)>0,\ then\ \underset{\alpha_i\ge 0}{\max}\ L(x,\alpha,\beta) = + \infty;\\\\
+&if\ g_i(x)\le0,\ then\ \underset{\alpha_i\ge 0}{\max}\ L(x,\alpha,\beta) = f(x);\\\\
+& \underset{x}{\min} \underset{\alpha,\beta}{\max}L(x,\alpha,\beta) = \underset{x}{\min}(+\infty,f(x))=\underset{x}{min}f(x)\\\\
+\end{align*}
+$$
+
+$Q.E.D$
+
+#### 2. Dual Problem:
+
+**Definition of duality problems:**
+
+$$\begin{align*}
+\max:\ \theta(\alpha,\beta)&=\underset{x\in \mathbb{R}^p}{inf} \big\lbrace L(x,\alpha,\beta) \big\rbrace\\\\
+s.t.\ &\alpha_i\ge 0
+\end{align*}
+$$
+
+<font color="red">**If $x^*$ is the solution of the primal problem, and $\alpha^*$, $\beta^*$ are the solutions of the dual problem, then $$f(x^*)\ge\theta(\alpha^*,\beta^*)$$**</font>
+
+$Proof:$
+
+$$\begin{align*}
+\theta(\alpha^*,\beta^*)&=\underset{x\in \mathbb{R}^p}{inf} \big\lbrace L(x,\alpha,\beta) \big\rbrace\\\\
+&\le L(x,\alpha,\beta)\\\\
+&= f(x^*)+\sum_{i=1}^{k}\alpha_i^*g_i(x^*)+\sum_{j=1}^{l}\beta_j^*h_j(x^*),\ s.t.\ \alpha^*\ge 0,\ g_i(x)\le 0, h_j(x)=0\\\\
+&le f(x^*)
+\end{align*}
+$$
+
+$Q.E.D$
+
+This is so called: **Weak Duality.**
+
+## KKT
+
+#### 1. Definition 
+$$G=f(x^*)-\theta(\alpha^*,\beta^*)\ge 0$$
+where G is the <font color="red">**Duality Gap**</font> between primal problem and dual problem.
+Under some condition, G=0. And this is called **strong duality.**
+
+#### 2. Strong Duality Theorem
+If $f(x)$ is a convex function, and $g(x)=A^Tx+b,\ h(x)=C^Tx+d$,
+then the duality gap between primal and dual problem for this optimization problem is 0.
+In other word:
+$$
+f(x^*)= \theta(\alpha^*,\beta^*)
+$$
+
+#### 3. KKT Condition (Karush-Kuhn-Tucker)
+
+1. $L$ is derivative, and can find an optimal solution. (Convex)
+    $
+    \nabla_xL=0,\ \nabla_{\alpha}L=0,\ \nabla_{\beta}L=0
+    $
+    
+1. $\alpha_i\ge 0$
+
+2. $g_i(x) \le 0, h_j(x)=0$
+3. $\alpha_i \cdot g_i(x) =0,i=1,2,...,k$
+
+$$
+in\ order\ to\ let:\ f(x^*)+\sum \alpha_ig_i(x)+0=f(x^*)\\\\
+\because \alpha_i \ge 0\ and\ g_i(x) \le 0\\\\
+\therefore \alpha_i g_i(x)=0
+$$
+
+<font color="red">**KKT condition if sufficient and necessary for strong duality!**</font>
+
+## Hard Margin
+
 **Classification**
 
 Prerequisite：Linearly separable
