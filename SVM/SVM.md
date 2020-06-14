@@ -95,10 +95,10 @@ $$
     \nabla_xL=0,\ \nabla_{\alpha}L=0,\ \nabla_{\beta}L=0
     $
     
-1. $\alpha_i\ge 0$
+2. $\alpha_i\ge 0$
 
-2. $g_i(x) \le 0, h_j(x)=0$
-3. $\alpha_i \cdot g_i(x) =0,i=1,2,...,k$
+3. $g_i(x) \le 0, h_j(x)=0$
+4. $\alpha_i \cdot g_i(x) =0,i=1,2,...,k$
 
 
 $$
@@ -281,9 +281,9 @@ $O.E.D$
     
 ## Soft Margin:
 
-   * We allow some noise, so that we can increase the robustness of our system. 
+   * Allow some noises, so that increase the robustness of our system. 
    
-   * We introduced slckness variable $\xi$, which represent **loss**. 
+   * Introduced slackness variable $\xi$, which represents **loss**. 
    
    * And now the margin function changes to $y_i(w^Tx_i+b)\ge1-\xi_i,\ s.t.\ \xi\ge0$
 
@@ -317,7 +317,76 @@ So now we have:
 $$
 \xi_i =\max\lbrace 0,1-y_i(w^Tx_i + b) \rbrace
 $$
+#### 1. Duality 
+
+* **Primal Problem:**
+
+$$\begin{align*}
+&\min_{w,b,\xi }:\frac{1}{2}\left \| w \right \|^{2}+C\sum_{i=1}^{N}\xi_i,\ \ \ \ s.t.\ \xi_i\ge0,\ y_i(w^Tx_i+b)\ge1-\xi_i \\\\
+\Rightarrow\ & \underset{w,b,\xi}{\min} \underset{\alpha,\beta}{\max} L(w,b,\xi,\alpha,\beta)\\\\
+&=\frac{1}{2}\left \| w \right \|^{2}+C\sum_{i=1}^{N}\xi_i-\sum_{i=1}^{N}\alpha_i\xi_i-\sum_{i=1}^{N}\beta_i\big[y_i(w^Tx_i+b)+\xi_i-1\big]\\\\
+&s.t.\ \alpha\ge0,\ \beta \ge0,\ i=1,2,..,N
+\end{align*}
+$$
+
+
+* **Dual Problem:**
+
+$$
+\underset{\alpha,\beta}{\max} \underset{w,b,\xi}{\min}L(w,b,\xi,\alpha,\beta)
+$$
+
+#### KKT Condition Check
+
+**1. Gradient equals 0**
+
+$$
+L(w,b,\xi,\alpha,\beta)=\frac{1}{2}\left \| w \right \|^{2}+C\sum_{i=1}^{N}\xi_i-\sum_{i=1}^{N}\alpha_i\xi_i-\sum_{i=1}^{N}\beta_i\big[y_i(w^Tx_i+b)+\xi_i-1\big]
+$$
+
+$$\begin{align*}
+&\frac{\partial L}{\partial w}=w-\sum_{i=1}^{N}\beta_ix_iy_i=0 &\Rightarrow\ & w^{\star}=\sum_{i=1}^{N}\beta_ix_iy_i\\\\
+&\frac{\partial L}{\partial b}=-\sum_{i=1}^{N}\beta_iy_i=0 &\Rightarrow\ & \sum_{i=1}^{N}\beta_iy_i=0\\\\
+&\frac{\partial L}{\partial \xi_i}=C-\alpha_i -\beta_i =0 &\Rightarrow\ & \alpha_i=C-\beta_i\\\\
+\\\\
+\end{align*}
+$$
+
+$$\begin{align*}
+\Rightarrow\ &\min L(w^{\star},b^{\star},\xi^{\star},\alpha,\beta)\\\\
+=& \frac{1}{2}(\sum_{i=1}^{N}x_iy_i\beta_i)^T(\sum_{j=1}^{N}x_jy_j\beta_j)+C\sum_{i=1}^{N}\xi_i-\sum_{i=1}^{N}(C-\beta_i)\xi_i\\\\&-\sum_{i=1}^{N}\beta_i\xi_i+\sum_{i=1}^{N}\beta_i-\sum_{i=1}^{N}\beta_iy_ib-(\sum_{i=1}^{N}\beta_iy_ix_i)^T(\sum_{j=1}^{N}\beta_hy_hx_j)\\\\
+&s.t.\ 0\le\beta\le C,\ \sum_{i=1}^{N}\beta_iy_i=0\\\\
+=&-\frac{1}{2}\sum_{i=1}^{N}\sum_{j=1}^{N}\beta_i\beta_jy_iy_jx_i^Tx_j+\sum_{i=1}^{N}\beta_i\\\\
+\\\\
+\Rightarrow\ &\max \Big[ -\frac{1}{2}\sum_{i=1}^{N}\sum_{j=1}^{N}\beta_i\beta_jy_iy_jx_i^Tx_j+\sum_{i=1}^{N}\beta_i\Big]\\\\
+\Rightarrow\ &\min \Big[\frac{1}{2}\sum_{i=1}^{N}\sum_{j=1}^{N}\beta_i\beta_jy_iy_jx_i^Tx_j-\sum_{i=1}^{N}\beta_i\Big]\\\\
+& s.t.\ 0\le \beta_i \le C,\ \sum_{i=1}^{N}\beta_iy_i=0 
+\end{align*}
+$$
+
+**2. Complementary Slackness:** $\alpha_i^{\star}g_i(x)=0$
+
+**Remember 3 constraints:**
+* $\xi_i\ge 0$
+* $0\le \beta_i \le C$
+* $\sum\beta_iy_i=0$
+
+a. $\alpha_i\xi_i=0 \Rightarrow\ (C-\beta_i)\xi_i=0$
+
+b. $\beta_i[y_i(w^Tx_i+b)+\xi_i-1]=0$
+
+* Case 1.
+
+    When $\beta_i>0$, 
+    $$
+    y_i(w^Tx_i+b)+\xi_i-1=0\\\\
+    w^Tx_i+b=y_i-y_i\xi_i\\\\
+    b^{\star}=
+    $$
+
    
+   
+
 Base on lagrange duality and KKT conditions, now we get the new target:
 
 $$
