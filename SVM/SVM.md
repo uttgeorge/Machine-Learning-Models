@@ -111,29 +111,114 @@ $$
 
 ## Hard Margin
 
-**Classification**
+```ruby
+SVM deals with Binary Classification problems. 
+Suppose our data are Linearly Separable, the discriminant function is:
 
-Prerequisite：Linearly separable
+                                f(x)=sign (w^T+b)
+```
+![](https://github.com/uttgeorge/Machine-Learning-Models/blob/master/SVM/media/1_06GSco3ItM3gwW2scY6Tmg.png)
+<font size="2">(Source: https://towardsdatascience.com/svm-feature-selection-and-kernels-840781cc1a6c)</font>
 
-Basic idea is Max Margin Classifier, we have to find the widest road between class1 and class2.
-
+The distance from a point $(x_i,y_i)$ to a hyperplane $w^T+b$ is:
 $$
-max:margin(w,b)
+d = \frac{\left |w^Tx_i+b\right |}{\left \|w\right\|}\\\\
+margin = 2d
+$$
+
+The basic idea is to find the widest "road" (in 2-D space) between class1 and class2, so that we could be more confident to classify any given new point.
+
+In other words, our goal is to find a a maximum margin so that the distances from points on the margin to the hyperplane are maximized.
+
+
+**Max Margin Classifier:**
+
+$$\begin{align*}
+&\max:margin(w,b)
 \\\\
-s.t.\Bigg\lbrace\begin{matrix}
+s.t.&\Bigg\lbrace\begin{matrix}
 w^Tx_i +b>0,y_i=+1\\\\
 w^Tx_i +b<0,y_i=-1
 \
 \end{matrix}
 \\\\
- \Rightarrow y_i(w^{T}x_{i}+b) > 0
- \\\\
- \forall i=1,2,...,N
+ &\Rightarrow y_i(w^{T}x_{i}+b) > 0
+ ,\ \forall i=1,2,...,N
+ \end{align*}
 $$
 
-1. For the hard margin:
 
-   * We set margin equals 1, and $y_i(w^Tx_i+b)\ge1$;
+#### 1. Suppose there exists a hyperplane, find points as close to the hyperplane as possible, calculate the distances from points to hyperplane:
+
+$$\begin{align*}
+margin(w,b)&=\underset{x_i}{\min}distance(w,b,x_i),\ s.t.\ i=1,2,...,N.\ w,b\ are fixed.\\\\
+&=\underset{x_i}{\min}\frac{1}{\left\|w\right\|}\left|w^Tx_i+b\right|
+\end{align*}
+$$
+
+#### 2. Find the hyperplane that maximize the margin:
+
+$$\begin{align*}
+&\underset{w,b}{\max} \underset{x_i}{\min} \frac{1}{\left\|w\right\|}\left|w^Tx_i+b\right|,\ s.t.\ y_i(w^Tx_i+b)>0\\\\
+\Rightarrow &\underset{w,b}{\max} \frac{1}{\left\|w\right\|} \underset{x_i,y_i}{\min}y_i(w^Tx_i+b),\ s.t.\ y_i(w^Tx_i+b)>0\\\\
+&Set\ \gamma=\underset{x_i,y_i}{\min} y_i(w^Tx_i+b),\ \exists\  \gamma >0\\\\\
+\Rightarrow &\underset{w,b}{\max} \frac{\gamma}{\left\|w\right\|},\ s.t.\ y_i(w^Tx_i+b)\ge \gamma\\\\
+&Set\ \gamma = 1\\\\
+\Rightarrow &\underset{w,b}{\max} \frac{1}{\left\|w\right\|},\ s.t.\ y_i(w^Tx_i+b)\ge 1
+\end{align*}
+$$
+
+**Note:**
+Why setting $\gamma$ as 1?
+
+Because scaling $w,\ b$ simultaneously does not change the hyperplane $w^T+b$, for the mathematical convenience and for not having multiple solutions of $w,\ b$, we set $\gamma=1$.
+
+#### 3. Convex optimization
+$$
+\underset{w,b}{\max} \frac{1}{\left\|w\right\|} \Rightarrow \underset{w,b}{\min} \left\|w\right\| \Rightarrow \underset{w,b}{\min} \frac{1}{2} \left\|w\right\|^2,\ s.t.\ y_i(w^Tx_i+b)\ge 1
+$$
+
+
+
+Now, we are solving a **Convex Optimization Problem.**
+$$\begin{align*}
+&\underset{w,b}{\min} \frac{1}{2} \left\|w\right\|^2\\\\
+s.t.\ &y_i(w^Tx_i+b)\ge 1,\ for\ i=1,2,...,N.\\\\
+& There\ are\ N\ Constraints
+\end{align*}
+$$
+
+* **Primal Problem:**
+
+$$\begin{align*}
+&\underset{w,b}{\min} \frac{1}{2} \left\|w\right\|^2\\\\
+s.t.\ &1-y_i(w^Tx_i+b)\le 0,\ for\ i=1,2,...,N.\\\\
+\Rightarrow & \underset{w,b}{\min} \underset{\alpha}{\max}\ L(w,b,\alpha)\\\\
+=& \underset{w,b}{\min} \underset{\alpha}{\max}\ \frac{1}{2} \left\|w\right\|^2+\sum_{i=1}^{N}\alpha_i (1-y_i(w^Tx_i+b)),\ s.t.\ \alpha_i\ge0
+\end{align*}
+$$
+
+* **Dual Problem:**
+
+$$
+\underset{\alpha}{\max} \underset{w,b}{\min}  \frac{1}{2} \left\|w\right\|^2+\sum_{i=1}^{N}\alpha_i (1-y_i(w^Tx_i+b)),\ s.t.\ \alpha_i\ge0
+$$
+
+
+
+###### 3.1 Solve $\underset{w,b}{\min}  \frac{1}{2} \left\|w\right\|^2+\sum_{i=1}^{N}\alpha_i (1-y_i(w^Tx_i+b))$, aka $\underset{w,b}{\min}L(w,b,\alpha)$
+
+Calculate the derivative of $L$.
+
+$$\begin{align*}
+&\frac{\partial L}{\partial w}=w-\sum_{i=1}^{N}\alpha_ix_iy_i=0 &\Rightarrow\ & w=\sum_{i=1}^{N}\alpha_ix_iy_i\\\\
+&\frac{\partial L}{\partial b}=-\sum_{i=1}^{N}\alpha_iy_i=0 &\Rightarrow\ & \sum_{i=1}^{N}\alpha_iy_i=0\\\\
+&\underset{w,b}{\min}L(w,b,\alpha)\\\\
+=&
+\end{align*}
+$$
+
+
     
 2. For the soft margin:
 
