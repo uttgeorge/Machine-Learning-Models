@@ -76,7 +76,7 @@ Email: [jin.qi1@northeastern.edu](jin.qi1@northeastern.edu)
 ## 9. SVM
 #### Introductions
 
-* [SVM Intro](https://github.com/uttgeorge/Machine-Learning-Models/blob/master/SVM/SVM.md)
+* [SVM: Duality, KKT, Hard Margin, Soft Margin, SMO](https://github.com/uttgeorge/Machine-Learning-Models/blob/master/SVM/SVM.md)
 
 #### Coding
 
