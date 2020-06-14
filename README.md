@@ -26,10 +26,11 @@ Email: [jin.qi1@northeastern.edu](jin.qi1@northeastern.edu)
 
 ## 4. KNN
 #### Introductions
-* [KNN.md](https://github.com/uttgeorge/Machine-Learning-Models/blob/master/KNN/KNN.md)
+* [KNN Intro](https://github.com/uttgeorge/Machine-Learning-Models/blob/master/KNN/KNN.md)
 
 #### Coding
-* [KNN.ipynd](https://github.com/uttgeorge/Machine-Learning-Models/blob/master/KNN/KNN.ipynb)
+
+* [KNN Classifier: mnist handwriting recognition](https://github.com/uttgeorge/Machine-Learning-Models/blob/master/KNN/KNN%20Classifier.ipynb)
 
 
 ## 5. Decision Tree
