@@ -252,8 +252,8 @@ See 3.1.
 $Proof:$
 
 $$\begin{align*}
-    & Based\ on\ KKT\ condition\ No.\ 4:\\\\
-    & \alpha_i(1-y_i(w^Tx_i+b))=0\\\\
+ &Based\ on\ KKT\ condition\ No.\ 4:\\\\
+&\alpha_i(1-y_i(w^Tx_i+b))=0\\\\
 \end{align*}
 $$
 
@@ -277,6 +277,8 @@ $$
 
 $O.E.D$    
     
+    
+    
 ## Soft Margin:
 
    * We allow some noise, so that we can increase the robustness of our system. 
@@ -285,35 +287,38 @@ $O.E.D$
    
    * And now the margin function changes to $y_i(w^Tx_i+b)\ge1-\xi_i,\ s.t.\ \xi\ge0$
 
+![](https://github.com/uttgeorge/Machine-Learning-Models/blob/master/SVM/media/svm_slack.png)
+<font size="2">(source: https://www.datasciencecentral.com/profiles/blogs/implementing-a-soft-margin-kernelized-support-vector-machine)</font>
+
+$y_i(w^Tx_i+b)\ge1-\xi_i$
+
 Suppose we have two classes X and O, for class X:
 
-   1. When X is correctly classified, means X locates outside the margin, then $\xi=0$
-   2. When X is incorrecly classified and locates on the right side of $y_i(w^Tx_i+b)\ge0$,then $0<\xi\le0$ 
-   3. When X is on the other side of margin, which means $y_i(w^Tx_i+b)\le0$, then $\xi>1$
+   1. When X is correctly classified (on the right side), means X locates on or outside the margin, then $\xi=0$
+   2. When X is incorrectly classified and locates on the side of $y_i(w^Tx_i+b)\ge0$,then $0<\xi\le0$ 
+   3. When X is incorrectly classified and locates on the side of  $y_i(w^Tx_i+b)\le0$, then $\xi>1$
    
-Based on these 3 conditions, we get the new target funtion:
+Based on these 3 conditions, we get the new target function:
 
 $$
-min_{w,b,\xi }:\frac{1}{2}\left \| w \right \|^{2}+C\sum_{i=1}^{N}\xi_i\\\\
+\min_{w,b,\xi }:\frac{1}{2}\left \| w \right \|^{2}+\underset{loss}{\underbrace{C\sum_{i=1}^{N}\xi_i}}\\\\
 s.t. \Big\lbrace\begin{matrix}y_i(w^Tx_i + b)\ge 1-\xi_i
 \\\\ \xi_i\ge0\\
 \end{matrix}\
 \\
 $$
 
-The loss function here called **Hinge Loss**, basically it uses distance to measure **loss**: $\xi$ represents the distance from a point to its corresponding margin $w^Tx+b=1$ when it is miss-classified.
+The loss function here is called **Hinge Loss**, basically it uses distance to measure **loss**: $\xi$ represents the distance from a point to its corresponding margin $w^Tx+b=1$ when it is miss-classified.
 
    1. If $w^Tx+b\ge1$, $\xi_i=0$, No loss, correct.
    2. If $w^Tx+b<1$, $\xi_i=1-y_i(w^Tx+b)$
    
 So now we have:
 $$
-\xi_i =max\lbrace 0,1-y_i(w^Tx_i + b) \rbrace
+\xi_i =\max\lbrace 0,1-y_i(w^Tx_i + b) \rbrace
 $$
    
 Base on lagrange duality and KKT conditions, now we get the new target:
-
-
 
 $$
 min: \sum_{i=1}^{N}\alpha_i - \frac{1}{2}\sum_{i=1}^{N}\sum_{j=1}^{N}\alpha_i\alpha_jy_iy_jX_i^TX_j\\\\
