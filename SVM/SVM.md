@@ -55,18 +55,17 @@ s.t.\ &\alpha_i\ge 0
 \end{align*}
 $$
 
+**If** $x^{\star}$ **is the solution of the primal problem, and** $\alpha^{\star}$, $\beta^{\star}$ **are the solutions of the dual problem, then** 
 
-**If** $x^{*}$ **is the solution of the primal problem, and** $\alpha^*$, $\beta^*$ **are the solutions of the dual problem, then** 
-
-$$f(x^*)\ge\theta(\alpha^*,\beta^*)$$
+$$f(x^{\star})\ge\theta(\alpha^{\star},\beta^{\star})$$
 
 $Proof:$
 
 $$\begin{align*}
-\theta(\alpha^*,\beta^*)&=\underset{x\in \mathbb{R}^p}{inf} \big\lbrace L(x,\alpha,\beta) \big\rbrace\\\\
+\theta(\alpha^{\star},\beta^{\star})&=\underset{x\in \mathbb{R}^p}{inf} \big\lbrace L(x,\alpha,\beta) \big\rbrace\\\\
 &\le L(x,\alpha,\beta)\\\\
-&= f(x^*)+\sum_{i=1}^{k}\alpha_i^*g_i(x^*)+\sum_{j=1}^{l}\beta_j^*h_j(x^*),\ s.t.\ \alpha^*\ge 0,\ g_i(x)\le 0, h_j(x)=0\\\\
-&le f(x^*)
+&= f(x^{\star})+\sum_{i=1}^{k}\alpha_i^*g_i(x^{\star})+\sum_{j=1}^{l}\beta_j^{\star}h_j(x^{\star}),\ s.t.\ \alpha^{\star}\ge 0,\ g_i(x)\le 0, h_j(x)=0\\\\
+&le f(x^{\star})
 \end{align*}
 $$
 
@@ -77,7 +76,7 @@ This is so called: **Weak Duality.**
 ## KKT
 
 #### 1. Definition 
-$$G=f(x^*)-\theta(\alpha^*,\beta^*)\ge 0$$
+$$G=f(x^{\star})-\theta(\alpha^{\star},\beta^{\star})\ge 0$$
 where G is the <font color="red">**Duality Gap**</font> between primal problem and dual problem.
 Under some condition, G=0. And this is called **strong duality.**
 
@@ -86,7 +85,7 @@ If $f(x)$ is a convex function, and $g(x)=A^Tx+b,\ h(x)=C^Tx+d$,
 then the duality gap between primal and dual problem for this optimization problem is 0.
 In other word:
 $$
-f(x^*)= \theta(\alpha^*,\beta^*)
+f(x^{\star})= \theta(\alpha^{\star},\beta^{\star})
 $$
 
 #### 3. KKT Condition (Karush-Kuhn-Tucker)
@@ -102,7 +101,7 @@ $$
 3. $\alpha_i \cdot g_i(x) =0,i=1,2,...,k$
 
 $$
-in\ order\ to\ let:\ f(x^*)+\sum \alpha_ig_i(x)+0=f(x^*)\\\\
+in\ order\ to\ let:\ f(x^{\star})+\sum \alpha_ig_i(x)+0=f(x^{\star})\\\\
 \because \alpha_i \ge 0\ and\ g_i(x) \le 0\\\\
 \therefore \alpha_i g_i(x)=0
 $$
