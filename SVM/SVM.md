@@ -264,13 +264,8 @@ $$\begin{align*}
     \Rightarrow\ & w^Tx_i+b=y_i\\\\
     \Rightarrow\ & b = y_i-w^Tx_i,\ now\ we\ change\ the \ denote\ of\ x_i\ to\ x_k, y_i\ to\ y_k\\\\
     \Rightarrow\ & b^{\star}=y_k-w^Tx_k,\ replace\ w\ with\ its\ optimal\ solution\\\\\
-    \Rightarrow\ & b^{\star}=y_k-\sum_{i=1}^{N}\alpha_iy_ix_i^Tx_k
-\end{align*}
-$$
-
-
-$$\begin{align*}
-    2,\ &When\ \alpha_i=0\\\\
+    \Rightarrow\ & b^{\star}=y_k-\sum_{i=1}^{N}\alpha_iy_ix_i^Tx_k\\\\
+    2,\ &When\ \alpha_i=0:\\\\
     & y_i(w^Tx_i+b)\ge 0
 \end{align*}
 $$
@@ -288,6 +283,7 @@ $O.E.D$
    * And now the margin function changes to $y_i(w^Tx_i+b)\ge1-\xi_i,\ s.t.\ \xi\ge0$
 
 ![](https://github.com/uttgeorge/Machine-Learning-Models/blob/master/SVM/media/svm_slack.png)
+
 <font size="2">(source: https://www.datasciencecentral.com/profiles/blogs/implementing-a-soft-margin-kernelized-support-vector-machine)</font>
 
 $y_i(w^Tx_i+b)\ge1-\xi_i$
@@ -336,12 +332,12 @@ $$
 \underset{\alpha,\beta}{\max} \underset{w,b,\xi}{\min}L(w,b,\xi,\alpha,\beta)
 $$
 
-#### KKT Condition Check
+#### 2. KKT Condition Check
 
-**1. Gradient equals 0**
+###### **1. Gradient equals 0**
 
 $$
-L(w,b,\xi,\alpha,\beta)=\frac{1}{2}\left \| w \right \|^{2}+C\sum_{i=1}^{N}\xi_i-\sum_{i=1}^{N}\alpha_i\xi_i-\sum_{i=1}^{N}\beta_i\big[y_i(w^Tx_i+b)+\xi_i-1\big]
+\underset{w,b,\xi}{\min} L(w,b,\xi,\alpha,\beta)=\frac{1}{2}\left \| w \right \|^{2}+C\sum_{i=1}^{N}\xi_i-\sum_{i=1}^{N}\alpha_i\xi_i-\sum_{i=1}^{N}\beta_i\big[y_i(w^Tx_i+b)+\xi_i-1\big]
 $$
 
 $$\begin{align*}
@@ -358,22 +354,28 @@ $$\begin{align*}
 &s.t.\ 0\le\beta\le C,\ \sum_{i=1}^{N}\beta_iy_i=0\\\\
 =&-\frac{1}{2}\sum_{i=1}^{N}\sum_{j=1}^{N}\beta_i\beta_jy_iy_jx_i^Tx_j+\sum_{i=1}^{N}\beta_i\\\\
 \\\\
-\Rightarrow\ &\max \Big[ -\frac{1}{2}\sum_{i=1}^{N}\sum_{j=1}^{N}\beta_i\beta_jy_iy_jx_i^Tx_j+\sum_{i=1}^{N}\beta_i\Big]\\\\
-\Rightarrow\ &\min \Big[\frac{1}{2}\sum_{i=1}^{N}\sum_{j=1}^{N}\beta_i\beta_jy_iy_jx_i^Tx_j-\sum_{i=1}^{N}\beta_i\Big]\\\\
+\Rightarrow\ &\underset{\beta}{\max} \Big[ -\frac{1}{2}\sum_{i=1}^{N}\sum_{j=1}^{N}\beta_i\beta_jy_iy_jx_i^Tx_j+\sum_{i=1}^{N}\beta_i\Big]\\\\
+\Rightarrow\ &\underset{\beta}{\min} \Big[\frac{1}{2}\sum_{i=1}^{N}\sum_{j=1}^{N}\beta_i\beta_jy_iy_jx_i^Tx_j-\sum_{i=1}^{N}\beta_i\Big]\\\\
 & s.t.\ 0\le \beta_i \le C,\ \sum_{i=1}^{N}\beta_iy_i=0 
 \end{align*}
 $$
 
-**2. Complementary Slackness:** $\alpha_i^{\star}g_i(x)=0$
+###### **2. Feasible region:**
 
 **Remember 3 constraints:**
 * $\xi_i\ge 0$
 * $0\le \beta_i \le C$
 * $\sum\beta_iy_i=0$
 
-a. $\alpha_i\xi_i=0 \Rightarrow\ (C-\beta_i)\xi_i=0$
+###### **3. Complementary Slackness:** 
 
-b. $\beta_i[y_i(w^Tx_i+b)+\xi_i-1]=0$
+$\alpha_i^{\star}g_i(x)=0$ has 2 terms:
+
+a.  $\alpha_i\xi_i=0 \Rightarrow\ (C-\beta_i)\xi_i=0$
+
+b.  $\beta_i[y_i(w^Tx_i+b)+\xi_i-1]=0$
+
+
 
 * Case 1.
 
@@ -381,31 +383,96 @@ b. $\beta_i[y_i(w^Tx_i+b)+\xi_i-1]=0$
     $$
     y_i(w^Tx_i+b)+\xi_i-1=0\\\\
     w^Tx_i+b=y_i-y_i\xi_i\\\\
-    b^{\star}=
+    b^{\star}=y_i-y_i\xi_i-w^{\star T}x_i
     $$
 
-   
-   
+* Case 2.
 
-Base on lagrange duality and KKT conditions, now we get the new target:
+    When $\beta_i=0$, 
+    $$\begin{align*}
+    &y_i(w^Tx_i+b)+\xi_i-1\neq 0\ holds\\\\
+    because\ &(C-\beta_i)\xi_i=0, \ therefore\  \xi_i = 0\\\\
+    because\ &w^{\star}=\sum_{i=1}^{N}\beta_ix_iy_i, \ therefore\ w^{\star} = 0\\\\
+    & b\ has\ infinite\ solutions\\\\
+    \end{align*}
+    $$
+    
+**Based on Case 1 and Case 2:**
+
+When $0<\beta_i<C$,
 
 $$
-min: \sum_{i=1}^{N}\alpha_i - \frac{1}{2}\sum_{i=1}^{N}\sum_{j=1}^{N}\alpha_i\alpha_jy_iy_jX_i^TX_j\\\\
+C-\beta_i>0 \Rightarrow\ \xi_i =0\\\\
+b^{\star}=y_i-w^{\star T}x_i
+$$
+
+When $\beta_i=C$,
+
+$$
+C-\beta_i=0 \Rightarrow\ \xi_i\ge 0\\\\
+b\ has\ infinite\ solutions\\\\
+$$
+
+###### **4. $\beta$ ranges:**
+
+The range of $beta_i$ should be $0<\beta_i<C$
+
+$$\begin{align*}
+b^{\star}=y_i-w^{\star T}x_i,\ s.t.\ 0<\beta_i<C
+\end{align*}
+$$
+
+where:
+
+$$   
+w^{\star}=\sum_{i=1}^{N}x_iy_i\beta_i\\\\
+b^{\star}=y_i-w^{\star T}x_i\\\\
+s.t.\ 0<\beta<C
+$$
+
+**In conclusion, we can only choose support vectors/points where $0<\beta_i<C$**.
+
+#### 3. Conclusion
+
+Base on Lagrange duality and KKT conditions, now we get the new target:
+
+$$
+\underset{\beta}{\min}: \frac{1}{2}\sum_{i=1}^{N}\sum_{j=1}^{N}\beta_i\beta_jy_iy_jX_i^TX_j-\sum_{i=1}^{N}\beta_i \\\\
 s.t.  \Big\lbrace\begin{matrix}
-0< \alpha_i<C\\\\
-\sum_{i=1}^{N}\alpha_iy_i=0
+0< \beta_i<C\\\\
+\sum_{i=1}^{N}\beta_iy_i=0
 \end{matrix}\
 \\
 $$
 
 Optimal Solutions:
 
-$W^* = \sum_{i=1}^{N}x_iy_i\alpha_i$
+$W^{\star} = \sum_{i=1}^{N}x_iy_i\beta_i$
 
-$b^* = y_i-w^Tx_i$
+$b^{\star} = y_i-w^{\star T}x_i$
 
 
-#### SMO: Sequential Minimal Optimization
+## SMO: Sequential Minimal Optimization
+
+#### 1. A problem arises.
+
+From solving duality problem, we get:
+
+$$
+\underset{\beta}{\min}: \frac{1}{2}\sum_{i=1}^{N}\sum_{j=1}^{N}\beta_i\beta_jy_iy_jX_i^TX_j-\sum_{i=1}^{N}\beta_i \\\\
+s.t.  \Big\lbrace\begin{matrix}
+0< \beta_i<C\\\\
+\sum_{i=1}^{N}\beta_iy_i=0
+\end{matrix}\
+\\
+$$
+
+there are N $\beta_i$. We need to find the best set of solutions.
+
+#### 2. Key concepts
+
+We can choose using **gradient descent** to find the best $\beta$。 But due to the constraint that $\sum\beta_iy_i=0$，we have to update 2 gradient ($\beta_1,\ \beta_2$) simultaneously instead of updating only one.
+
 
 Basic idea: SGD and paired $\alpha$
 
