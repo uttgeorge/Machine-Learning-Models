@@ -1,6 +1,5 @@
 # SVM
 
-**Please check the .ipynb files instead of readme files**
 
 ## Duality
 
