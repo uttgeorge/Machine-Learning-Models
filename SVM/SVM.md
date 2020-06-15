@@ -205,7 +205,7 @@ $$
 
 
 
-###### 3.1 Solve $\underset{w,b}{\min}L(w,b,\alpha)$
+#### 3.1 Solve $\underset{w,b}{\min}L(w,b,\alpha)$
 
 $$
 \underset{w,b}{\min}L(w,b,\alpha) = \underset{w,b}{\min}  \frac{1}{2} \left\|w\right\|^2+\sum_{i=1}^{N}\alpha_i (1-y_i(w^Tx_i+b))
@@ -226,7 +226,7 @@ $$\begin{align*}
 \end{align*}
 $$
 
-###### 3.2 Solve $\underset{\alpha}{\max}\left[\underset{w,b}{\min}L(w,b,\alpha)\right]$
+#### 3.2 Solve $\underset{\alpha}{\max}\left[\underset{w,b}{\min}L(w,b,\alpha)\right]$
 
 $$\begin{align*}
 &\underset{\alpha}{\max}\sum_{i=1}^{N}\alpha_i-\frac{1}{2}(\sum_{i=1}^{N}\alpha_ix_iy_i)^T(\sum_{j=1}^{N}\alpha_jx_jy_j),\ \ \ \ \ s.t.\ \alpha_i\ge0;\ \sum_{i=1}^{N}\alpha_iy_i=0\\\\
@@ -239,7 +239,7 @@ $x_i^Tx_j$, this dot product allows us to use kernel function to solve higher di
  
  And under KKT condition, primal and dual problem have strong duality, so that $\underset{\alpha}{\min}\frac{1}{2}\sum_{i=1}^{N}\sum_{j=1}^{N}\alpha_i\alpha_jy_iy_jx_i^Tx_j-\sum_{i=1}^{N}\alpha_i=\frac{1}{2}\left\|w^{\star}\right\|^2$, where $w^{\star}$ is the optimal solution for $w$.
     
-###### 3.3 Find $w^{\star}$ and $b^{\star}$
+#### 3.3 Find $w^{\star}$ and $b^{\star}$
 
 *  $w^{\star}=\sum_{i=1}^{N}\alpha_ix_iy_i$
 
@@ -333,7 +333,7 @@ $$
 
 #### 2. KKT Condition Check
 
-###### **1. Gradient equals 0**
+#### **2.1. Gradient equals 0**
 
 $$
 \underset{w,b,\xi}{\min} L(w,b,\xi,\alpha,\beta)=\frac{1}{2}\left \| w \right \|^{2}+C\sum_{i=1}^{N}\xi_i-\sum_{i=1}^{N}\alpha_i\xi_i-\sum_{i=1}^{N}\beta_i\big[y_i(w^Tx_i+b)+\xi_i-1\big]
@@ -359,14 +359,14 @@ $$\begin{align*}
 \end{align*}
 $$
 
-###### **2. Feasible region:**
+#### **2.2. Feasible region:**
 
 **Remember 3 constraints:**
 * $\xi_i\ge 0$
 * $0\le \beta_i \le C$
 * $\sum\beta_iy_i=0$
 
-###### **3. Complementary Slackness:** 
+#### **2.3. Complementary Slackness:** 
 
 $\alpha_i^{\star}g_i(x)=0$ has 2 terms:
 
@@ -412,7 +412,7 @@ C-\beta_i=0 \Rightarrow\ \xi_i\ge 0\\\\
 b\ has\ infinite\ solutions\\\\
 $$
 
-###### **4. $\beta$ ranges:**
+#### **2.4. $\beta$ ranges:**
 
 The range of $beta_i$ should be $0<\beta_i<C$
 
