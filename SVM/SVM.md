@@ -102,8 +102,8 @@ $$
 
 $$
 in\ order\ to\ let:\ f(x^{\star})+\sum \alpha_ig_i(x)+0=f(x^{\star})\\\\
-\because \alpha_i \ge 0\ and\ g_i(x) \le 0\\\\
-\therefore \alpha_i g_i(x)=0
+because\ \alpha_i \ge 0\ and\ g_i(x) \le 0\\\\
+therefore\ \alpha_i g_i(x)=0
 $$
 
 <font color="red">**KKT condition if sufficient and necessary for strong duality!**</font>
@@ -436,7 +436,7 @@ $$
 Base on Lagrange duality and KKT conditions, now we get the new target:
 
 $$
-\underset{\beta}{\min}: \frac{1}{2}\sum_{i=1}^{N}\sum_{j=1}^{N}\beta_i\beta_jy_iy_jX_i^TX_j-\sum_{i=1}^{N}\beta_i \\\\
+\underset{\beta}{\min}: \frac{1}{2}\sum_{i=1}^{N}\sum_{j=1}^{N}\beta_i\beta_jy_iy_jx_i^Tx_j-\sum_{i=1}^{N}\beta_i \\\\
 s.t.  \Big\lbrace\begin{matrix}
 0< \beta_i<C\\\\
 \sum_{i=1}^{N}\beta_iy_i=0
@@ -470,14 +470,23 @@ there are N $\beta_i$. We need to find the best set of solutions.
 
 #### 2. Key concepts
 
-We can choose using **gradient descent** to find the best $\beta$。 But due to the constraint that $\sum\beta_iy_i=0$，we have to update 2 gradient ($\beta_1,\ \beta_2$) simultaneously instead of updating only one.
+We can choose using **gradient descent** to find the best $\beta$。 But due to the constraint that $\sum\beta_iy_i=0$，we have to update paired gradients ($\beta_1,\ \beta_2$) simultaneously instead of updating only one.
 
+#### 3. Algorithm
 
-Basic idea: SGD and paired $\alpha$
+Set:
 
-Each time, we only update tow $\alpha$s, the rest of them were treated as constant **Const**.
+$$
+W = \underset{\beta}{\min} \frac{1}{2}\sum_{i=1}^{N}\sum_{j=1}^{N}\beta_i\beta_jy_iy_jX_i^TX_j-\sum_{i=1}^{N}\beta_i
+$$
 
-Now set:
+Every time, we only update tow $\beta$s, the rest of them were treated as constant **Const**.
+
+Now set: $K_{ij} = x_i^Tx_j$
+
+$$
+W(\beta_1,\beta_2) = \underset{\beta1,\beta_2}{\min} \frac{1}{2}\sum_{i=1}^{N}\sum_{j=1}^{N}\beta_i\beta_jy_iy_jX_i^TX_j-\sum_{i=1}^{N}\beta_i
+$$
 
 1. $K_{ij} = X_i^TX_j$
 2. $f(x_k)=\sum_{i=1}^{N}\alpha_iy_iX_i^Tx_k+b$
