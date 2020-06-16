@@ -119,7 +119,7 @@ Suppose our data are Linearly Separable, the discriminant function is:
 ![](https://github.com/uttgeorge/Machine-Learning-Models/blob/master/SVM/media/1_06GSco3ItM3gwW2scY6Tmg.png)
 <font size="2">(Source: https://towardsdatascience.com/svm-feature-selection-and-kernels-840781cc1a6c)</font>
 
-The distance from a point $(x_i,y_i)$ to a hyperplane $w^T+b$ is:
+The distance from a point $(x_i,y_i)$ to a hyperplane $w^Tx+b$ is:
 $$
 d = \frac{\left |w^Tx_i+b\right |}{\left \|w\right\|}\\\\
 margin = 2d
