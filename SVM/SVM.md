@@ -559,7 +559,7 @@ So that we can replace $c$ with $\beta_1^{old}y_1+\beta_2^{old}y_2$,
 
 $$\begin{align*}
 \beta_2^{new} = &\frac{y_2(y_2-y_1+cK_{11}-cK_{12}+f(x_1)-\beta_1^{old}y_1K_{11}-\beta_2^{old}y_2K_{12}-f(x_2)+\beta_1^{old}y_1K_{12}+\beta_2^{old}y_2K_{22})}{K_{11}+K_{22}-2K_{12}}\\\\
-=&\frac{y_2(y_2-y_1+\beta_1^{old}y_1K_{11}+\beta_2^{old}y_2K_{11}-\beta_1^{old}y_1K_{12}-\beta_2^{old}y_2K_{12}+f(x_1)-\beta_1^{old}y_1K_{11}-\beta_2^{old}y_2K_{12}-f(x_2)+\beta_1^{old}y_1K_{12}+\beta_2^{old}y_2K_{22})}{K_{11}+K_{22}-2K_{12}}\\\\
+=&\frac{y_2(y_2-y_1+\beta_1^{old}y_1K_{11}+\beta_2^{old}y_2K_{11}-\beta_1^{old}y_1K_{12}-\beta_2^{old}y_2K_{12}+f(x_1)\\\\-\beta_1^{old}y_1K_{11}-\beta_2^{old}y_2K_{12}-f(x_2)+\beta_1^{old}y_1K_{12}+\beta_2^{old}y_2K_{22})}{K_{11}+K_{22}-2K_{12}}\\\\
 =&\frac{y_2\big[f(x_1)-y_1-(f(x_2)-y_2)+\beta_2^{old}y_2(K_{11}+K{22}-2K_{12})) \big]}{K_{11}+K_{22}-2K_{12}}
 \end{align*}
 $$
