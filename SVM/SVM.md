@@ -476,7 +476,7 @@ We can choose using **gradient descent** to find the best $\beta$。 But due to 
 
 #### 3. Algorithm
 
-Set:
+Let:
 
 $$
 W = \underset{\beta}{\min} \frac{1}{2}\sum_{i=1}^{N}\sum_{j=1}^{N}\beta_i\beta_jy_iy_jX_i^TX_j-\sum_{i=1}^{N}\beta_i
@@ -488,9 +488,32 @@ Now set: $K_{ij} = x_i^Tx_j$
 
 $$\begin{align*}
 W(\beta_1,\beta_2) =  \underset{\beta1,\beta_2}{\min}\ & \frac{1}{2}\beta_1^2K_{11}+\frac{1}{2}\beta_2^2K_{22}+\beta_1\beta_2K_{11}\\\\ & +\beta_1y_1\sum_{j=3}^{N}\beta_jy_jK_{1j}+\beta_2y_2\sum_{j=3}^{N}\beta_jy_jK_{2j}-\beta_1-\beta_2-\sum_{i=3}^{N}\beta_i\\\\
+s.t.\ &\beta_1y_1+\beta_2y_2=\sum_{i=1}^{N}\beta_iy_i - \sum_{i=3}^{N}\beta_iy_i=0-\sum_{i=3}^{N}\beta_iy_i = c\ (A\ constant)\\\\
+& \beta_1,\beta_2\ge0\\\\\\
+&Because\ y\in\lbrace+1,-1\rbrace,\ \beta_1y_1
++\beta_2y_2=c\\\\
+& Therefore\ \beta_1=y_1(c-\beta_2y_2)\\\\
+\Rightarrow  W(\beta_2)=\underset{\beta_2}{\min}\ & \frac{1}{2}y_1^2(c-y_2\beta_2)^2K_{11}+\frac{1}{2}\beta_2^2K_{22}\\\\
+&+y_1(c-\beta_2y_2)\beta_2y_1y_2K_{12}\\\\
+&+y_1^2(c-\beta_2y_2)\sum_{j=3}^{N}\beta_jy_jK_{1j}\\\\
+&+\beta_2y_2\sum_{j=3}^{N}\beta_jy_jK_{2j}\\\\
+&-y_1(c-\beta_2y_2)\\\\
+&-\beta_2\\\\
+&-\sum_{i=3}^{N}\beta_i
 \end{align*}
 $$
 
+**The derivative of $\beta_2$:**
+
+$$\begin{align*}
+&\frac{\partial W(\beta_2)}{\partial \beta_2}\\\\
+=&-y_2(c-y_2\beta_2)K_{11}+\beta_2K_{22}+cy_2K_{12}-2\beta_2K_{12}-y_2\sum_{j=3}^{N}\beta_jy_jK_{1j}\\\\
+&+y_2\sum_{j=3}^{N}\beta_jy_jK_{2j}+y_1y_2-y_2^2\\\\
+=&0
+\end{align*}
+$$
+
+----
 1. $K_{ij} = X_i^TX_j$
 2. $f(x_k)=\sum_{i=1}^{N}\alpha_iy_iX_i^Tx_k+b$
 3. Error: $E_i = f(x_i)-y_i$
