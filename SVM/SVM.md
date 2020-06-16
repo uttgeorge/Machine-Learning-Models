@@ -114,7 +114,7 @@ $$
 SVM deals with Binary Classification problems. 
 Suppose our data are Linearly Separable, the discriminant function is:
 
-                                f(x)=sign (w^T+b)
+                                f(x)=sign (w^Tx+b)
 ```
 ![](https://github.com/uttgeorge/Machine-Learning-Models/blob/master/SVM/media/1_06GSco3ItM3gwW2scY6Tmg.png)
 <font size="2">(Source: https://towardsdatascience.com/svm-feature-selection-and-kernels-840781cc1a6c)</font>
