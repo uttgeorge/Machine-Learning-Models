@@ -121,7 +121,7 @@ Suppose our data are Linearly Separable, the discriminant function is:
 
 The distance from a point $(x_i,y_i)$ to a hyperplane $w^Tx+b$ is:
 $$
-d = \frac{\left |w^Tx_i+b\right |}{\left ||w\right||}\\\\
+d = \frac{\left |w^Tx_i+b\right |}{||w||}\\\\
 margin = 2d
 $$
 
