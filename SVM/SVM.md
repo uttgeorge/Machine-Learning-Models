@@ -484,8 +484,9 @@ Every time, we only update tow $\beta$s, the rest of them were treated as consta
 
 Now set: $K_{ij} = x_i^Tx_j$
 
-$$
-W(\beta_1,\beta_2) = \underset{\beta1,\beta_2}{\min} \frac{1}{2}\sum_{i=1}^{N}\sum_{j=1}^{N}\beta_i\beta_jy_iy_jX_i^TX_j-\sum_{i=1}^{N}\beta_i
+$$\begin{align*}
+W(\beta_1,\beta_2) =  \underset{\beta1,\beta_2}{\min}\ & \frac{1}{2}\beta_1^2K_{11}+\frac{1}{2}\beta_2^2K_{22}+\beta_1\beta_2K_{11}\\\\ & +\beta_1y_1\sum_{j=3}^{N}\beta_jy_jK_{1j}+\beta_2y_2\sum_{j=3}^{N}\beta_jy_jK_{2j}-\beta_1-\beta_2-\sum_{i=3}^{N}\beta_i\\\\
+\end{align*}
 $$
 
 1. $K_{ij} = X_i^TX_j$
