@@ -172,9 +172,9 @@ $$
 $$\begin{align*}
 &\underset{w,b}{\max} \underset{x_i}{\min} \frac{1}{||w||}\left|w^Tx_i+b\right|,\ s.t.\ y_i(w^Tx_i+b)>0\\\\
 \Rightarrow &\underset{w,b}{\max} \frac{1}{||w||} \underset{x_i,y_i}{\min}y_i(w^Tx_i+b),\ s.t.\ y_i(w^Tx_i+b)>0\\\\
-&Set\ \gamma=\underset{x_i,y_i}{\min} y_i(w^Tx_i+b),\ \exists\  \gamma >0\\\\\
+&Let\ \gamma=\underset{x_i,y_i}{\min} y_i(w^Tx_i+b),\ \exists\  \gamma >0\\\\\
 \Rightarrow &\underset{w,b}{\max} \frac{\gamma}{||w||},\ s.t.\ y_i(w^Tx_i+b)\ge \gamma\\\\
-&Set\ \gamma = 1\\\\
+&Let\ \gamma = 1\\\\
 \Rightarrow &\underset{w,b}{\max} \frac{1}{||w||},\ s.t.\ y_i(w^Tx_i+b)\ge 1
 \end{align*}
 $$
@@ -331,7 +331,7 @@ $$
 $$\begin{align*}
 &\min_{w,b,\xi }:\frac{1}{2}|| w ||^{2}+C\sum_{i=1}^{N}\xi_i,\ \ \ \ s.t.\ \xi_i\ge0,\ y_i(w^Tx_i+b)\ge1-\xi_i \\\\
 \Rightarrow\ & \underset{w,b,\xi}{\min} \underset{\alpha,\beta}{\max} L(w,b,\xi,\alpha,\beta)\\\\
-&=\frac{1}{2}\left \| w \right \|^{2}+C\sum_{i=1}^{N}\xi_i-\sum_{i=1}^{N}\alpha_i\xi_i-\sum_{i=1}^{N}\beta_i\big[y_i(w^Tx_i+b)+\xi_i-1\big]\\\\
+&=\frac{1}{2}||w||^{2}+C\sum_{i=1}^{N}\xi_i-\sum_{i=1}^{N}\alpha_i\xi_i-\sum_{i=1}^{N}\beta_i\big[y_i(w^Tx_i+b)+\xi_i-1\big]\\\\
 &s.t.\ \alpha\ge0,\ \beta \ge0,\ i=1,2,..,N
 \end{align*}
 $$
@@ -494,7 +494,7 @@ $$
 
 Every time, we only update tow $\beta$s, the rest of them were treated as constant **Const**.
 
-Now set: $K_{ij} = x_i^Tx_j$
+Now let: $K_{ij} = x_i^Tx_j$
 
 $$\begin{align*}
 W(\beta_1,\beta_2) =  \underset{\beta1,\beta_2}{\min}\ & \frac{1}{2}\beta_1^2K_{11}+\frac{1}{2}\beta_2^2K_{22}+\beta_1\beta_2K_{11}\\\\ & +\beta_1y_1\sum_{j=3}^{N}\beta_jy_jK_{1j}+\beta_2y_2\sum_{j=3}^{N}\beta_jy_jK_{2j}-\beta_1-\beta_2-\sum_{i=3}^{N}\beta_i\\\\
@@ -513,26 +513,114 @@ s.t.\ &\beta_1y_1+\beta_2y_2=\sum_{i=1}^{N}\beta_iy_i - \sum_{i=3}^{N}\beta_iy_i
 \end{align*}
 $$
 
-**The derivative of $\beta_2$:**
+* **The derivative of $\beta_2$:**
 
 $$\begin{align*}
 &\frac{\partial W(\beta_2)}{\partial \beta_2}\\\\
-=&-y_2(c-y_2\beta_2)K_{11}+\beta_2K_{22}+cy_2K_{12}-2\beta_2K_{12}-y_2\sum_{j=3}^{N}\beta_jy_jK_{1j}\\\\
-&+y_2\sum_{j=3}^{N}\beta_jy_jK_{2j}+y_1y_2-y_2^2\\\\
-=&0
+=\ &-y_2(c-y_2\beta_2)K_{11}+\beta_2K_{22}+cy_2K_{12}-2\beta_2K_{12}-y_2\sum_{j=3}^{N}\beta_jy_jK_{1j}\\\\
+\ &+y_2\sum_{j=3}^{N}\beta_jy_jK_{2j}+y_1y_2-y_2^2\\\\
+=\ &0\\\\
+\Rightarrow\ &\beta_2^{new}(K_{11}+K_{22}-2K_{12})\\\\
+&=y_2^2-y_1y_2+cy_2K_{11}-cy_2K_{12}+y_2\sum_{j=3}^{N}\beta_j^{old}y_jK_{1j}-y_2\sum_{j=3}^{N}\beta_j^{old}y_jK_{2j}\\\\
+&=y_2(y_2-y_1+cK_{11}-cK_{12}+\sum_{j=3}^{N}\beta_j^{old}y_jK_{1j}-\sum_{j=3}^{N}\beta_j^{old}y_jK_{2j})\\\\
+&= y_2(y_2-y_1+cK_{11}-cK_{12}+f(x_1)-\beta_1^{old}y_1K_{11}-\beta_2^{old}y_2K_{12}-f(x_2)+\beta_1^{old}y_1K_{12}+\beta_2^{old}y_2K_{22})\\\\
+\Rightarrow\ &\beta_2^{new} = \frac{y_2(y_2-y_1+cK_{11}-cK_{12}+f(x_1)-\beta_1^{old}y_1K_{11}-\beta_2^{old}y_2K_{12}-f(x_2)+\beta_1^{old}y_1K_{12}+\beta_2^{old}y_2K_{22})}{K_{11}+K_{22}-2K_{12}}
+\end{align*}
+$$
+
+**Note:** $K_{12} = K_{21}$
+
+-----
+
+Since $f(x)=w^Tx+b$ and $w^{\star}=\sum_{j=1}^{N}\beta_jx_jy_j$, so
+
+$$f(x_k)=\sum_{j=1}^{N}\beta_jy_jx_j^Tx_k+b$$,
+
+Therefore,
+
+$$
+f(x_1)=\beta_1y_1K_{11}+\beta_2y_2K_{12}+\sum_{j=3}^{N}\beta_jy_jK_{1j}+b\\\\
+f(x_2)=\beta_1y_1K_{21}+\beta_2y_2K_{22}+\sum_{j=3}^{N}\beta_jy_jK_{2j}+b
+$$
+
+
+
+-----
+
+Given that 
+
+$$\beta_1y_2+\beta_2y_2 = c,$$
+
+we have: 
+
+$$\beta_1^{new}y_1+\beta_2^{new}y_2=\beta_1^{old}y_1+\beta_2^{old}y_2=c,$$
+
+So that we can replace $c$ with $\beta_1^{old}y_1+\beta_2^{old}y_2$,
+
+$$\begin{align*}
+\beta_2^{new} = &\frac{y_2(y_2-y_1+cK_{11}-cK_{12}+f(x_1)-\beta_1^{old}y_1K_{11}-\beta_2^{old}y_2K_{12}-f(x_2)+\beta_1^{old}y_1K_{12}+\beta_2^{old}y_2K_{22})}{K_{11}+K_{22}-2K_{12}}\\\\
+=&\frac{y_2(y_2-y_1+\beta_1^{old}y_1K_{11}+\beta_2^{old}y_2K_{11}-\beta_1^{old}y_1K_{12}-\beta_2^{old}y_2K_{12}+f(x_1)-\beta_1^{old}y_1K_{11}-\beta_2^{old}y_2K_{12}-f(x_2)+\beta_1^{old}y_1K_{12}+\beta_2^{old}y_2K_{22})}{K_{11}+K_{22}-2K_{12}}\\\\
+=&\frac{y_2\big[f(x_1)-y_1-(f(x_2)-y_2)+\beta_2^{old}y_2(K_{11}+K{22}-2K_{12})) \big]}{K_{11}+K_{22}-2K_{12}}
 \end{align*}
 $$
 
 ----
-1. $K_{ij} = X_i^TX_j$
-2. $f(x_k)=\sum_{i=1}^{N}\alpha_iy_iX_i^Tx_k+b$
-3. Error: $E_i = f(x_i)-y_i$
-4. $\xi=K_{mm}+K_{nn}-2K_{mn}$
 
-Then we get:
+**OMG, almost there.**
+
+----
+
+Now we define Error term:
+
+$$
+Error:\ E_i = f(x_i)-y_i
+$$
+
+And set $\xi$ as:
+
+$$
+\xi = K_{11}+K_{22}-2K_{12}
+$$
+
+or more general: 
+
+$$\xi=K_{mm}+K_{nn}-2K_{mn}$$
+
+
+Then rewrite $\beta_2$ equation as:
+
+$$\begin{align*}
+\beta_2^{new} = \beta_2^{old}+\frac{y_2(E_1-E_2)}{\xi }
+\end{align*}
+$$
+
+And 
+
+$$\begin{align*}
+\beta_1^{new}=& y_1(c-\beta_2^{new}y_2)\\\\
+=&y_1(\beta_1^{old}y_1+\beta_2^{old}y_2-\beta_2^{new}y_2)\\\\
+=&\beta_1^{old}+y_1y_2(\beta_2^{old}-\beta_2^{new})
+\end{align*}
+$$
+
+#### When the decreasing rate of $W(\beta_k)$ is less than a threshold $T$, 
+
+$$\begin{align*}
+&\frac{W(\beta^{t})-W(\beta^{t+1})}{W(\beta^{t})}<T,\\\\
+&Stop.
+\end{align*}
+$$
+
+
+
+
+Whew
+----
+
 
 1. $\alpha_2^{new} = \alpha_2^{old} + y_2\frac{(E_1-E_2)}{\xi}$
 2. $\alpha_1^{new}=\alpha_1^{old}+y_1y_2(\alpha_2^{old}-\alpha_2^{new})$
+
 
 
 
