@@ -1,5 +1,15 @@
 # SVM
 
+**Mind map:**
+
+If we have the data that are linear separable, we could find a line or hyperplane on high dimension space to separate them into two classes, then find the widest road that separate these data based on the hyperplane we found. The widest road allows us to be more confident to separate new data point.
+
+Because it is extremely hard to solve, we utilize Lagrange Multiplier, Duality and KKT condition to find the best solution. But because of Lagrange Multiplier introduced some unknown variable (we can call it $\alpha$ now), we cannot get the best solution for hyperplane immediately. We can use gradient descent to find the best $\alpha$ iteratively, then find the best $w$ and $b$ for the optimal hyperplane. But, there are some constraint that requires sum of $\alpha_iy_i$ equals to 0, so we have to update paired $\alpha$ simultaneously instead of only updating 1 $\alpha$. With the help of SMO algorithm, we can finally find the best solution.
+
+Besides that, because linear separable data sometimes mix with noises, we introduce a slackness variable to measure the cost of noises. This method is called soft margin.
+
+Further more, linear separable assumption is over optimistic, in most case, data are not linear separable. To solve this problem, and thanks to utilizing duality, we can convert our features $x$ into higher dimension. And data are always linear separable on higher dimension. But, it is extremely costly to map data into higher dimension, we can use different kernel functions to solve this problem.  
+
 
 ## Duality
 
@@ -12,7 +22,7 @@ s.t.\ &g_i(x)\le0,i=1,2,...,k\\\\
 \end{align*}
 $$
 
-Introduce **Generalized Lagrange Function(Find extrema under contraints):**
+Introduce **Generalized Lagrange Multiplier(Find extrema under contraints):**
 
 $$\begin{align*}
 L(x,\alpha,\beta)&=f(x)+\sum_{i=1}^{k}\alpha_ig_i(x)+\sum_{j=1}^{l}\beta_jh_j(x)\\\\
