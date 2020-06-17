@@ -19,7 +19,7 @@ $$
 
 So that, likelihood $P(X|\theta) = \prod_{i=1}^{N}P(x_i|\theta)$ 
 
-## 3. How it works?
+## 3. How it works? Multinomial Naive Bayes.
 
 Now, we have
 
@@ -105,6 +105,26 @@ $$
 where $|V|$ is the number of different categories in $x_i$, and $\alpha$ is a smoothing parameter and $\alpha>0$.
 
 When $\alpha=0$, there is no smoothing. And normally we set $\alpha=1$
+
+## 5. Underflow
+
+Since probabilities are always between 0 and 1, the product of many probabilities may ends up to 0. This is called **underflow**. In order to solve this problem, we simply calculate the sum of log of probabilities instead of product of probabilities.
+
+$$\begin{align*}
+&\prod_{i=1}^{N}P(x_i|\theta)\\\\
+\Rightarrow &\sum_{i=1}^{N}\log P(x_i|\theta)
+\end{align*}
+$$
+
+## 6. Gaussian Naive Bayes/ Bernoulli Naive Bayes
+
+* **Gaussian Naive Bayes:**
+
+    Gaussian NB deals with numerical values, instead of counting each feature and class, GNB find the mean and variance to calculate likelihood.
+
+* **Bernoulli Naive Bayes:**
+
+    Similar to Multinomial NB, but only process binary values.
 
 ## Pro & Con
 
