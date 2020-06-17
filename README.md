@@ -65,15 +65,23 @@ Email: [jin.qi1@northeastern.edu](jin.qi1@northeastern.edu)
 * [Bagging](https://github.com/uttgeorge/Machine-Learning-Models/blob/master/Bagging%20Algorithms/Ensemble%20Method%20-%20Bagging.md)
 
 ### 8.1 Random Forest
-#### Introductions:
+#### Introductions
 
 * [Random Forest](https://github.com/uttgeorge/Machine-Learning-Models/blob/master/Bagging%20Algorithms/Random%20Forest/Random%20Forest.md)
 
 #### Coding
 
-### 9. Ensemble Method - Boosting
+## 9. Ensemble Method - Boosting
 
-* []()
+* [Boosting](https://github.com/uttgeorge/Machine-Learning-Models/blob/master/Boosting%20Algorithms/Boosting.md)
+
+### 9.1 Adaboost
+
+#### Introductions
+
+* [Adaboost]()
+
+#### Coding
 
 
 ## 10. SVM
