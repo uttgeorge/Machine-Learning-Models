@@ -71,9 +71,12 @@ Email: [jin.qi1@northeastern.edu](jin.qi1@northeastern.edu)
 
 #### Coding
 
+### 9. Ensemble Method - Boosting
+
+* []()
 
 
-## 9. SVM
+## 10. SVM
 #### Introductions
 
 * [SVM: Duality, KKT, Hard Margin, Soft Margin, SMO](https://github.com/uttgeorge/Machine-Learning-Models/blob/master/SVM/SVM.md)
