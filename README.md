@@ -2,7 +2,7 @@
 
 This is the combination of some algorithms and codes from scratch.
 
-Email: [jin.qi1@northeastern.edu](jin.qi1@northeastern.edu)
+Email: <jin.qi1@northeastern.edu>
 ## 1. Math
 1. [Bayesian Estimation, MLE, MAP](https://github.com/uttgeorge/Machine-Learning-Models/blob/master/Math/Bayesian%20Estimation%2C%20MLE%2C%20MAP.md)
 2. [Exponential Family Distribution](https://github.com/uttgeorge/Machine-Learning-Models/blob/master/Math/Exponential%20Family%20Distribution.md)
