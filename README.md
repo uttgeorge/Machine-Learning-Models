@@ -5,13 +5,13 @@ This is the combination of some algorithms and codes from scratch.
 Email: <jin.qi1@northeastern.edu>
 ## 1. Math
 >1. [Bayesian Estimation, MLE, MAP](https://github.com/uttgeorge/Machine-Learning-Models/blob/master/Math/Bayesian%20Estimation%2C%20MLE%2C%20MAP.md)
-2. [Exponential Family Distribution](https://github.com/uttgeorge/Machine-Learning-Models/blob/master/Math/Exponential%20Family%20Distribution.md)
-3. [Gradient Descent](https://github.com/uttgeorge/Machine-Learning-Models/blob/master/Math/Gradient%20Descent.md)
+>2. [Exponential Family Distribution](https://github.com/uttgeorge/Machine-Learning-Models/blob/master/Math/Exponential%20Family%20Distribution.md)
+>3. [Gradient Descent](https://github.com/uttgeorge/Machine-Learning-Models/blob/master/Math/Gradient%20Descent.md)
 
 ## 2. Evaluation Metrics
 >1. [Classification 中文](https://github.com/uttgeorge/Machine-Learning-Models/blob/master/Evaluation%20Metrics/Evaluation%20Metrics%20-%20Classification.md)
-2. [Regression](https://github.com/uttgeorge/Machine-Learning-Models/blob/master/Evaluation%20Metrics/Evaluation%20Metrics%20-%20Regression.md)
-3. 
+>2. [Regression](https://github.com/uttgeorge/Machine-Learning-Models/blob/master/Evaluation%20Metrics/Evaluation%20Metrics%20-%20Regression.md)
+>3. 
 
 
 ## 3. Perceptron
