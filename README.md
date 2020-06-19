@@ -33,18 +33,18 @@ Email: <jin.qi1@northeastern.edu>
   </tr>
   <tr>
     <td>4. KNN</td>
-    <td><a href="https://github.com/uttgeorge/Machine-Learning-Models/blob/master/KNN/KNN.md">KNN Intro</a></td>
+    <td><a href="https://github.com/uttgeorge/Machine-Learning-Models/blob/master/KNN/KNN.md">KNN</a></td>
     <td><a href="https://github.com/uttgeorge/Machine-Learning-Models/blob/master/KNN/KNN%20Classifier.ipynb">KNN Classifier: mnist handwriting recognition</a></td>
   </tr>
   <tr>
     <td>5. Decision Tree</td>
-    <td><a href="https://github.com/uttgeorge/Machine-Learning-Models/blob/master/Decision%20Tree/Decision%20Tree.md">Decision Tree Intro</a></td>
+    <td><a href="https://github.com/uttgeorge/Machine-Learning-Models/blob/master/Decision%20Tree/Decision%20Tree.md">Decision Tree: Feature Selection, Build Tree, Pruning</a></td>
     <td><a href="https://github.com/uttgeorge/Machine-Learning-Models/blob/master/Decision%20Tree/Decision%20Tree%20Classifier.ipynb">1. Decision Tree Classifier</a>
     <a href="https://github.com/uttgeorge/Machine-Learning-Models/blob/master/Decision%20Tree/Decision%20Tree%20Regressor.ipynb">2. Decision Tree Regressor</a></td>
   </tr>
   <tr>
     <td>6. Logistic Regression</td>
-    <td><a href="https://github.com/uttgeorge/Machine-Learning-Models/blob/master/Logistic%20Regression/Logistic%20Regression.md">Logistic Regression Intro</a></td>
+    <td><a href="https://github.com/uttgeorge/Machine-Learning-Models/blob/master/Logistic%20Regression/Logistic%20Regression.md">Logistic Regression</a></td>
     <td></td>
   </tr>
   <tr>
@@ -59,7 +59,7 @@ Email: <jin.qi1@northeastern.edu>
   </tr>
   <tr>
     <td><a href="https://github.com/uttgeorge/Machine-Learning-Models/blob/master/Boosting%20Algorithms/Boosting.md">9. Boosting</a></td>
-    <td><a href="https://github.com/uttgeorge/Machine-Learning-Models/blob/master/Boosting%20Algorithms/Adaboost/Adaboost%20-%20Classification.md">Adaboost Classifier Intro</a></td>
+    <td><a href="https://github.com/uttgeorge/Machine-Learning-Models/blob/master/Boosting%20Algorithms/Adaboost/Adaboost%20-%20Classification.md">Adaboost Classifier</a></td>
     <td><a href="https://github.com/uttgeorge/Machine-Learning-Models/blob/master/Boosting%20Algorithms/Adaboost/Adaboost_Classifier.ipynb">Adaboost Classifier Code</a></td>
   </tr>
   <tr>
