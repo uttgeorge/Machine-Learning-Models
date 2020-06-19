@@ -264,100 +264,24 @@ $$\begin{align*}&G(x)=sign\Big(\sum_{m=1}^{M}\alpha_mG_m(x)\Big)\\\\&f_m(x)=f_{m
 
 
     
-    
-    
+## 4. Pro & Con
 
-①②③④⑤⑥⑦⑧⑨⑩
-
-
-- [x] 选项一
-- [x] 选项二  
-- [x][选项3]
-
-
-
-```sequence
-起床->吃饭: 稀饭油条
-吃饭->上班: 不要迟到了
-上班->午餐: 吃撑了
-上班->下班:
-Note right of 下班: 下班了
-下班->回家:
-Note right of 回家: 到家了
-回家-->>起床:
-Note left of 起床: 新的一天
-```
+>#### 4.1 Pro:
+>* Low bias
+>* Any classification model can be base learner
+>* Unlikely to be over-fitting
+>
+>#### 4.2 Con:
+>* Sensitive to outliers. Higher weights are more likely to be assigned to outliers.
+>* Serial Computation is expensive.
+>
 
 
-$$
-=>  
-$$
+## 5. AdaBoost vs. Random Forest
 
-
-
-#### 1. Weak Learner: Stump, single layer decision tree. It is a binary classifier.
-
-#### 2. Loss Function (Exponential Loss):
-
-$$\begin{align*}
-\min\ &loss=\sum_{x}e^{-yF(x)},\ where\ y\in\lbrace+1,-1\rbrace\\\\
-&E(loss)=P(y=1|x)e^{-F(x)}+P(y=-1|x)e^{+F(x)}\\\\
-& \frac{\partial E(loss)}{\partial F(x)}=-P(y=1|x)e^{-F(x)}+P(y=-1|x)e^{+F(x)}=0\\\\
-\Rightarrow\ &e^{2F(x)}=\frac{P(y=1|x)}{P(y=-1|x)}\\\\
-& F(x) = \frac{1}{2}\log (\frac{P(y=1|x)}{P(y=-1|x)})\\\\
-Set\ Error\ as:\ &e=P(y=-1|x)=Probability\ of\ miss-classification.\\\\
-Amount\ of\ say:\ & F(x)=\frac{1}{2}\log (\frac{1-e}{e})
-\end{align*}
-$$
-
-#### 3. The better the weak learner, the smaller the $e$ is, and the higher the 
-
-
-When the weak learner is better, $e$ will be smaller, and 
-
-$
-F_m(x)=\sum_{t=1}^{m}\alpha_tf_t(x)=F_{m-1}(x)+\alpha_mf_m(x)
-$
-
-where $F_m(x)$ means the $m$-th stump.
-
-
-
-Step 2: Iteratively train $M$ weak learners. If a sample is correctly classified, then its weight would decrease in the next sample set, vise versa.
-
->for $m=1$ to $M$: 
-
->>Fit the $m$th weak classifier to minimize the objective function:
-  
-$$\begin{align*}
-\min\ &loss=\sum_{x}e^{-yf(x)},\ where\ y\in\lbrace+1,-1\rbrace\\\\
-&E(loss)=P(y=1|x)e^{-F(x)}+P(y=-1|x)e^{+F(x)}\\\\
-& \frac{\partial E(loss)}{\partial F(x)}=-P(y=1|x)e^{-F(x)}+P(y=-1|x)e^{+F(x)}=0\\\\
-\Rightarrow\ &e^{2F(x)}=\frac{P(y=1|x)}{P(y=-1|x)}\\\\
-& F(x) = \frac{1}{2}\log (\frac{P(y=1|x)}{P(y=-1|x)})\\\\
-Set\ Error\ as:\ &e=P(y=-1|x)=Probability\ of\ miss-classification.\\\\
-Amount\ of\ say:\ & F(x)=\frac{1}{2}\log (\frac{1-e}{e})
-\end{align*}
-$$
-
-  
-$$
-\varepsilon_m=\frac{\sum_{i=1}^{N}w_i^{(m)}I(f_m(x_i)\neq y_i)}{\sum_{i=1}^{N}w_i^{(m)}}
-$$
-
->where $I(f_m(x_i)\neq y_i)=1$ if $f_m(x_i)\neq y_i$, else 0
-$$
-\alpha_m=\ln \frac{1-\varepsilon_m}{\varepsilon_m},\ Weak\ Leaner\ Weight
-$$
-
->for all $i$:
-
-$$
-w_i^{(m+1)}=w_i^{(m)}\exp \Big(-\frac{1}{2}y_i\alpha_mf_m(x_i)\Big)
-$$
-
-Final Classifier: 
-
-$$\begin{align*}&g(x)=sign\Big(\sum_{m=1}^{M}\alpha_mf_m(x)\Big)\\\\&F_m(x)=F_{m-1}(x) + \alpha_mf_m(x)
-\end{align*}$$
-
+1. RF: Bootstrap sampling; Adaboost: Whole dataset.
+2. RF: bagging, parallel computation; Adaboost: boosting, serial computation.
+3. RF: deeper; Adaboost: stump.
+4. RF: same weight for each learner; Adaboost: adjusted weight for each learner.
+5. RF: not sensitive to outliers; Adaboost: sensitive to outliers.
+6. Bagging: calculate average, low variance; Adaboost: improve accuracy step by step, low bias.
