@@ -4,6 +4,8 @@
 
 **Classifier** $G(x) = sign(f(x))=sign \bigg(\sum_{m=1}^{M}\alpha_mG_m(x)\bigg)$, where $G_m(x)$ means the $m$th learner.
 
+**Forward stage-wise additive modeling:** $f_m(x)=\sum_{t=1}^{m}\alpha_tG_t(x)=f_{m-1}(x)+\alpha_mG_m(x)$
+
 
 
 ## 1. Loss Function
@@ -83,6 +85,8 @@ sign(f(x))&=sign(\frac{1}{2}\ln\frac{P(y=1|x)}{P(y=-1|x)})\\\\
 \end{matrix}\right.
 \end{align*}$$
 
+
+
 ## 2. Amount of Say & Sample weight
 
 Start from exponential loss function:
@@ -104,7 +108,33 @@ $$\begin{align*}
 \end{align*}
 $$ 
 
-Since we are using greedy algorithm, we've already chosen the best $\alpha$ for first $m-1$ weak learners. Now we can treat $\exp(-y_i\sum_{j=1}^{m-1}\alpha_jG_j(x_i))$ as a constant.
+Since we are using greedy strategy, we've already chosen the best $\alpha$ for first $m-1$ weak learners. Now we can treat $\exp(-y_i\sum_{j=1}^{m-1}\alpha_jG_j(x_i))$ as a constant.
+
+* **In the forward stage-wise additive model, why the solution for base learner $G_m(x)$ and weight $\alpha_m$ at each step, is the optimal solution for the optimal model $G(x)$? Why the weight can be treated as constant?**
+
+---
+
+> For the $m$th iteration: 
+
+> >$f_m(x)=\sum_{t=1}^{m}\alpha_tG_t(x)$
+
+> The target is to minimize the loss: $L_{exp}(X,y)=\frac{1}{N}\sum_{i=1}^{N}\exp \bigg(-y_if(x_i)\bigg)$
+
+> Or in other words, our target is to find $\alpha_m$ and $G_m(x)$ that minimize the loss:
+
+> $$\begin{align*}
+> (\alpha_m,\ G_m(x)) &= \underset{\alpha_m,\ G_m(x)}{argmin} \frac{1}{N}\sum_{i=1}^{N}\exp \bigg(-y_if_m(x_i)\bigg)\\\\
+> &=\underset{\alpha_m,\ G_m(x)}{argmin} \frac{1}{N}\sum_{i=1}^{N}\exp \bigg(-y_i\sum_{t=1}^{m}\alpha_tG_t(x_i)\bigg)\\\\
+> &=\underset{\alpha_m,\ G_m(x)}{argmin} \frac{1}{N}\sum_{i=1}^{N}\exp \bigg(-y_i\sum_{m=1}^{m-1}\alpha_tG_t(x_i)\bigg)\exp \bigg(-y_i\alpha_mG_m(x_i)\bigg)\\\\
+> &=\underset{\alpha_m,\ G_m(x)}{argmin} \frac{1}{N}\sum_{i=1}^{N}\exp \bigg(-y_if_{m-1}(x_i)\bigg)\exp \bigg(-y_i\alpha_mG_m(x_i)\bigg)\\\\
+> &=\underset{\alpha_m,\ G_m(x)}{argmin} \frac{1}{N}\sum_{i=1}^{N}w_i^{(m)}\exp \bigg(-y_i\alpha_mG_m(x_i)\bigg)\\\\
+> \end{align*}
+> $$
+
+> As we can see, $w_i^{(m)}$ solely depends on $f_{m-1}(x)$, and is not affected by $\alpha_m$ and $G_m(x)$. So, the optimal solution for $\alpha_m$ and $G_m(x)$ at $m$th step is also the optimal solution for the final model.
+
+---
+
 
 When we correctly misclassified a sample in $m-1$th recursion, we will increase its weight in the $m$th sample set to train $m$th weak learner. If a sample is misclassified, then $\exp(-y_i\sum_{j=1}^{m-1}\alpha_jG_j(x_i))$ will greater than 1, otherwise less than 1. So it is clear that weight is propotional to $\exp(-y_i\sum_{j=1}^{m-1}\alpha_jG_j(x_i))$.
 
@@ -174,7 +204,7 @@ So, when correctly classified, the weight decrease, and when incorrectly classif
 
 
 
-## 3. Algorithm （Not Done）
+## 3. Algorithm
 
 
 **Set**:
@@ -199,47 +229,40 @@ Step 2: Iteratively train $M$ weak learners. If a sample is correctly classified
 
 >for $m=1$ to $M$: 
 
->>Fit the $m$th weak classifier to minimize the objective function:
-  
-$$\begin{align*}
-\min\ &loss=\sum_{x}e^{-yF(x)},\ where\ y\in\lbrace+1,-1\rbrace\\\\
-&E(loss)=P(y=1|x)e^{-F(x)}+P(y=-1|x)e^{+F(x)}\\\\
-& \frac{\partial E(loss)}{\partial F(x)}=-P(y=1|x)e^{-F(x)}+P(y=-1|x)e^{+F(x)}=0\\\\
-\Rightarrow\ &e^{2F(x)}=\frac{P(y=1|x)}{P(y=-1|x)}\\\\
-& F(x) = \frac{1}{2}\log (\frac{P(y=1|x)}{P(y=-1|x)})\\\\
-Set\ Error\ as:\ &e=P(y=-1|x)=Probability\ of\ miss-classification.\\\\
-Amount\ of\ say:\ & F(x)=\frac{1}{2}\log (\frac{1-e}{e})
-\end{align*}
+>>Fit the $m$th weak classifier $G_m(x)$ to minimize the objective function:
+ 
+$$\varepsilon_m= \frac{\sum_{i=1}^{N}w_i^{(m)}I(G_m(x_i)\neq y_i)}{\sum_{i=1}^{N}w_i^{(m)}}$$ 
+
+>>* Stop when $\varepsilon_m$ is less a threshold.
+
+>>Update amount of say:
+$$
+ \alpha_m=\ln \frac{1-\varepsilon_m}{\varepsilon_m}
 $$
 
-  
-$$
-\varepsilon_m=\frac{\sum_{i=1}^{N}w_i^{(m)}I(f_m(x_i)\neq y_i)}{\sum_{i=1}^{N}w_i^{(m)}}
-$$
+>>Update additive model:
 
->where $I(f_m(x_i)\neq y_i)=1$ if $f_m(x_i)\neq y_i$, else 0
-$$
-\alpha_m=\ln \frac{1-\varepsilon_m}{\varepsilon_m},\ Weak\ Leaner\ Weight
-$$
+$$f_m(x)=\sum_{t=1}^{m}\alpha_tG_t(x)=f_{m-1}(x)+\alpha_mG_m(x)$$
 
->for all $i$:
-
+>>Update weights for each sample:
+<!--$$
+w_i^{(m+1)}=
+\left\lbrace\begin{matrix}
+\frac{w_i^{(m)}\exp(-\alpha_m)}{Z_{m+1}},\ when\ y_i = G_m(x_i)
+\\\\
+\frac{w_i^{(m)}\exp(\alpha_m)}{Z_{m+1}},\ when\ y_i \neq G_m(x_i)
+\end{matrix}\right.
+$$-->
 $$
 w_i^{(m+1)}=w_i^{(m)}\exp \Big(-\frac{1}{2}y_i\alpha_mf_m(x_i)\Big)
 $$
 
-Final Classifier: 
+Final step: 
 
-$$\begin{align*}&g(x)=sign\Big(\sum_{m=1}^{M}\alpha_mf_m(x)\Big)\\\\&F_m(x)=F_{m-1}(x) + \alpha_mf_m(x)
+$$\begin{align*}&G(x)=sign\Big(\sum_{m=1}^{M}\alpha_mf_m(x)\Big)\\\\&f_m(x)=f_{m-1}(x) + \alpha_mG_m(x)
 \end{align*}$$
 
-----
 
-Loss Function: **Exponential Loss**
-
-$$Exponential\ L(X,y)=e^{-yf(x)}$$
-
-Set,
     
     
     
@@ -297,3 +320,44 @@ F_m(x)=\sum_{t=1}^{m}\alpha_tf_t(x)=F_{m-1}(x)+\alpha_mf_m(x)
 $
 
 where $F_m(x)$ means the $m$-th stump.
+
+
+
+Step 2: Iteratively train $M$ weak learners. If a sample is correctly classified, then its weight would decrease in the next sample set, vise versa.
+
+>for $m=1$ to $M$: 
+
+>>Fit the $m$th weak classifier to minimize the objective function:
+  
+$$\begin{align*}
+\min\ &loss=\sum_{x}e^{-yf(x)},\ where\ y\in\lbrace+1,-1\rbrace\\\\
+&E(loss)=P(y=1|x)e^{-F(x)}+P(y=-1|x)e^{+F(x)}\\\\
+& \frac{\partial E(loss)}{\partial F(x)}=-P(y=1|x)e^{-F(x)}+P(y=-1|x)e^{+F(x)}=0\\\\
+\Rightarrow\ &e^{2F(x)}=\frac{P(y=1|x)}{P(y=-1|x)}\\\\
+& F(x) = \frac{1}{2}\log (\frac{P(y=1|x)}{P(y=-1|x)})\\\\
+Set\ Error\ as:\ &e=P(y=-1|x)=Probability\ of\ miss-classification.\\\\
+Amount\ of\ say:\ & F(x)=\frac{1}{2}\log (\frac{1-e}{e})
+\end{align*}
+$$
+
+  
+$$
+\varepsilon_m=\frac{\sum_{i=1}^{N}w_i^{(m)}I(f_m(x_i)\neq y_i)}{\sum_{i=1}^{N}w_i^{(m)}}
+$$
+
+>where $I(f_m(x_i)\neq y_i)=1$ if $f_m(x_i)\neq y_i$, else 0
+$$
+\alpha_m=\ln \frac{1-\varepsilon_m}{\varepsilon_m},\ Weak\ Leaner\ Weight
+$$
+
+>for all $i$:
+
+$$
+w_i^{(m+1)}=w_i^{(m)}\exp \Big(-\frac{1}{2}y_i\alpha_mf_m(x_i)\Big)
+$$
+
+Final Classifier: 
+
+$$\begin{align*}&g(x)=sign\Big(\sum_{m=1}^{M}\alpha_mf_m(x)\Big)\\\\&F_m(x)=F_{m-1}(x) + \alpha_mf_m(x)
+\end{align*}$$
+
