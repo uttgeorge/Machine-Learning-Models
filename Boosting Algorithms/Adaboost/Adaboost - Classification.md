@@ -232,7 +232,7 @@ Step 2: Iteratively train $M$ weak learners. If a sample is correctly classified
 >>Fit the $m$th weak classifier $G_m(x)$ to minimize the objective function:
  
 $$\varepsilon_m= \frac{\sum_{i=1}^{N}w_i^{(m)}I(G_m(x_i)\neq y_i)}{\sum_{i=1}^{N}w_i^{(m)}}$$ 
-
+>>* If $\varepsilon_m>0.5$, just flip the stump and $\varepsilon_m=1-\varepsilon_m$
 >>* Stop when $\varepsilon_m$ is less a threshold.
 
 >>Update amount of say:
@@ -244,7 +244,7 @@ $$
 
 $$f_m(x)=\sum_{t=1}^{m}\alpha_tG_t(x)=f_{m-1}(x)+\alpha_mG_m(x)$$
 
->>Update weights for each sample:
+>>Update weights on each sample:
 <!--$$
 w_i^{(m+1)}=
 \left\lbrace\begin{matrix}
@@ -254,12 +254,12 @@ w_i^{(m+1)}=
 \end{matrix}\right.
 $$-->
 $$
-w_i^{(m+1)}=w_i^{(m)}\exp \Big(-\frac{1}{2}y_i\alpha_mf_m(x_i)\Big)
+w_i^{(m+1)}=\frac{w_i^{(m)}\exp \Big(-\frac{1}{2}y_i\alpha_mG_m(x_i)\Big)}{Z_{m+1}}
 $$
 
 Final step: 
 
-$$\begin{align*}&G(x)=sign\Big(\sum_{m=1}^{M}\alpha_mf_m(x)\Big)\\\\&f_m(x)=f_{m-1}(x) + \alpha_mG_m(x)
+$$\begin{align*}&G(x)=sign\Big(\sum_{m=1}^{M}\alpha_mG_m(x)\Big)\\\\&f_m(x)=f_{m-1}(x) + \alpha_mG_m(x)
 \end{align*}$$
 
 
