@@ -59,9 +59,29 @@
 >>
 >>Proof:
 >>
->>>>When $G(x_i)\neq y_i$, then $y_if(x_i)<0$ and $\exp \big(-y_if(x_i)\big)\ge 1$. 
+>>>>When $G(x_i)\neq y_i$, then $y_if(x_i)<0$ and $e^{ \big(-y_if(x_i)\big)}\ge 1$. 
 >>
 >> Hense, if exponential loss of zero is achieved, then the 0-1 loss is zero as well.
+>> 
+
+>#### 1.4 Exponential Loss and 0-1 Loss are equivalent
+>
+>>* Linear Combination of weak learner: $G(x)=\sum_{i=1}^{M}\alpha_mG_m(x)$
+>>* The loss function: $L(f(x),y)=e^{-yf(x)},\ where\ y\in\lbrace+1,-1\rbrace$
+>>
+>>>$E(loss)=P(y=1|x)e^{-f(x)}+P(y=-1|x)e^{+f(x)}$
+>>>
+>>>$\frac{\partial E(loss)}{\partial f(x)}=-P(y=1|x)e^{-f(x)}+P(y=-1|x)e^{+f(x)}=0$
+>>>
+$$\begin{align*}
+f(x)&=\frac{1}{2}\ln \frac{P(y=1|x)}{P(y=-1|x)}\\\\
+sign(f(x))&=sign(\frac{1}{2}\ln\frac{P(y=1|x)}{P(y=-1|x)})\\\\
+&=\left\lbrace\begin{matrix}
+1\ ,\ if\ P(y=1|x) > P(y=-1|x)
+\\\\
+-1\ ,\ if\ P(y=1|x) < P(y=-1|x)
+\end{matrix}\right.
+\end{align*}$$
 
 ## 2. Amount of Say & Sample weight
 
