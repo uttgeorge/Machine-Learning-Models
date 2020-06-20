@@ -68,7 +68,7 @@ Email: <jin.qi1@northeastern.edu>
     <td><a href="https://github.com/uttgeorge/Machine-Learning-Models/blob/master/SVM/LinearSVM.ipynb">Linear SVM Code</a></td>
   </tr>
   <tr>
-    <td><a href="https://github.com/uttgeorge/Machine-Learning-Models/blob/master/Dimensionality%20Reduction/Dimensionality%20Reduction.md">Dimensionality Reduction</a></td>
+    <td><a href="https://github.com/uttgeorge/Machine-Learning-Models/blob/master/Dimensionality%20Reduction/Dimensionality%20Reduction.md">11. Dimensionality Reduction</a></td>
     <td><a href=" ">PCA</a></td>
     <td><a href=" ">PCA</a></td>
   </tr>
