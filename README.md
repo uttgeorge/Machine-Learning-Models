@@ -7,22 +7,22 @@ Email: <jin.qi1@northeastern.edu>
 
 <table>
   <tr>
-    <th>  Topics   </th>
-    <th>Introductions</th>
-    <th>Codes</th>
+    <th width="30%">Topics</th>
+    <th width="40%">Introductions</th>
+    <th width="30%">Codes</th>
   </tr>
   <tr>
     <td>1. Math</td>
-    <td><a href="https://github.com/uttgeorge/Machine-Learning-Models/blob/master/Math/Bayesian%20Estimation%2C%20MLE%2C%20MAP.md"> 1. Bayesian Estimation, MLE, MAP</a>
-    <a href="https://github.com/uttgeorge/Machine-Learning-Models/blob/master/Math/Exponential%20Family%20Distribution.md"> 2. Exponential Family Distribution</a>
-    <a href="https://github.com/uttgeorge/Machine-Learning-Models/blob/master/Math/Gradient%20Descent.md">3. Gradient Descent</a></td>
+    <td><a href="https://github.com/uttgeorge/Machine-Learning-Models/blob/master/Math/Bayesian%20Estimation%2C%20MLE%2C%20MAP.md"> <br>1. Bayesian Estimation, MLE, MAP</br></a>
+    <a href="https://github.com/uttgeorge/Machine-Learning-Models/blob/master/Math/Exponential%20Family%20Distribution.md"> <br>2. Exponential Family Distribution</br></a>
+    <a href="https://github.com/uttgeorge/Machine-Learning-Models/blob/master/Math/Gradient%20Descent.md"><br>3. Gradient Descent</br></a></td>
     <td></td>
   </tr>
   <tr>
     <td>2.  Evaluation Metrics</td>
-    <td><a href="https://github.com/uttgeorge/Machine-Learning-Models/blob/master/Evaluation%20Metrics/Evaluation%20Metrics%20-%20Classification.md">1. Classification 中文</a>
+    <td><a href="https://github.com/uttgeorge/Machine-Learning-Models/blob/master/Evaluation%20Metrics/Evaluation%20Metrics%20-%20Classification.md"><br>1. Classification 中文</br></a>
     <a></a>
-    <a href="https://github.com/uttgeorge/Machine-Learning-Models/blob/master/Evaluation%20Metrics/Evaluation%20Metrics%20-%20Regression.md">2. Regression</a>
+    <a href="https://github.com/uttgeorge/Machine-Learning-Models/blob/master/Evaluation%20Metrics/Evaluation%20Metrics%20-%20Regression.md"><br>2. Regression</br></a>
     </td>
     <td></td>
   </tr>
@@ -39,8 +39,8 @@ Email: <jin.qi1@northeastern.edu>
   <tr>
     <td>5. Decision Tree</td>
     <td><a href="https://github.com/uttgeorge/Machine-Learning-Models/blob/master/Decision%20Tree/Decision%20Tree.md">Decision Tree: Feature Selection, Build Tree, Pruning</a></td>
-    <td><a href="https://github.com/uttgeorge/Machine-Learning-Models/blob/master/Decision%20Tree/Decision%20Tree%20Classifier.ipynb">1. Decision Tree Classifier</a>
-    <a href="https://github.com/uttgeorge/Machine-Learning-Models/blob/master/Decision%20Tree/Decision%20Tree%20Regressor.ipynb">2. Decision Tree Regressor</a></td>
+    <td><a href="https://github.com/uttgeorge/Machine-Learning-Models/blob/master/Decision%20Tree/Decision%20Tree%20Classifier.ipynb"><br>1. Decision Tree Classifier</br></a>
+    <a href="https://github.com/uttgeorge/Machine-Learning-Models/blob/master/Decision%20Tree/Decision%20Tree%20Regressor.ipynb"><br>2. Decision Tree Regressor</br></a></td>
   </tr>
   <tr>
     <td>6. Logistic Regression</td>
