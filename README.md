@@ -182,4 +182,6 @@ Email: <jin.qi1@northeastern.edu>
 1. James, G., Witten, D., Hastie, T., & Tibshirani, R. (2017). An introduction to statistical learning: with applications in R. New York: Springer.
 2. Bishop, Christopher M. Pattern Recognition and Machine Learning. Springer New York, 2016.
 3. StatQuest with Josh Starmer. https://statquest.org
+4. Jie Zhou: https://github.com/shuhuai007/Machine-Learning-Session
+
 
