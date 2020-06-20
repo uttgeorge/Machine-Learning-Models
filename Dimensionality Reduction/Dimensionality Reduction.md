@@ -47,9 +47,9 @@ In many fields of applications, we have to collect a huge amount of data with mu
 >
 >
 >#### 3.2 Sample Mean Matrix
->We define a vector called $E_N$:
+>We define a vector called $\mathbb{I}_N$:
 >$$
->E_N = \begin{pmatrix}
+>\mathbb{I}_N = \begin{pmatrix}
 >&1 \\\\&1  \\\\&... \\\\&1 
 >\end{pmatrix}_{N\times 1}
 >$$
@@ -61,7 +61,7 @@ In many fields of applications, we have to collect a huge amount of data with mu
 >\end{pmatrix}}}\begin{pmatrix}
 >&1 \\\\&1  \\\\&... \\\\&1 
 >\end{pmatrix}_{N\times 1}\\\\
->&=\frac{1}{N}X^TE_N
+>&=\frac{1}{N}X^T\mathbb{I}_N
 >\end{align*}$$
 >
 >#### 3.3 Sample Covariance Matrix
@@ -97,9 +97,9 @@ In many fields of applications, we have to collect a huge amount of data with mu
 >&=X^T - \bar {X} \begin{pmatrix}
 >1&  1& ...& 1
 >\end{pmatrix}\\\\
->&=X^T - \bar {X} E_N^T\\\\
->&=X^T - \frac{1}{N}X^TE_N E_N^T\\\\
->&=X^T(I_N - \frac{1}{N}E_N E_N^T)\\\\
+>&=X^T - \bar {X} \mathbb{I}_N^T\\\\
+>&=X^T - \frac{1}{N}X^T\mathbb{I}_N \mathbb{I}_N^T\\\\
+>&=X^T(I_N - \frac{1}{N}\mathbb{I}_N \mathbb{I}_N^T)\\\\
 >B.\ \begin{pmatrix}
 >(x_1-\bar x)^T
 >\\\\
@@ -125,11 +125,11 @@ In many fields of applications, we have to collect a huge amount of data with mu
 >\\\\
 >\bar x^T
 >\end{pmatrix}\\\\
->&=(X^T(I_N - \frac{1}{N}E_N E_N^T))^T\\\\
->&=(I_N - \frac{1}{N}E_N E_N^T)^TX\\\\
->Set\ Centering\ Matrix\ H_N& =I_N - \frac{1}{N}E_N E_N^T,\\\\
+>&=(X^T(I_N - \frac{1}{N}\mathbb{I}_N \mathbb{I}_N^T))^T\\\\
+>&=(I_N - \frac{1}{N}\mathbb{I}_N \mathbb{I}_N^T)^TX\\\\
+>Set\ Centering\ Matrix\ H_N& =I_N - \frac{1}{N}\mathbb{I}_N \mathbb{I}_N^T,\\\\
 >Then\ S_{P\times P}&=\frac{1}{N}AB\\\\
->&=\frac{1}{N}X^T(I_N - \frac{1}{N}E_N E_N^T)(I_N - \frac{1}{N}E_N E_N^T)^TX\\\\
+>&=\frac{1}{N}X^T(I_N - \frac{1}{N}\mathbb{I}_N \mathbb{I}_N^T)(I_N - \frac{1}{N}\mathbb{I}_N \mathbb{I}_N^T)^TX\\\\
 >&=\frac{1}{N}X^TH_NH_N^TX\\\\
 >&=\frac{1}{N}X^THX
 >\end{align*}
@@ -140,10 +140,10 @@ In many fields of applications, we have to collect a huge amount of data with mu
 >Zero-centering, subtract from mean.
 > 
 >$$\begin{align*}
->H_N&=H_N^T=I_N - \frac{1}{N}E_N E_N^T\\\\
->H_N^2&=H^T\cdot H\\\\&=(I_N - \frac{1}{N}E_N E_N^T)(I_N - \frac{1}{N}E_N E_N^T)\\\\
->&=I_N-\frac{2}{N}E_N E_N^T-\frac{1}{N^2}E_N E_N^TE_N E_N^T\\\\
->&=I_N-\frac{1}{N}E_NE_N^T\\\\
+>H_N&=H_N^T=I_N - \frac{1}{N}\mathbb{I}_N \mathbb{I}_N^T\\\\
+>H_N^2&=H^T\cdot H\\\\&=(I_N - \frac{1}{N}\mathbb{I}_N \mathbb{I}_N^T)(I_N - \frac{1}{N}\mathbb{I}_N \mathbb{I}_N^T)\\\\
+>&=I_N-\frac{2}{N}\mathbb{I}_N \mathbb{I}_N^T-\frac{1}{N^2}\mathbb{I}_N \mathbb{I}_N^T\mathbb{I}_N \mathbb{I}_N^T\\\\
+>&=I_N-\frac{1}{N}\mathbb{I}_N\mathbb{I}_N^T\\\\
 >&=H\\\\
 >H^n&=H
 >\end{align*}
