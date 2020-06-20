@@ -67,6 +67,11 @@ Email: <jin.qi1@northeastern.edu>
     <td><a href="https://github.com/uttgeorge/Machine-Learning-Models/blob/master/SVM/SVM.md">SVM: Duality, KKT, Hard Margin, Soft Margin, SMO</a></td>
     <td><a href="https://github.com/uttgeorge/Machine-Learning-Models/blob/master/SVM/LinearSVM.ipynb">Linear SVM Code</a></td>
   </tr>
+  <tr>
+    <td><a href="https://github.com/uttgeorge/Machine-Learning-Models/blob/master/Dimensionality%20Reduction/Dimensionality%20Reduction.md">Dimensionality Reduction</a></td>
+    <td><a href=" ">PCA</a></td>
+    <td><a href=" ">PCA</a></td>
+  </tr>
 </table>
 
 ## 1. Math
@@ -162,6 +167,15 @@ Email: <jin.qi1@northeastern.edu>
 >>**1.** Linear SVM
 
 >>* [Linear SVM Code](https://github.com/uttgeorge/Machine-Learning-Models/blob/master/SVM/LinearSVM.ipynb)
+>>
+
+## 11. Dimensionality Reduction
+* [Background & Matrix Forms](https://github.com/uttgeorge/Machine-Learning-Models/blob/master/Dimensionality%20Reduction/Dimensionality%20Reduction.md)
+
+>### 11.1 PCA
+>>#### Introductions
+>>
+>>* [PCA: SVD]()
 
 ## References
 
