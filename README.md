@@ -7,7 +7,7 @@ Email: <jin.qi1@northeastern.edu>
 
 <table>
   <tr>
-    <th>Topics</th>
+    <th>  Topics   </th>
     <th>Introductions</th>
     <th>Codes</th>
   </tr>
