@@ -178,7 +178,12 @@ Email: <jin.qi1@northeastern.edu>
 >### 11.1 PCA
 >>#### Introductions
 >>
->>* [PCA: SVD]()
+>>* [PCA, SVD, PCoA](https://github.com/uttgeorge/Machine-Learning-Models/blob/master/Dimensionality%20Reduction/PCA/PCA.md)
+>>
+>>#### Codes
+>>
+>>* [PCA](https://github.com/uttgeorge/Machine-Learning-Models/blob/master/Dimensionality%20Reduction/PCA/PCA_eigen.ipynb)
+>>* [SVD](https://github.com/uttgeorge/Machine-Learning-Models/blob/master/Dimensionality%20Reduction/PCA/SVD_PCA.ipynb)
 
 ## References
 
