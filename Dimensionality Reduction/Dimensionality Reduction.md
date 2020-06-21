@@ -52,7 +52,7 @@ In many fields of applications, we have to collect a huge amount of data with mu
 >$$
 >\mathbb{I}_N = \begin{pmatrix}
 >&1 \\\\&1  \\\\&... \\\\&1 
->\end{pmatrix}_{N\times 1}
+>\end{pmatrix} _{N\times 1}
 >$$
 >
 >Iterate all samples to get $P$ means:
