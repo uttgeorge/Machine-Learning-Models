@@ -40,6 +40,7 @@ For more information about linear algebra, check:
 > $$ 
 > 
 > ![-w225](media/15926028671995/15926780475394.png)
+> 
 > (Source: https://tutorial.math.lamar.edu/classes/calcii/dotproduct.aspx)
 > 
 > #### 2.3 Maximize Variance (Projection)
@@ -82,6 +83,7 @@ For more information about linear algebra, check:
 > 
 > 
 > ![-w427](media/15926028671995/15926785847651.png)
+> 
 > (Source: https://stackoverflow.com/questions/30977006/dimension-reduction-of-feature-in-machine-learning)
 > 
 > 
