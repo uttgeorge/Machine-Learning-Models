@@ -1,6 +1,7 @@
 # Machine Learning
 
-This is the combination of some algorithms and codes from scratch.
+This is the combination of some algorithms and codes from scratch. 
+**Please use Chrome with MathJax plugin.**
 
 Email: <jin.qi1@northeastern.edu>
 
