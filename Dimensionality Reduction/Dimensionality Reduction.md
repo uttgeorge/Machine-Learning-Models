@@ -61,7 +61,7 @@ In many fields of applications, we have to collect a huge amount of data with mu
 >\bar{X}_{P\times 1}&=\frac{1}{N}\sum_{i=1}^{N}x_i\\\\
 >&=\frac{1}{N}\underset{X^T}{\underbrace{\begin{pmatrix}
 >x_1 &x_2  &. &. &. &x_N 
->\end{pmatrix}}}\begin{pmatrix}
+>\end{pmatrix}}} \begin{pmatrix}
 >&1 \\\\&1  \\\\&... \\\\&1 
 >\end{pmatrix} _{N\times 1}\\\\
 >&=\frac{1}{N}X^T\mathbb{I}_N
