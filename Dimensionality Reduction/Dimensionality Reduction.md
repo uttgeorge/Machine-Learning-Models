@@ -63,7 +63,7 @@ In many fields of applications, we have to collect a huge amount of data with mu
 >x_1 &x_2  &. &. &. &x_N 
 >\end{pmatrix}}}\begin{pmatrix}
 >&1 \\\\&1  \\\\&... \\\\&1 
->\end{pmatrix}_{N\times 1}\\\\
+>\end{pmatrix} _{N\times 1}\\\\
 >&=\frac{1}{N}X^T\mathbb{I}_N
 >\end{align*}$$
 >
