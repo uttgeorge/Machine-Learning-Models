@@ -144,3 +144,16 @@ Here $\frac{1}{N}\Sigma^2$ is the eigenvalue.
 $
 S_{P\times P}=\frac{1}{N}X^THX=\frac{1}{N}X^TH^THX=\frac{1}{N}(HX)^THX
 $
+
+## 7. Pro & Con
+
+> #### Pro:
+> 1. Unsupervised learning, no parameter's needed.
+> 2. Can find the importance of new "features". Keep most information while conducting dimensionality reduction.
+> 3. Simple calculation.
+> 4. Each new feature is orthogonal, eliminate the correlation of different variables.
+> 
+> #### Con:
+> 1. Can not adopt priors
+> 2. Those "unimportant" principle components may have important info about sample diversity.
+> 3. PCA is not the optimal solution when data is not normal distributed. 
