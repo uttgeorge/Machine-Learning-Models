@@ -48,6 +48,7 @@ In many fields of applications, we have to collect a huge amount of data with mu
 >
 >#### 3.2 Sample Mean Matrix
 >We define a vector called $\mathbb{I}_N$:
+>
 >$$
 >\mathbb{I}_N = \begin{pmatrix}
 >&1 \\\\&1  \\\\&... \\\\&1 
