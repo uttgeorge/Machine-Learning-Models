@@ -136,8 +136,10 @@ Here $\frac{1}{N}\Sigma^2$ is the eigenvalue.
 
 ## 5. PCoA
 
+## 6. PPCA
 
-## Normalization?
+
+## Is Normalization Neccessary?
 
 $
 S_{P\times P}=\frac{1}{N}X^THX=\frac{1}{N}X^TH^THX=\frac{1}{N}(HX)^THX
