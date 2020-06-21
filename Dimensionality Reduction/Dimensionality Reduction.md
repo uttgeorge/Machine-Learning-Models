@@ -53,7 +53,9 @@ In many fields of applications, we have to collect a huge amount of data with mu
 >&1 \\\\&1  \\\\&... \\\\&1 
 >\end{pmatrix}_{N\times 1}
 >$$
+>
 >Iterate all samples to get $P$ means:
+>
 >$$\begin{align*}
 >\bar{X}_{P\times 1}&=\frac{1}{N}\sum_{i=1}^{N}x_i\\\\
 >&=\frac{1}{N}\underset{X^T}{\underbrace{\begin{pmatrix}
