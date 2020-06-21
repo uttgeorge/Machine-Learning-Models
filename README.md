@@ -70,7 +70,8 @@ Email: <jin.qi1@northeastern.edu>
   </tr>
   <tr>
     <td><a href="https://github.com/uttgeorge/Machine-Learning-Models/blob/master/Dimensionality%20Reduction/Dimensionality%20Reduction.md">11. Dimensionality Reduction</a></td>
-    <td><a href="https://github.com/uttgeorge/Machine-Learning-Models/blob/master/Dimensionality%20Reduction/PCA/PCA.md">PCA, SVD, PCoA, PPCA</a></td>
+    <td><a href="https://github.com/uttgeorge/Machine-Learning-Models/blob/master/Dimensionality%20Reduction/PCA/PCA.md">1. PCA, SVD, PCoA, PPCA</br></a>
+    <a href="https://https://github.com/uttgeorge/Machine-Learning-Models/blob/master/Dimensionality%20Reduction/LDA/Linear%20Discriminant%20Analysis.md">2. Linear Discriminant Analysis</a></td>
     <td><a href="https://github.com/uttgeorge/Machine-Learning-Models/blob/master/Dimensionality%20Reduction/PCA/PCA_eigen.ipynb">1. PCA</a>
     <br><a href="https://github.com/uttgeorge/Machine-Learning-Models/blob/master/Dimensionality%20Reduction/PCA/SVD_PCA.ipynb"> 2. SVD</a></br>
     </td>
@@ -184,6 +185,14 @@ Email: <jin.qi1@northeastern.edu>
 >>
 >>* [PCA](https://github.com/uttgeorge/Machine-Learning-Models/blob/master/Dimensionality%20Reduction/PCA/PCA_eigen.ipynb)
 >>* [SVD](https://github.com/uttgeorge/Machine-Learning-Models/blob/master/Dimensionality%20Reduction/PCA/SVD_PCA.ipynb)
+>>
+
+>### 11.2 LDA
+>>#### Introductions
+>>
+>>* [Linear Discriminant Analysis](https://github.com/uttgeorge/Machine-Learning-Models/blob/master/Dimensionality%20Reduction/LDA/Linear%20Discriminant%20Analysis.md)
+>>
+
 
 ## References
 
