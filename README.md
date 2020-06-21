@@ -70,7 +70,7 @@ Email: <jin.qi1@northeastern.edu>
   </tr>
   <tr>
     <td><a href="https://github.com/uttgeorge/Machine-Learning-Models/blob/master/Dimensionality%20Reduction/Dimensionality%20Reduction.md">11. Dimensionality Reduction</a></td>
-    <td><a href="https://github.com/uttgeorge/Machine-Learning-Models/blob/master/Dimensionality%20Reduction/PCA/PCA.md">PCA, SVD, PCoA</a></td>
+    <td><a href="https://github.com/uttgeorge/Machine-Learning-Models/blob/master/Dimensionality%20Reduction/PCA/PCA.md">PCA, SVD, PCoA, PPCA</a></td>
     <td><a href="https://github.com/uttgeorge/Machine-Learning-Models/blob/master/Dimensionality%20Reduction/PCA/PCA_eigen.ipynb">1. PCA</a>
     <br><a href="https://github.com/uttgeorge/Machine-Learning-Models/blob/master/Dimensionality%20Reduction/PCA/SVD_PCA.ipynb"> 2. SVD</a></br>
     </td>
@@ -178,7 +178,7 @@ Email: <jin.qi1@northeastern.edu>
 >### 11.1 PCA
 >>#### Introductions
 >>
->>* [PCA, SVD, PCoA](https://github.com/uttgeorge/Machine-Learning-Models/blob/master/Dimensionality%20Reduction/PCA/PCA.md)
+>>* [PCA, SVD, PCoA, PPCA](https://github.com/uttgeorge/Machine-Learning-Models/blob/master/Dimensionality%20Reduction/PCA/PCA.md)
 >>
 >>#### Codes
 >>
