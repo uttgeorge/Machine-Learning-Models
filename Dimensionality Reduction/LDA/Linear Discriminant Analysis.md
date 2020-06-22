@@ -161,7 +161,7 @@ $\Big(\bar{X} _{C1}-\bar{X}_{C2}\Big)^T$ is $1\times P$, so $\Big(\bar{X} _{C1}-
 Then,
 
 $$\begin{align*}
-\Rightarrow\ &w\propto S_w^{-1}\Big(\bar{X}_{C1}-\bar{X}_{C2}\Big)\Big(\bar{X} _{C1}-\bar{X}_{C2}\Big)^Tw\\\\
+\Rightarrow\ &w\propto S_w^{-1}\Big(\bar{X}_{C1}-\bar{X}_{C2}\Big)\Big(\bar{X}_{C1}-\bar{X}_{C2}\Big)^Tw\\\\
 \Rightarrow\ &w\propto S_w^{-1}\Big(\bar{X}_{C1}-\bar{X}_{C2}\Big)\\\\
 \end{align*}
 $$
@@ -172,6 +172,7 @@ $$
 * If feature size is much greater than sample size, data are way too sparse, then LDA will fail.
 * LDA is a parametric method (it assumes unimodal Gaussian likelihoods).
 * LDA will fail if discriminatory information is not in the mean but in the variance of the data.
+* LDA is easily overfitting.
 
 
 ## References
