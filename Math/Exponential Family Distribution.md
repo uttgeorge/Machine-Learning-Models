@@ -291,7 +291,7 @@ $$
 > 得到：
 > $$\begin{align*}
 > \log{p(x)} &= \lambda^Tf(x)+\lambda_0-1\\\\
-> p(x)&=\exp \lbrace \lambda^Tf(x)+\lambda_0-1 \rbrace\\\\
+> p(x)&=\exp \lbrace \lambda^Tf(x)-（1-\lambda_0） \rbrace\\\\
 > &=\exp\lbrace\eta^T\phi(x)-A(\eta)\rbrace
 > \end{align*}
 > $$
