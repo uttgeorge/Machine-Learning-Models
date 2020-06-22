@@ -118,16 +118,17 @@ S_1 &= \frac{1}{N_1}\sum_{i=1}^{N_1}(w^T\cdot x_i -\bar {Z_1})(w^T\cdot x_i -\ba
 \\\\
 J(w) &= \frac{(\bar {Z_1} - \bar {Z_2})^2}{S_1+S_2}\\\\
 &=\frac{w^T\Big(\bar X_{C1}-\bar X_{C2}\Big)\Big(\bar X_{C1}-\bar X_{C2}\Big)^Tw}{w^TS_{C1}w+w^TS_{C2}w}\\\\
-&=\frac{w^T\Big(\bar X_{C1}-\bar X_{C2}\Big)\Big(\bar X _{C1}-\bar X_{C2}\Big)^Tw}{w^T(S_{C1}+S_{C2})w}
+&=\frac{w^T\Big(\bar X_{C1}-\bar X_{C2}\Big)\Big(\bar X_{C1}-\bar X_{C2}\Big)^Tw}{w^T(S_{C1}+S_{C2})w}
 \end{align*}
 $$
 
 Now, our target is:
+
 $$
 \begin{align*}
 Max:\ J(w)&=\frac{w^T\Big(\bar X_{C1}-\bar X_{C2}\Big)\Big(\bar X _{C1}-\bar X_{C2}\Big)^Tw}{w^T(S_{C1}+S_{C2})w}\\\\
 &=\frac{w^TS_bw}{w^TS_ww}\\\\
-S_b&=\Big(\bar X_{C1}-\bar X_{C2}\Big)\Big(\bar X _{C1}-\bar X_{C2}\Big)^T\\\\
+S_b&=\Big(\bar X_{C1}-\bar X_{C2}\Big)\Big(\bar X_{C1}-\bar X_{C2}\Big)^T\\\\
 S_w&=S_{C1}+S_{C2}
 \end{align*}
 $$
