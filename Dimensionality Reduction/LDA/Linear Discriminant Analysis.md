@@ -152,7 +152,7 @@ $$\begin{align*}
 \Rightarrow\ &S_ww=\frac{(w^TS_ww)}{(w^TS_bw)}S_bw\\\\
 \Rightarrow\ &w=\frac{(w^TS_ww)}{(w^TS_bw)}S_w^{-1}S_bw\\\\
 \Rightarrow\ &w\propto S_w^{-1}S_bw\\\\
-\Rightarrow\ &w\propto S_w^{-1}\Big(\bar X_{C1}-\bar X_{C2}\Big)\Big(\bar X _{C1}-\bar X_{C2}\Big)^Tw\\\\
+\Rightarrow\ &w\propto S_w^{-1}\Big(\bar X_{C1}-\bar X_{C2}\Big)\Big(\bar X_{C1}-\bar X_{C2}\Big)^Tw\\\\
 \end{align*}
 $$
 
