@@ -111,23 +111,23 @@ $$
 then, using $S_1,\ \bar X_1$ to denote parameters of projections, and $S_{C1}, \bar X_{C1}$ to denote parameters of original data.
 
 $$\begin{align*}
-\bar {Z_1}&=\frac{1}{N_1}\sum_{i=1}^{N_1}Z_i=\frac{1}{N_1}\sum_{i=1}^{N_1}w^T\cdot x_i=w^T\bar{X}_{C1}\\\\
+\bar {Z_1}&=\frac{1}{N_1}\sum_{i=1}^{N_1}Z_i=\frac{1}{N_1}\sum_{i=1}^{N_1}w^T\cdot x_i=w^T\bar X_{C1}\\\\
 S_1 &= \frac{1}{N_1}\sum_{i=1}^{N_1}(w^T\cdot x_i -\bar {Z_1})(w^T\cdot x_i -\bar {Z_1})^T\\\\
-&=w^T\frac{1}{N_1}\sum_{i=1}^{N_1}(x_i -\bar{X}_{C1})(x_i -\bar{X}_{C1})^Tw\\\\
+&=w^T\frac{1}{N_1}\sum_{i=1}^{N_1}(x_i -\bar X_{C1})(x_i -\bar X_{C1})^Tw\\\\
 &=w^TS_{C1}w
 \\\\
 J(w) &= \frac{(\bar {Z_1} - \bar {Z_2})^2}{S_1+S_2}\\\\
-&=\frac{w^T\Big(\bar{X}_{C1}-\bar{X}_{C2}\Big)\Big(\bar{X}_{C1}-\bar{X}_{C2}\Big)^Tw}{w^TS_{C1}w+w^TS_{C2}w}\\\\
-&=\frac{w^T\Big(\bar{X}_{C1}-\bar{X}_{C2}\Big)\Big(\bar{X} _{C1}-\bar{X}_{C2}\Big)^Tw}{w^T(S_{C1}+S_{C2})w}
+&=\frac{w^T\Big(\bar X_{C1}-\bar X_{C2}\Big)\Big(\bar X_{C1}-\bar X_{C2}\Big)^Tw}{w^TS_{C1}w+w^TS_{C2}w}\\\\
+&=\frac{w^T\Big(\bar X_{C1}-\bar X_{C2}\Big)\Big(\bar X _{C1}-\bar X_{C2}\Big)^Tw}{w^T(S_{C1}+S_{C2})w}
 \end{align*}
 $$
 
 Now, our target is:
 $$
 \begin{align*}
-Max:\ J(w)&=\frac{w^T\Big(\bar{X}_{C1}-\bar{X}_{C2}\Big)\Big(\bar{X} _{C1}-\bar{X}_{C2}\Big)^Tw}{w^T(S_{C1}+S_{C2})w}\\\\
+Max:\ J(w)&=\frac{w^T\Big(\bar X_{C1}-\bar X_{C2}\Big)\Big(\bar X _{C1}-\bar X_{C2}\Big)^Tw}{w^T(S_{C1}+S_{C2})w}\\\\
 &=\frac{w^TS_bw}{w^TS_ww}\\\\
-S_b&=\Big(\bar{X}_{C1}-\bar{X}_{C2}\Big)\Big(\bar{X} _{C1}-\bar{X}_{C2}\Big)^T\\\\
+S_b&=\Big(\bar X_{C1}-\bar X_{C2}\Big)\Big(\bar X _{C1}-\bar X_{C2}\Big)^T\\\\
 S_w&=S_{C1}+S_{C2}
 \end{align*}
 $$
@@ -152,7 +152,7 @@ $$\begin{align*}
 \Rightarrow\ &S_ww=\frac{(w^TS_ww)}{(w^TS_bw)}S_bw\\\\
 \Rightarrow\ &w=\frac{(w^TS_ww)}{(w^TS_bw)}S_w^{-1}S_bw\\\\
 \Rightarrow\ &w\propto S_w^{-1}S_bw\\\\
-\Rightarrow\ &w\propto S_w^{-1}\Big(\bar{X}_{C1}-\bar{X}_{C2}\Big)\Big(\bar{X} _{C1}-\bar{X}_{C2}\Big)^Tw\\\\
+\Rightarrow\ &w\propto S_w^{-1}\Big(\bar X_{C1}-\bar X_{C2}\Big)\Big(\bar X _{C1}-\bar X_{C2}\Big)^Tw\\\\
 \end{align*}
 $$
 
@@ -162,8 +162,8 @@ $(\bar X_{C1}-\bar X_{C2})^T$ is $1\times P$ , so $\Big(\bar X_{C1}-\bar X_{C2}\
 Then,
 
 $$\begin{align*}
-\Rightarrow\ &w \propto S_w^{-1}\Big(\bar{X}_{C1}-\bar{X}_{C2}\Big)\Big(\bar{X}_{C1}-\bar{X}_{C2}\Big)^Tw\\\\
-\Rightarrow\ &w \propto S_w^{-1}\Big(\bar{X}_{C1}-\bar{X}_{C2}\Big)
+\Rightarrow\ &w \propto S_w^{-1}\Big(\bar X_{C1}-\bar X_{C2}\Big)\Big(\bar X_{C1}-\bar X_{C2}\Big)^Tw\\\\
+\Rightarrow\ &w \propto S_w^{-1}\Big(\bar X_{C1}-\bar X_{C2}\Big)
 \end{align*}
 $$
 
