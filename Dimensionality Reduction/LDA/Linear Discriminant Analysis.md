@@ -1,4 +1,4 @@
-# Linear Discriminant Analysis
+# Linear/Fisher Discriminant Analysis
 他们说：**类内小，类间大**； **松耦合，高内聚**。
 
 我说：**Mean，不同，不相为谋**
@@ -166,8 +166,16 @@ $$\begin{align*}
 \end{align*}
 $$
 
+## 4. Limitation
+
+* LDA produces at most 𝐶 − 1 feature projections.
+* If feature size is much greater than sample size, data are way too sparse, then LDA will fail.
+* LDA is a parametric method (it assumes unimodal Gaussian likelihoods).
+* LDA will fail if discriminatory information is not in the mean but in the variance of the data.
+
 
 ## References
 
 1. https://en.wikipedia.org/wiki/Linear_discriminant_analysis#Assumptions
 2. https://www.youtube.com/watch?v=M4HpyJHPYBY
+3. http://research.cs.tamu.edu/prism/lectures/pr/pr_l10.pdf
