@@ -128,7 +128,7 @@ $$
 \begin{align*}
 Max:\ J(w)&=\frac{w^T\Big(\bar X_{C1}-\bar X_{C2}\Big)\Big(\bar X _{C1}-\bar X_{C2}\Big)^Tw}{w^T(S_{C1}+S_{C2})w}\\\\
 &=\frac{w^TS_bw}{w^TS_ww}\\\\
-S_b&=\Big(\bar X_{C1}-\bar X_{C2}\Big)\Big(\bar X_{C1}-\bar X_{C2}\Big)^T
+S_w&=S_{C1}+S_{C2}
 \end{align*}
 $$
 
