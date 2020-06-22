@@ -161,8 +161,8 @@ $\Big(\bar{X} _{C1}-\bar{X}_{C2}\Big)^T$ is $1\times P$, so $\Big(\bar{X} _{C1}-
 Then,
 
 $$\begin{align*}
-\Rightarrow\ &w\propto S_w^{-1}\Big(\bar{X}_{C1}-\bar{X}_{C2}\Big)\Big(\bar{X}_{C1}-\bar{X}_{C2}\Big)^Tw\\\\
-\Rightarrow\ &w\propto S_w^{-1}\Big(\bar{X}_{C1}-\bar{X}_{C2}\Big)
+\Rightarrow\ &w \propto S_w^{-1}\Big(\bar{X}_{C1}-\bar{X}_{C2}\Big)\Big(\bar{X}_{C1}-\bar{X}_{C2}\Big)^Tw\\\\
+\Rightarrow\ &w \propto S_w^{-1}\Big(\bar{X}_{C1}-\bar{X}_{C2}\Big)
 \end{align*}
 $$
 
