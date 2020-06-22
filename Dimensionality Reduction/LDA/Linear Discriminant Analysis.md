@@ -156,7 +156,8 @@ $$\begin{align*}
 \end{align*}
 $$
 
-$\Big(\bar{X} _{C1}-\bar{X}_{C2}\Big)^T$ is $1\times P$, so $\Big(\bar{X} _{C1}-\bar{X}_{C2}\Big)^Tw$ is a real number. 
+
+$\Big(\bar{X}_{C1}-\bar{X}_{C2}\Big)^T$ is $1\times P$, so $\Big(\bar{X}_{C1}-\bar{X}_{C2}\Big)^Tw$ is a real number. 
 
 Then,
 
