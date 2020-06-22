@@ -29,6 +29,9 @@ P(x|\eta) &=h(x)\cdot \exp(\eta^T\phi(x))\cdot \exp(-A(\eta))\\\\
 \end{align*}$$
 所以可以认为$Z=\exp(A(\eta))$， 那么$A(\eta)=log(Z)$, 因为$Z$被称为partition function，所以$A(\eta)$就叫log partition function。
 
+3. 常见指数族分布
+高斯分布， 伯努利分布----> 类别分布， 二项分布----> 多项式分布， 泊松分布， beta， dirichlet， gamma
+
 ## 2. 指数族分布的性质
 
 
@@ -216,133 +219,80 @@ $$
 
 也就是说，要求$\eta_{MLE}$，我们只需要将**充分统计量**求和，然后再求其反函数即可，无需使用所有数据。这也就是充分统计量的优势。
 
-## 7. 最大熵
+## 7. 最大熵原理
 
+**最大熵原理是指，在已知一定约束条件下，寻找使其熵值最大的分布。**
 
-高斯分布
+1. 信息量：
+一个随机变量的概率为$P$，其信息量为$\log\frac{1}{p}=-\log{p}$。
 
-伯努利分布----> 类别分布
-
-二项分布----> 多项式分布
-
-泊松分布
-
-beta
-
-dirichlet
-
-gamma
-
-## 1. Exponential Distributions
-
-**1. Gauss**
-1.1 一维高斯分布
-$$
-P(X|\theta)=\frac{1}{\sqrt{2\pi}\sigma}exp\Big(\frac{(x-\mu)^2}{2\sigma^2}\Big)
-$$
-注：$\eta$其实也是一个函数，$\eta=\eta(\theta),A(\eta)=A(\eta(\theta))$
-所以我们要把上式改写成指数族分布的形式，就是把$\theta$映射到$\eta$上，也就是用$\mu,\sigma^2$来表示$\eta$。
-
+2. 信息熵
+信息熵其实是信息量的期望：
 $$\begin{align*}
-P(X|\theta)&=\frac{1}{\sqrt{2\pi}\sigma}exp\Big(\frac{(x-\mu)^2}{2\sigma^2}\Big),\theta=(\mu,\sigma^2)\\\\
-&=\frac{1}{\sqrt{2\pi\sigma^2}}exp\Big(\frac{1}{2\sigma^2}(x^2-2\mu x+\mu^2)\Big)\\\\
-&=exp\Big(log(2\pi\sigma^2)^{-\frac{1}{2}}\Big)exp\Big(-\frac{1}{2\sigma^2}(x^2-2\mu x-\frac{\mu^2}{2\sigma^2})\Big)\\\\
-&=-\frac{1}{2}exp(log2\pi\sigma^2)exp(-\frac{1}{2})
-\end{align*}
-$$
-\frac{\mu^2}{2\sigma^2})
-
-
-**2. Bernoulli Distribution (0-1 Distribution)**
-
-For a random variable $X$, when it success $x=1$ with probability $p$, fail $x=0$ with probability $q=1-p$.
-    $$
-    f_X(x)=P(x) = p^x(1-p)^{(1-x)},x=0,1
-    $$
-
-* *Expectation:* 
- $$ 
- E[X] = \sum_{i=0}^{1}x_iP(x_i)=0\cdot(1-p) + 1\cdot p=p
- $$
- 
-* *Variance:*
-
-$$\begin{align*}
-Var[X] &= E[X^2]-E[X]^2\\\\
-&=\sum_{i=0}^{1}x_i^2P(x_i)-p^2\\\\
-&=0^2\cdot (1-p)+1^2\cdot p-p^2\\\\
-&=(1-p)p\\\\
-&=pq\\\\
+E[-\log{p(x)}]&=\int -p(x)\log{p(x)}dx\\\\
+&=-\sum p(x)\log{p(x)}\\\\
+H[P] &=-\sum p(x)\log{p(x)}
 \end{align*}
 $$
 
-
-**3. Binomial Distribution**
-
-A distribution of the sum of n times independent Bernoulli trails.
-* Every Experience is independent
-* Each with the same probability $p$
-
-
-If the random variable X follows the binomial distribution with parameters $n\in N$ and $p\in [0,1]$, we write $X \sim B(n,p)$. The probability of getting exactly k successes in n independent Bernoulli trials is given by the probability mass function:
+1. **在无任何信息先验的情况下，最大熵与等可能是等价的**，证明如下：
+假设k个变量x，每个变量的所对应的概率为$p_k$，使总信息熵最大：
+$$Max:\ \sum_{i=1}^{k}-p_i\log{p_i}\\\\
+s.t.\ \sum_{i=1}^{k}p_i=1$$
+这是一个有约束的最优化问题，利用Lagrange Multiplier:
+$$
+Max:\ L(p,\lambda) = \sum_{i=1}^{k}-p_i\log{p_i}+\lambda (\sum_{i=1}^{k}p_i-1),\ s.t. \lambda>0
+$$
+等价于：
+$$
+Min:\ L(p,\lambda) = \sum_{i=1}^{k}p_i\log{p_i}-\lambda (\sum_{i=1}^{k}p_i-1)
+$$
+求$L(p,\lambda)$关于$p_i$的偏导数，（求$p_1$偏导时，其他p相当于常数）
 $$\begin{align*}
-    & P(X=k) = \begin{pmatrix} n \\\\ k\end{pmatrix}p^k(1-p)^{(n-k)}\\\\ 
-    where\ &k = 0,1,2,..,n\\\\
-    & q=1-p
+\frac{\partial L}{\partial p_i}&=\log{p_i}+1-\lambda=0\\\\
+\hat p_i&=\exp(\lambda-1)
 \end{align*}
 $$
+由于$\lambda$是一个常量，所以$p_1=p_2=...=p_k=\frac{1}{k}$。
+所以$P(x)$是均匀分布。
 
-* Expectation:
+4. **经验分布下的最大熵**
+已知一组数据，X\in{x_1,x_2,...,x_N}
 
-$$\begin{align*}
-E[X] &= \sum_{k=0}^{n}k\begin{pmatrix} n \\\\k\end{pmatrix}p^k(1-p)^{(n-k)}\\\\
-&= \sum_{k=1}^{n}k\begin{pmatrix} n \\\\k\end{pmatrix}p^k(1-p)^{(n-k)}\\\\
-&= \sum_{k=1}^{n}k\frac{n!}{k!(n-k)!}p^k q^{(n-k)}\\\\
-&= np \sum_{k=1}^{n} \frac{(n-1)!}{(k-1)!(n-k)!}p^{(k-1)} q^{(n-1)-(k-1)}\\\\
-&= np \underset{1}{\underbrace{\sum_{K=0}^{N} \begin{pmatrix} N \\\\K  \end{pmatrix}p^{(K)} q^{(N-K)}}}, N=N-1,K=K-1\\\\
-& = np
-\end{align*}
-$$
+> 4.1 经验分布
+> 是对已知样本的描述，其概率密度函数为：
+> $$
+> \hat P(X=x)=\hat p(x)=\frac{count(x)}{N}
+> $$
+> 该函数的含义是：等于$x$的变量出现的频率。可以求出该分布的期望$E_{\hat P}[X]$，方差$Var_{\hat P}[X]$等。
+> 令$f(x)$是任意关于x的**函数向量**：
+> $$E_{\hat P}[f(x)]=\Delta$$
+> $\Delta$是一个向量，并且已知，这就是求最大熵的约束条件。
 
-* Variance:
-
-$$\begin{align*}
-E[X^2]&=\sum_{k=1}^{n}k^2 \frac{n!}{k!(n-k)!}p^kq^{(n-k)}\\\\
-&=\sum_{k=1}^{n}k(k-1)\begin{pmatrix} n \\\\k\end{pmatrix} p^kq^{(n-k)}+\underset{np}{\underbrace{\sum_{k=1}^{n}k\begin{pmatrix} n \\\\k  \end{pmatrix}p^kq^{(n-k)}}}\\\\
-&=\sum_{k=1}^{n}\frac{n!}{(k-2)!(n-k)!}p^kq^{(n-k)}+np\\\\
-&=n(n-1)p^2 \underset{1}{\underbrace{\sum_{k=1}^{n}\frac{(n-2)!}{(k-2)!(n-k)!}p^{(k-2)}q^{(n-k)}}} +np\\\\
-&=n^2p^2-np^2+np\\\\
-Var[X] &= E[X^2]-E[X]^2\\\\
-& =n^2p^2-np^2+np - n^2p^2\\\\
-&=np(1-p)\\\\
-&=npq
-\end{align*}
-$$
-
-<!--* Mode and Medium
-    * if $np$ is an integer, mean, medium and mode are same-->
-
-* Sum of Binomials
-
-    If $X \sim B(n, p)$ and $Y \sim B(m, p)$ are independent binomial variables with the same probability p, then $X + Y$ is again a binomial variable; its distribution is $Z=X+Y \sim B(n+m, p)$
-      
-
-**4. Poisson**
-
-柏松分布描述单位时间内随机事件发生的次数的概率分布。A distribution to expresses the probability of a given number of events occurring in a fixed interval of time or space if these events occur with a known constant mean rate and independently of the time since the last event. 
-The Poisson distribution can also be used for the number of events in other specified intervals such as distance, area or volume.
-A discrete random variable X is said to have a Poisson distribution with parameter λ > 0, if, for k = 0, 1, 2, ..., the probability mass function of X is given by:
-
-
-We write as $X \sim \pi(\lambda)$.
-
-
-
-**5. Beta**
-
-**6. Dirichlet**
-
-**7. Gamma**
-
-
-# tweedie
+> 4.2 最大熵
+> 信息熵公式：
+> $$\begin{align*}
+> min:\ H[P] &=\sum p(x)\log{p(x)}\\\\
+> s.t.\ &\sum p(x)=1\\\\
+> &E_{ P}[f(x)]=E_{\hat P}[f(x)]=\Delta
+> \end{align*}$$
+> 引入Lagrange Multiplier:
+> $$
+> L(p,\lambda)=\sum p(x)\log{p(x)} + \lambda_0(1-\sum p(x)) + \lambda^T(\Delta-E_{P}[f(x)])
+> $$
+> 对其求导：
+> $$\begin{align*}
+> \frac{\partial}{\partial p(x)}L(p,\lambda)=\sum (\log{p(x)} + 1)- \sum \lambda_0 - \sum\lambda^Tf(x)&=0\\\\
+> \sum \Big(\log{p(x)} + 1-  \lambda_0 - \lambda^Tf(x)\Big)&=0
+> \end{align*}
+> $$
+> 由于$p(x)$和$\lambda^T$实际上是向量，所以要保证每一项都为0，则：
+> $$\log{p(x)} + 1-  \lambda_0 - \lambda^Tf(x)=0$$
+> 得到：
+> $$\begin{align*}
+> \log{p(x)} &= \lambda^Tf(x)+\lambda_0-1\\\\
+> p(x)&=\exp \lbrace \lambda^Tf(x)+\lambda_0-1 \rbrace\\\\
+> &=\exp\lbrace\eta^T\phi(x)-A(\eta)\rbrace
+> \end{align*}
+> $$
+> 由此可知，在有约束条件（经验分布）情况下，使其熵值最大的概率分布为指数族分布。
