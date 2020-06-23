@@ -60,7 +60,9 @@ Email: <jin.qi1@northeastern.edu>
   </tr>
   <tr>
     <td><a href="https://github.com/uttgeorge/Machine-Learning-Models/blob/master/Boosting%20Algorithms/Boosting.md">9. Boosting</a></td>
-    <td><a href="https://github.com/uttgeorge/Machine-Learning-Models/blob/master/Boosting%20Algorithms/Adaboost/Adaboost%20-%20Classification.md">Adaboost Classifier</a></td>
+    <td><a href="https://github.com/uttgeorge/Machine-Learning-Models/blob/master/Boosting%20Algorithms/Adaboost/Adaboost%20-%20Classification.md">1. Adaboost Classifier</a></br>
+    <a href="">2. GDBT(Not Finished)</a></br>
+    <a href="">3. XgGDBT(Not Finished)</a></td>
     <td><a href="https://github.com/uttgeorge/Machine-Learning-Models/blob/master/Boosting%20Algorithms/Adaboost/Adaboost_Classifier.ipynb">Adaboost Classifier Code</a></td>
   </tr>
   <tr>
