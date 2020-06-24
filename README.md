@@ -54,7 +54,7 @@ Email: <jin.qi1@northeastern.edu>
   <tr>
     <td>7. Logistic Regression</td>
     <td><a href="https://github.com/uttgeorge/Machine-Learning-Models/blob/master/Logistic%20Regression/Logistic%20Regression.md">Logistic Regression</a></td>
-    <td></td>
+    <td><a href="https://github.com/uttgeorge/Machine-Learning-Models/blob/master/Logistic%20Regression/LogisticRegressionClassifier.ipynb">Logistic Regression Classifier</a></td>
   </tr>
   <tr>
     <td>8. Naive Bayes</td>
@@ -188,6 +188,9 @@ Email: <jin.qi1@northeastern.edu>
 
 >#### Introductions
 >* [Logistic Regression](https://github.com/uttgeorge/Machine-Learning-Models/blob/master/Logistic%20Regression/Logistic%20Regression.md)
+
+>#### Codes
+>* [Logistic Regression Classifier](https://github.com/uttgeorge/Machine-Learning-Models/blob/master/Logistic%20Regression/LogisticRegressionClassifier.ipynb)
 
 
 ## 7. Naive Bayes
