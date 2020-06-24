@@ -126,7 +126,7 @@ Email: <jin.qi1@northeastern.edu>
   </tr>
   <tr>
     <td>18. HMM</td>
-    <td><a href="">HMM (Not finished)</a></td>
+    <td><a href="https://github.com/uttgeorge/Machine-Learning-Models/blob/master/HMM/Hidden%20Markov%20Model.md">HMM</a></td>
     <td><a href="">
   </a></br>
     </td>
@@ -254,6 +254,12 @@ Email: <jin.qi1@northeastern.edu>
 >>
 >>* [Linear/Fisher Discriminant Analysis](https://github.com/uttgeorge/Machine-Learning-Models/blob/master/Dimensionality%20Reduction/LDA/Linear%20Discriminant%20Analysis.md)
 >>
+>>
+
+## 18. HMM
+> #### Introductions
+> 
+> * [HMM](https://github.com/uttgeorge/Machine-Learning-Models/blob/master/HMM/Hidden%20Markov%20Model.md)
 
 
 ## References
