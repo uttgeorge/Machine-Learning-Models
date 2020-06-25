@@ -61,5 +61,7 @@ $b$ could be treated as $w_0$
 
 
 
+## 2. Limitation
 
+PLA can not solve **Nonlinear problem**, such as XOR problem.
  
