@@ -61,7 +61,16 @@ $b$ could be treated as $w_0$
 
 
 
-## 2. Limitation
+## 2. MLP
 
-PLA can not solve **Nonlinear problem**, such as XOR problem.
+* Limitation
+PLA has limitation, it can not solve **Nonlinear problem**, such as XOR problem.
+
+* Universal Approximation theorem
+$\le 1$ hidden layer can approximate any function
+
+    if 1 hidden layer is good, why deep? 
+    And backpropagation can lead to vanishing gradient problem
+
+
  
