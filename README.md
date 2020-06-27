@@ -17,9 +17,10 @@ Email: <jin.qi1@northeastern.edu>
     <td><a href="https://github.com/uttgeorge/Machine-Learning-Models/blob/master/Math/Bayesian%20Estimation%2C%20MLE%2C%20MAP.md"> 1. Bayesian Estimation, MLE, MAP</a>
     <a href="https://github.com/uttgeorge/Machine-Learning-Models/blob/master/Math/Exponential%20Family%20Distribution.md"> <br>2. Exponential Family Distribution</a>
     <a href="https://github.com/uttgeorge/Machine-Learning-Models/blob/master/Math/Gradient%20Descent.md"><br>3. Gradient Descent</br>
-    <a href=""> 4. Common Probability Distributions(Not Finished)</br></a>
-    <a href=""> 5. Probabilistic Graphical Model(Not Finished)</a></br>
-    <a href=""> 6. EM (Not Finished)</a></td>
+     <a href="https://github.com/uttgeorge/Machine-Learning-Models/blob/master/Math/Quadratic%20Form%20%26%20Quadratic%20Matrix%20Defferentiating.md"> 4. Quadratic Form & 4. Quadratic Matrix Defferentiating</br></a>
+    <a href=""> 5. Common Probability Distributions(Not Finished)</br></a>
+    <a href=""> 6. Probabilistic Graphical Model(Not Finished)</a></br>
+    <a href=""> 7. EM (Not Finished)</a></td>
     <td></td>
   </tr>
   <tr>
@@ -144,6 +145,7 @@ Email: <jin.qi1@northeastern.edu>
 >1. [Bayesian Estimation, MLE, MAP](https://github.com/uttgeorge/Machine-Learning-Models/blob/master/Math/Bayesian%20Estimation%2C%20MLE%2C%20MAP.md)
 >2. [Exponential Family Distribution](https://github.com/uttgeorge/Machine-Learning-Models/blob/master/Math/Exponential%20Family%20Distribution.md)
 >3. [Gradient Descent](https://github.com/uttgeorge/Machine-Learning-Models/blob/master/Math/Gradient%20Descent.md)
+>4. [4. Quadratic Matrix Defferentiating](https://github.com/uttgeorge/Machine-Learning-Models/blob/master/Math/Quadratic%20Form%20%26%20Quadratic%20Matrix%20Defferentiating.md)
 
 ## 2. Evaluation Metrics
 >1. [Classification 中文](https://github.com/uttgeorge/Machine-Learning-Models/blob/master/Evaluation%20Metrics/Evaluation%20Metrics%20-%20Classification.md)
