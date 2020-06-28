@@ -15,12 +15,14 @@ Email: <jin.qi1@northeastern.edu>
   <tr>
     <td>1. Math</td>
     <td><a href="https://github.com/uttgeorge/Machine-Learning-Models/blob/master/Math/Bayesian%20Estimation%2C%20MLE%2C%20MAP.md"> 1. Bayesian Estimation, MLE, MAP</a>
-    <a href="https://github.com/uttgeorge/Machine-Learning-Models/blob/master/Math/Exponential%20Family%20Distribution.md"> <br>2. Exponential Family Distribution</a>
-    <a href="https://github.com/uttgeorge/Machine-Learning-Models/blob/master/Math/Gradient%20Descent.md"><br>3. Gradient Descent</br>
-     <a href="https://github.com/uttgeorge/Machine-Learning-Models/blob/master/Math/Quadratic%20Form%20%26%20Quadratic%20Matrix%20Defferentiating.md"> 4. Quadratic Form & Quadratic Matrix Defferentiating</br></a>
-    <a href=""> 5. Common Probability Distributions(Not Finished)</br></a>
-    <a href=""> 6. Probabilistic Graphical Model(Not Finished)</a></br>
-    <a href=""> 7. EM (Not Finished)</a></td>
+    <a href="https://github.com/uttgeorge/Machine-Learning-Models/blob/master/Math/Exponential%20Family%20Distribution.md"> <br>2. Exponential Family Distribution</br></a>
+     <a href="https://github.com/uttgeorge/Machine-Learning-Models/blob/master/Math/Quadratic%20Form%20%26%20Quadratic%20Matrix%20Defferentiating.md"> 3. Quadratic Form & Quadratic Matrix Defferentiating</br></a>
+     <a href="https://github.com/uttgeorge/Machine-Learning-Models/blob/master/Math/Jacobian%20%26%20Hessian%20Matrix.md"> 4. Jacobian & Hessian Matrix</br></a>
+    <a href="https://github.com/uttgeorge/Machine-Learning-Models/blob/master/Math/Gradient%20Descent.md">5. Gradient Descent</br>
+    <a href="">6. Newton's Method</br>
+    <a href=""> 7. Common Probability Distributions(Not Finished)</br></a>
+    <a href=""> 8. Probabilistic Graphical Model(Not Finished)</a></br>
+    <a href=""> 9. EM (Not Finished)</a></td>
     <td></td>
   </tr>
   <tr>
