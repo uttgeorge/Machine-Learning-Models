@@ -19,7 +19,7 @@ Email: <jin.qi1@northeastern.edu>
      <a href="https://github.com/uttgeorge/Machine-Learning-Models/blob/master/Math/Quadratic%20Form%20%26%20Quadratic%20Matrix%20Defferentiating.md"> 3. Quadratic Form & Quadratic Matrix Defferentiating</br></a>
      <a href="https://github.com/uttgeorge/Machine-Learning-Models/blob/master/Math/Jacobian%20%26%20Hessian%20Matrix.md"> 4. Jacobian & Hessian Matrix</br></a>
     <a href="https://github.com/uttgeorge/Machine-Learning-Models/blob/master/Math/Gradient%20Descent.md">5. Gradient Descent</br>
-    <a href="">6. Newton's Method</br>
+    <a href="https://github.com/uttgeorge/Machine-Learning-Models/blob/master/Math/Newton's%20method%20%26%20Quasi-Newton%20method%20%EF%BC%88BFGS%20ongoing%EF%BC%89.md">6. Newton's Method & Quasi-Newton (BFGS ongoing)</br>
     <a href=""> 7. Common Probability Distributions(Not Finished)</br></a>
     <a href=""> 8. Probabilistic Graphical Model(Not Finished)</a></br>
     <a href=""> 9. EM (Not Finished)</a></td>
