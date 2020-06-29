@@ -26,7 +26,8 @@
 
 * Naive Bayes：朴素贝叶斯假设
 朴素贝叶斯模型假设$X_i\perp X_j |Y\ i\neq j$，任意两个X线性无关。其中$Y\in\lbrace1,0\rbrace$。   
-     ![](media/15930350593805/15930430690182.jpg)
+     
+![](media/15930350593805/15930430690182.jpg)
      
  (Source: https://anxiang1836.github.io/2019/11/05/NLP_From_HMM_to_CRF/)
      
@@ -35,15 +36,16 @@
 * HMM：1. 齐次马尔可夫假设；2. 观测独立性假设
 当朴素贝叶斯模型的$Y$转变成一个序列后，就成为了HMM。
     
-    ![](media/15930350593805/15930431089608.jpg)
+![](media/15930350593805/15930431089608.jpg)
     
-    (Source: https://anxiang1836.github.io/2019/11/05/NLP_From_HMM_to_CRF/)
+(Source: https://anxiang1836.github.io/2019/11/05/NLP_From_HMM_to_CRF/)
 
 * Gaussian Mixture Model
 高斯混合模型的隐变量为离散分布，观测变量为高斯分布。同样的，高斯混合模型如果加上时间形成一个序列，就成了HMM。
+
 ![-w256](media/15930350593805/15930370669323.jpg)
 
-    (Source: https://cedar.buffalo.edu/~srihari/CSE574/Chap9/Ch9.2-MixturesofGaussians.pdf)
+(Source: https://cedar.buffalo.edu/~srihari/CSE574/Chap9/Ch9.2-MixturesofGaussians.pdf)
         
 
 **2. Discriminant Model**
@@ -52,6 +54,7 @@
 * MEMM：Maximum Entropy Markov Model 最大熵马尔可夫模型
     最大熵马尔可夫模型中，每一个隐状态是由前一个隐状态以及它的观测变量决定的。在HMM有观测独立假设，而在MEMM中，观测变量不再相互独立，更加合理。
     **但存在一个问题： label bias problem，因为局部归一化,每一个局部的条件概率$P(y_2|y_1,x_2)$必须是一个概率分布，必须要归一化。**
+    
    ![](media/15930350593805/15930431287117.jpg)
    
    (Source: https://anxiang1836.github.io/2019/11/05/NLP_From_HMM_to_CRF/)
@@ -59,6 +62,7 @@
         
 * CRF：Conditional Random Field
     为了消除标注偏差问题，CRF将MEMM变为无向图，因为无向图具有全局归一化的特性，所以解决了MEMM的问题。
+    
     ![](media/15930350593805/15930431615862.jpg)
     
      (Source: https://anxiang1836.github.io/2019/11/05/NLP_From_HMM_to_CRF/)
