@@ -25,11 +25,12 @@
 生成模型是对联合概率 (joint probability）$P(x,y)$进行建模
 
 * Naive Bayes：朴素贝叶斯假设
+朴素贝叶斯模型假设$X_i\perp X_j |Y\ i\neq j$，任意两个X线性无关。其中$Y\in\lbrace1,0\rbrace$。   
      ![](media/15930350593805/15930430690182.jpg)
      
  (Source: https://anxiang1836.github.io/2019/11/05/NLP_From_HMM_to_CRF/)
      
- 朴素贝叶斯模型假设$X_i\perp X_j |Y\ i\neq j$，任意两个X线性无关。其中$Y\in\lbrace1,0\rbrace$。
+
 
 * HMM：1. 齐次马尔可夫假设；2. 观测独立性假设
 当朴素贝叶斯模型的$Y$转变成一个序列后，就成为了HMM。
