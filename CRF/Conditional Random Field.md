@@ -400,7 +400,7 @@ $$
 
     如何将$\sum_{t=1}^{T}f(y_{t-1},y_t,x),\ \sum_{t=1}^{T}g(y_t,x)$改写为向量形式？
     
-    定义一个向量：$\theta=\begin{pmatrix}\lambda\\\\\eta\end{pmatrix}_{K+L}$，一个函数 $H=\begin{pmatrix}\sum_{t=1}^{T}f\\\\\sum_{t=1}^{T}g \end{pmatrix}_{K+L}$
+    定义一个向量：$\theta=\begin{pmatrix}\lambda\\\\ \eta\end{pmatrix}_{K+L}$，一个函数 $H=\begin{pmatrix}\sum_{t=1}^{T}f\\\\ \sum_{t=1}^{T}g \end{pmatrix}_{K+L}$
         
 **CRF概率密度函数向量形式：**
 $$
