@@ -1,7 +1,9 @@
 # Conditional Random Field
 
 学习笔记，视频参考：https://www.bilibili.com/video/BV19t411R7QU?p=3
+
 本篇文章大部分转载：https://anxiang1836.github.io/2019/11/05/NLP_From_HMM_to_CRF/
+
 有部分修改。
 
 

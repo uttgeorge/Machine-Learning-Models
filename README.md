@@ -137,7 +137,7 @@ Email: <jin.qi1@northeastern.edu>
   </tr>
    <tr>
     <td>19. CRF</td>
-    <td><a href="">CRF (Not finished)</a></td>
+    <td><a href="https://github.com/uttgeorge/Machine-Learning-Models/blob/master/CRF/Conditional%20Random%20Field.md">CRF</a></td>
     <td><a href="">
   </a></br>
     </td>
