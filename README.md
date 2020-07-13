@@ -142,6 +142,14 @@ Email: <jin.qi1@northeastern.edu>
   </a></br>
     </td>
   </tr>
+ <tr>
+    <td>20. NLP</td>
+    <td><a href="https://github.com/uttgeorge/NLP/blob/master/1.%20Word%20Embedding.md">1. Word Embedding</a>
+    <a href="https://github.com/uttgeorge/NLP/blob/master/2.%20Language%20model%2C%20RNNs%2C%20GRU%20%26%20LSTM.md"><br>2. Language model, RNNs, GRU & LSTM</a></td>
+    <td><a href="">
+  </a></br>
+    </td>
+  </tr>
 </table>
 
 
