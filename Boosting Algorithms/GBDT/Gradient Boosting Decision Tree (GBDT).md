@@ -88,8 +88,8 @@ $$\begin{align*}
 令 Z_i&=\log(odds_i)\\\\
 &= \underset{Z_i}{argmin} \sum_{i=1}^{N} \bigg\lbrace-y_iZ_i + \log \big[1+e^{Z_i}\big]\bigg\rbrace\\\\
 &  \sum_{i=1}^{N} \frac{\partial}{\partial Z_i}\bigg\lbrace-y_iZ_i + \log \big[1+e^{Z_i}\big]\bigg\rbrace\\\\
-=& \sum_{i=1}^{N} \bigg\lbrace-y_i + \frac{e^{Z_i}}{1+e^{Z_i}}\bigg\rbrace\ & 1. odds角度\\\\
-=& \sum_{i=1}^{N} \bigg\lbrace-y_i + P_i\bigg\rbrace\ & 2. 概率角度\\\\
+=& \sum_{i=1}^{N} \bigg\lbrace-y_i + \frac{e^{Z_i}}{1+e^{Z_i}}\bigg\rbrace\\\\
+=& \sum_{i=1}^{N} \bigg\lbrace-y_i + P_i\bigg\rbrace\\\\
 \end{align*}
 $$
 
