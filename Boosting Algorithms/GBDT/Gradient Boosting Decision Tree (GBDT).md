@@ -80,6 +80,7 @@ Square Loss求一阶导后，正好是Residual，但是该损失函数对于Outl
 
 $$\begin{align*}
 \hat{\theta} &= \underset{\theta}{argmax} \prod_{i=1}^{N}P(X_i|\theta)^{y_i}(1-P(X_i|\theta))^{(1-{y_i})}\\\\
+&= \underset{\theta}{argmax} \sum_{i=1}^{N}y_i*\log \big[P(X_i|\theta)\big] + (1-{y_i})*\log \big[1-P(X_i|\theta)\big]\\\\
 令 Z_i&=\log(odds_i)\\\\
 &= \underset{Z_i}{argmin} \sum_{i=1}^{N} \bigg\lbrace-y_iZ_i + \log \big[1+e^{Z_i}\big]\bigg\rbrace\\\\
 &  \sum_{i=1}^{N} \frac{\partial}{\partial Z_i}\bigg\lbrace-y_iZ_i + \log \big[1+e^{Z_i}\big]\bigg\rbrace\\\\
