@@ -79,12 +79,11 @@ Square Loss求一阶导后，正好是Residual，但是该损失函数对于Outl
 推导过程如下：
 
 $$\begin{align*}
-\hat{\theta} &= \underset{\theta}{argmax} \prod_{i=1}^{N}P(X_i|\theta)^{y_i}(1-P(X_i|\theta))^{(1-{y_i})}\\\\
-&= \underset{\theta}{argmax} \sum_{i=1}^{N}y_i*\log \big[P(X_i|\theta)\big] + (1-{y_i})*\log \big[1-P(X_i|\theta)\big]\\\\
-&= \underset{\theta}{argmin} \sum_{i=1}^{N}-y_i*\log \big[P(X_i|\theta)\big] - (1-{y_i})*\log \big[1-P(X_i|\theta)\big]\\\\
-&= \underset{\theta}{argmin} \sum_{i=1}^{N} \bigg\lbrace-y_i*\bigg(\log \big[P(X_i|\theta)\big] -\log \big[1-P(X_i|\theta)\big] \bigg) - \log \big[1-P(X_i|\theta)\big]\bigg\rbrace\\\\
-&= \underset{\log (odds_i)}{argmin} \sum_{i=1}^{N} \bigg\lbrace-y_i\log (odds_i) - \log \big[1-\frac{e^{\log (odds_i)}}{1+e^{\log (odds_i)}}\big]\bigg\rbrace\\\\
-&= \underset{\log (odds_i)}{argmin} \sum_{i=1}^{N} \bigg\lbrace-y_i\log (odds_i) + \log \big[1+e^{\log (odds_i)}\big]\bigg\rbrace\\\\
+令 Z_i&=\log(odds_i)\\\\
+&= \underset{Z_i}{argmin} \sum_{i=1}^{N} \bigg\lbrace-y_iZ_i + \log \big[1+e^{Z_i}\big]\bigg\rbrace\\\\
+&  \sum_{i=1}^{N} \frac{\partial}{\partial Z_i}\bigg\lbrace-y_iZ_i + \log \big[1+e^{Z_i}\big]\bigg\rbrace\\\\
+=& \sum_{i=1}^{N} \bigg\lbrace-y_i + \frac{e^{Z_i}}{1+e^{Z_i}}\bigg\rbrace\\\\
+=& \sum_{i=1}^{N} \bigg\lbrace-y_i + P_i\bigg\rbrace\\\\
 \end{align*}
 $$
 
