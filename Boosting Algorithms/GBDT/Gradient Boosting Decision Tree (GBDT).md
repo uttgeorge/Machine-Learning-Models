@@ -85,11 +85,6 @@ $$\begin{align*}
 &= \underset{\theta}{argmin} \sum_{i=1}^{N} \bigg\lbrace-y_i*\bigg(\log \big[P(X_i|\theta)\big] -\log \big[1-P(X_i|\theta)\big] \bigg) - \log \big[1-P(X_i|\theta)\big]\bigg\rbrace\\\\
 &= \underset{\log (odds_i)}{argmin} \sum_{i=1}^{N} \bigg\lbrace-y_i\log (odds_i) - \log \big[1-\frac{e^{\log (odds_i)}}{1+e^{\log (odds_i)}}\big]\bigg\rbrace\\\\
 &= \underset{\log (odds_i)}{argmin} \sum_{i=1}^{N} \bigg\lbrace-y_i\log (odds_i) + \log \big[1+e^{\log (odds_i)}\big]\bigg\rbrace\\\\
-令 Z_i&=\log(odds_i)\\\\
-&= \underset{Z_i}{argmin} \sum_{i=1}^{N} \bigg\lbrace-y_iZ_i + \log \big[1+e^{Z_i}\big]\bigg\rbrace\\\\
-&  \sum_{i=1}^{N} \frac{\partial}{\partial Z_i}\bigg\lbrace-y_iZ_i + \log \big[1+e^{Z_i}\big]\bigg\rbrace\\\\
-=& \sum_{i=1}^{N} \bigg\lbrace-y_i + \frac{e^{Z_i}}{1+e^{Z_i}}\bigg\rbrace\\\\
-=& \sum_{i=1}^{N} \bigg\lbrace-y_i + P_i\bigg\rbrace\\\\
 \end{align*}
 $$
 
