@@ -46,10 +46,11 @@ $$
  1. 计算负梯度：
     $$r_{i,t}=-g_{i,t}=-\bigg[ \frac{\partial{l(y_i,\hat{y_i}^{t-1})}}{\partial{\hat{y_i}^{t-1}}}\bigg]=-\bigg[ \frac{\partial{l(y_i,F_{t-1}(x_i))}}{\partial{F_{t-1}(x_i)}}\bigg]$$
     其中，$i$表示第i个样本，$t$表示第t棵树。
- 3. 利用所有的features $x_i$ 以及 $r_{i,t}$，拟合一棵CART回归树，得到$J$个叶子节点。**$J$的个数通常介于[8,32]。**
- 4. 每一个叶子节点使损失函数最小的输出：
+ 2. 利用所有的features $x_i$ 以及 $r_{i,t}$，拟合一棵CART回归树，得到$J$个叶子节点。**$J$的个数通常介于[8,32]。**
+ 3. 每一个叶子节点定义一个输出值$c$，使损失函数最小：
     $$c_{t,j}=\underset{c}{argmin} \sum_{x_i\in R_{t,j}} L(y_i,F_{t-1}({x_i})+c)$$
- 4. 利用叶子节点输出来更新模型：
+    当损失函数是Square Loss时，$\sum_{x_i\in R_{t,j}} y_i-F_{t-1}({x_i})-c = 0$，其中$y_i-F_{t-1}({x_i})$是Residual，$c_{t,j}$就等于一个叶子节点中所有Residual的均值。（此仅为特殊情况。）
+ 4. 利用叶子节点输出值来更新模型：
     $$F_{t}(x)=F_{t-1}(x)+v\sum_{j=1}^{J}c_{t,j}*I(x\in R_{t,j})$$
     其中，$v$是学习率。
 
@@ -69,18 +70,103 @@ Square Loss求一阶导后，正好是Residual，但是该损失函数对于Outl
 
 常用损失函数有：
 1. Exponential Loss: 变为Adaboost
-2. Log Likelihood: 
+2. Log Likelihood: 因为GBDT要求Gradient，就必须使用连续变量。而分类问题是离散的，所以通过$log(odds)$将二者结合起来。
+    
+    类似于logistic regression，可以使用最大似然估计作为目标函数：
+    $$
+    L(y,F)=-yF + \log \big(1+e^{F}\big)
+    $$
+推导过程如下：
 
+$$\begin{align*}
+\hat{\theta} &= \underset{\theta}{argmax} \prod_{i=1}^{N}P(X_i|\theta)^{y_i}(1-P(X_i|\theta))^{(1-{y_i})}\\\\
+&= \underset{\theta}{argmax} \sum_{i=1}^{N}y_i*\log \big[P(X_i|\theta)\big] + (1-{y_i})*\log \big[1-P(X_i|\theta)\big]\\\\
+&= \underset{\theta}{argmin} \sum_{i=1}^{N}-y_i*\log \big[P(X_i|\theta)\big] - (1-{y_i})*\log \big[1-P(X_i|\theta)\big]\\\\
+&= \underset{\theta}{argmin} \sum_{i=1}^{N} \bigg\lbrace-y_i*\bigg(\log \big[P(X_i|\theta)\big] -\log \big[1-P(X_i|\theta)\big] \bigg) - \log \big[1-P(X_i|\theta)\big]\bigg\rbrace\\\\
+&= \underset{\log (odds_i)}{argmin} \sum_{i=1}^{N} \bigg\lbrace-y_i\log (odds_i) - \log \big[1-\frac{e^{\log (odds_i)}}{1+e^{\log (odds_i)}}\big]\bigg\rbrace\\\\
+&= \underset{\log (odds_i)}{argmin} \sum_{i=1}^{N} \bigg\lbrace-y_i\log (odds_i) + \log \big[1+e^{\log (odds_i)}\big]\bigg\rbrace\\\\
+令 Z_i&=\log(odds_i)\\\\
+&= \underset{Z_i}{argmin} \sum_{i=1}^{N} \bigg\lbrace-y_iZ_i + \log \big[1+e^{Z_i}\big]\bigg\rbrace\\\\
+&  \sum_{i=1}^{N} \frac{\partial}{\partial Z_i}\bigg\lbrace-y_iZ_i + \log \big[1+e^{Z_i}\big]\bigg\rbrace\\\\
+=& \sum_{i=1}^{N} \bigg\lbrace-y_i + \frac{e^{Z_i}}{1+e^{Z_i}}\bigg\rbrace\ & 1. odds角度\\\\
+=& \sum_{i=1}^{N} \bigg\lbrace-y_i + P_i\bigg\rbrace\ & 2. 概率角度\\\\
+\end{align*}
+$$
 
 ## 3. 算法步骤
 
 
+### 3.1 Regression
 
+输入数据： $D = \lbrace(x_i,y_i)\rbrace^{n}_{i=1}$
 
+Step 1: Initialize model with a constant value:
+    $$
+    F_0(x)=\underset{C}{argmin} \sum^{n}_{i=1}L(y_i,C)
+    \\\\
+    \rightarrow \frac{\sum y_i}{n}=C=\bar{y}=  F_0(x)
+    $$
+    当损失函数是Square Loss时，$F_0(x)$等于实际值的均值。
+    
+Step 2: 
 
+for t = 1 to T: （其中t指第t棵树）
+>>A. 计算负梯度：
+>>$$
+>>r_{i,t}=-\bigg[\frac{\partial{L(y_i,F_{t-1}(x_i))}}{\partial{F_{t-1}(x_i)}}\bigg],\ for\ i=1,2,3,...,n
+>>$$ 
+>>
+>>B. Fit a regression tree to the $r_{i,t}$ value.
+>>
+>>C. 每一个叶子节点定义一个输出值$c$，使损失函数最小：
+>>$$c_{t,j}=\underset{c}{argmin} \sum_{x_i\in R_{t,j}} L(y_i,F_{t-1}({x_i})+c)$$
+>>当损失函数是Square Loss时，$\sum_{x_i\in R_{t,j}} y_i-F_{t-1}({x_i})-c = 0$，其中$y_i-F_{t-1}({x_i})$是Residual，$c_{t,j}$就等于一个叶子节点中所有Residual的均值。（此仅为特殊情况。）
+>>
+>>D. 利用叶子节点输出值来更新模型：
+    $$F_{t}(x)=F_{t-1}(x)+v\sum_{j=1}^{J}c_{t,j}*I(x\in R_{t,j})$$
+    其中，$v$是学习率。
+    
+Step 3: 输出$F_T(x)=F_0(x)+v\sum_{t=1}^{T}\sum_{j=1}^{J}c_{t,j}*I(x\in R_{t,j})$
 
+### 3.2 Classification
 
+输入数据： $D = \lbrace(x_i,y_i)\rbrace^{n}_{i=1}$
 
+Step 1: Initialize model with a constant value:
+    $$
+    F_0(x)=\underset{C}{argmin} \sum^{n}_{i=1}L(y_i,C)\\\\
+    s.t.\ C=\log(odds),\ y\in\lbrace0,1\rbrace
+    $$
+  
+    
+Step 2: 
+
+for t = 1 to T: （其中m指第m棵树）
+>>A. 计算负梯度：
+>>$$
+>>r_{i,t}=-\bigg[\frac{\partial{L(y_i,F_{t-1}(x_i))}}{\partial{F_{t-1}(x_i)}}\bigg]= -y_i + \frac{e^{F_{t-1}(x_i)}}{1+e^{F_{t-1}(x_i)}}
+=-y_i + P_i\,\\\\ for\ i=1,2,3,...,n
+>>$$ 
+>>
+>>B. Fit a regression tree to the $r_{i,t}$ value.
+>>
+>>C. 每一个叶子节点定义一个输出值$c$，使损失函数最小：
+>>$$c_{t,j}=\underset{c}{argmin} \sum_{x_i\in R_{t,j}} L(y_i,F_{t-1}({x_i})+c)$$
+>>由于计算量过大，通过2nd-order Taylor Series将公式展开，再通过求导得到最优解。
+>>$$\begin{align*}
+>>c_{t,j}&=\frac{\sum{-\frac{d}{dF()}L(y_i,F_{t-1}(x_i))}}{\sum{\frac{d^2}{dF()^2}L(y_i,F_{t-1}(x_i))}}\\\\
+>>&=\frac{\sum -y_i+\frac{e^{F_{t-1}(x_i)}}{1+e^{F_{t-1}(x_i)}}}{\sum{\frac{e^{F_{t-1}(x_i)}}{(1+e^{F_{t-1}(x_i)})^2}}} & ①\\\\
+>>&=\frac{\sum -y_i-P_{i,t-1}}{\sum{P_{i,t-1}(1-P_{i,t-1})}} &②\\\\
+>>\end{align*}
+>>$$
+>>
+>>D. 利用叶子节点输出值来更新模型：
+    $$F_{t}(x)=F_{t-1}(x)+v\sum_{j=1}^{J}c_{t,j}*I(x\in R_{t,j})$$
+    其中，$v$是学习率。
+
+具体推导：略
+    
+Step 3: 输出$F_t(x)$
 
 <!--由Boosting策略可得到一个加法模型：$F_t(x)=F_{t-1}(x)+f_t(x)$，每次新的模型结果加到之前模型的累加和上。本质上，任何模型都希望与实际值尽可能接近。当建立一个模型后，与实际值之间的差值，可以通过新的模型去拟合，从而使差值越来越小。所以由加法模型可以看出，我们可以把$f_t(x)$看作是对这种差值的一种逼近。
 
@@ -99,39 +185,45 @@ $$
 令$f_t(x)$为residual即可。 但如果是其他损失函数，则计算困难。
 
 由此，引入gradient descent来使$f_t(x)$逐渐接近$R_t$。-->
+## 4.正则化 Regularization
+1. Learning Rate: $v$
+2. Subsample: 不放回的取sample中的一部分数据进行训练
+3. Pruning: 对CART决策树剪枝
 
-### 1.1 Gradient Descent 和 Gradient Boosting 的区别
+## 5. 总结
+
+### 5.1 GBDT的核心
+Gradient。我们可以用残差来学习下一棵树，除第一棵树，其余树全部由Residual决定。但Residual的问题在于cost function是Square Loss Function，很难处理回归以外的问题。而用Gradient的概念去近似，只要cost function可导就行。
+
+### 5.2 GBDT中的Decision Tree是什么？
+
+回归树，因为GBDT会累加所有树的结果，分类树无法完成此任务。
+
+### 5.3 Gradient Descent 和 Gradient Boosting 的区别
 
 Gradient Descent（更新参数）： 对于一个单独的损失函数，找到使损失函数最小的参数值。
 
 Gradient Boosting（更新函数）： 在函数空间中，找到使梯度下降最快的函数，并将此函数线性添加到之前得到的最有函数中(线性组合)。
 
-### 1.2 GBDT 和 Adaboost 的区别
+### 5.4 GBDT 和 Adaboost 的区别
 
 * 损失函数不同： Adaboost 通过提升错分数据的权重来衡量不足，不断加入弱分类器进行boosting。 GBDT 则是通过residual来衡量模型的不足，并通过不断加入新的树在负梯度方向上最快的减少residual。
 * weak learner 不同： Adaboost 的弱学习器是只有一层的decision tree，称作decision stump。 GBDT的弱学习器是regression tree。
 
-## 2. 数学推导
+### 5.5 GBDT 和 Random Forest 的区别
+相同点：
+1. 多棵树组成
+2. 最终的结果由多棵树一起决定
 
-### 2.1 目标函数
+不同点：
+1. RF的子树可以是分类树，也可以是回归树，而GBDT只能是回归树
+2. RF是bagging，GBDT是boosting
+3. RF可以并行(Parallel)，GBDT只能串行(Serial)
+4. RF对异常值不敏感，GBDT更敏感，可以改用Huber loss
+5. 相对于RF，GBDT更容易overfitting
+6. GBDT准确率更高，相对于SVM等
 
-由1.已知，
+### 5.6 为什么在分类问题中，使用log(odds)？
 
-## 3. 算法
-
-### 3.1 回归 Regression
-
-1. 输入数据： $D = \lbrace(x_i,y_i)\rbrace^{n}_{i=1}$
-2. Loss Function: $L(y_i,F(x))=\frac{1}{2}(y_i-F(x_i))^2$
-3. Step 1: Initialize model with a constant value:
-    $$
-    F_0(x)=\underset{C}{argmin} \sum^{n}_{i=1}L(y_i,C)
-    \\\\
-    \rightarrow \frac{\sum y_i}{n}=C=\bar{y}=  F_0(x)
-    $$
-    $F_0(x)$等于预测值的均值。
-4. Step 2: for m = 1 to M: （其中m指第m棵树）
-    A. 计算梯度：
-    $$
-    r_{i,m}=-\bigg[\frac{\partial{L(y_i,F_{m-1}(x_i))}}{\partial{F_{m-1}(x_i)}}\bigg],\ for\ i=1,2,3,...,n
-    $$ 
+1. $p$的取值范围只能是$0-1$，$odds$取值范围是$[o,+\infty)$，而$\log(odds)$取值范围是$(-\infty,+\infty)$
+2. 用$\log(odds)$可以构建线性模型，而GBDT正好是一个线性相加的模型。
