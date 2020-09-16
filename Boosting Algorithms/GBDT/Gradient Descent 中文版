@@ -1,0 +1,232 @@
+# Gradient Descent 中文
+
+## Optimization Problem 优化问题
+
+优化问题就是寻找极值。极值一定位于梯度为0的位置。只有当loss function可导时才能使用此方法。
+
+通常，最小值与最大值等价 $max: f(x) = min: -f(x)$.
+
+现在，通过一个没有约束的优化问题入手：
+
+假设 $x^*$ 是一个全局最小值，对于可行域中所有的$x$都满足：
+
+$$
+f(x^*)\le f(x)
+$$
+
+也有同时也可能存在局部最小值 $x'$，即在一个邻域$\delta$内，$x’$ 同时满足
+$$
+||x-x'||\le \delta
+$$
+
+和
+
+$$
+f(x')\le f(x)
+$$
+
+我们的目的是寻找全局最优解而不是局部最优解。但不幸的是，一些损失函数可能带来多个局部最优解。所以即便找到了导数为0的点，我们也无法确定该点就是全局最优解。
+
+## Derivative and Gradient 求导和梯度
+
+### 1. 1st Derivative: Gradient 一阶导数：梯度
+
+我们定义多项式的梯度为：
+
+$$
+\nabla f(x) = \Big(\frac{\partial f}{\partial x_1},\frac{\partial f}{\partial x_2},...,\frac{\partial f}{\partial x_n} \Big)^T
+$$
+
+$\nabla$ 是梯度运算，当应用在多项式中会得到一个向量。
+
+
+==Example:==
+
+$$\nabla(x^2+xy-y^2)=(2x+y,x-2y)$$
+
+梯度为0的点称为驻点。当找到最优解时，梯度为0，但反过来并不成立。
+
+### 2. 2nd Derivative: Hessian Matrix 二阶导数：Hessian矩阵
+
+假设找到了极值，如何确定其是最小值还是最大值？在一元函数中，如果二阶导数是正数，表示梯度变化方向是向上的，那该点是最小值。如果二阶导数是负数，则是最大值。
+
+对于多元函数，通过Hessian矩阵的正定性来进行判断：
+* 如果 Hessian Matrix 是正定，则最小值；
+* 如果 Hessian Matrix 是负定，则最大值；
+* 如果 Hessian Matrix 不定，则需进一步分析。
+
+For positive definite, please check [18.06 Notes Symmetric Matrices & Positive Definite](https://github.com/uttgeorge/Linear-Algebra/blob/master/25-Symmetric%20Matrices%20%26%20Positive%20Definitness.pdf).
+
+### 3. Iteration
+
+有时我们很难计算出最小值。于是通过迭代法近似。从点 $x_0$ 开始，按照一定规则反复的从点 $x_k$ 移动到 点$x_{k+1}$，直到移动到梯度为0的点。
+$$
+\lim_{k\rightarrow  +\infty} \nabla f(x_k) = 0
+$$ 
+
+所以核心是利用一阶导和二阶导找到迭代的规则：
+
+$$
+x_{k+1} = h(x_k)
+$$
+
+
+## Gradient Descent 梯度下降
+
+<!--
+_**1. One Dimensional (one variable) function**_
+
+The Taylor polynomial of a differentiable function:
+$$
+f(x+\Delta x)= f(x)+f'(x)\Delta x+\frac{1}{2}f''(x_0)(\Delta x)^2+...+\frac{1}{n!}f^{(n)}(x)(\Delta x)^n...
+
+_**Multi-variables function**_
+$$-->
+
+
+### 1. Direction of Gradient Descent
+
+一个微分方程在点$x$的泰勒展开是：
+
+$$
+f(X+ \Delta x)= f(X)+(\nabla f(X))^T\Delta x + o(\Delta x)
+$$
+
+方程的增量， $\Delta x$ 和梯度的关系如下：
+
+$$
+    f(x+\Delta x)-f(x) = (\nabla f(X))^T\Delta x + o(\Delta x)
+$$ 
+
+如果 $\Delta x$ 足够小的话，可以忽略二次项及以上：
+
+$$
+    f(x+\Delta x)-f(x) \approx (\nabla f(X))^T\Delta x 
+$$
+
+其中$\Delta x$ 是一个指向无穷方向的向量，应该选择哪个方向呢？当$\Delta x$ 使得：
+
+$$
+(\nabla f(X))^T\Delta x < 0
+$$
+
+时，
+
+$$
+f(x+\Delta x)<f(x)
+$$
+
+此时损失函数逐渐较小。这就是正确的方向。又因为已知：
+
+$$(\nabla f(X))^T\Delta x=\left \| \nabla f(X) \right \|\left \| \nabla \Delta x \right \| cos\theta$$
+
+其中 $\left \| \cdot \right \|$ 是向量的范数，$\theta$ 是向量$\nabla f(X)$ 和向量 $\Delta x$ 间的夹角。因为范数非负，如果$cos \theta \le 0$，那么$(\nabla f(X))^T\Delta x \le 0$ 恒成立。
+
+$cos \theta \le 0$ 在 $\theta = \pi$时取得最小值-1。所以 $\Delta x$ 应该选择负梯度方向。
+
+$$
+(\nabla f(X))^T\Delta x = -\left \| \nabla f(X) \right \|\left \| \nabla \Delta x \right \|
+$$
+
+现令：
+$$
+\Delta x = -\alpha \nabla f(X), \alpha > 0
+$$
+
+可得：
+$$
+(\nabla f(X))^T\Delta x=-\alpha (\nabla f(X))^T(\nabla f(X))<0
+$$
+
+
+
+### 2. Learning Rate
+
+如果我们令 $\Delta x = -\nabla f(X)$，$x+\Delta x$ 可能会跳出邻域：$\left \| x-x^* \right \| > \delta$。这种情况下，就无法忽略二次项甚至更高项，上面的推导也就不成立了。于是定义一个0到1之间的数，称为学习率，使得 $\left \| x-x^* \right \| \le \delta$ 。这就是学习率的数学解释。
+
+最终得到：
+
+$$
+x_{k+1}=x_k-\alpha \nabla f(x_k)
+$$
+
+
+## Problems
+
+### 1. Local Minimum
+
+![](media/15916918238461/15916995092587.png)
+
+### 2. Saddle Points 鞍点
+
+梯度为0，但既不是局部最小，也不是全局最小的点称为鞍点。可以通过Hessian Matrix判断，此时Hessian既不是正定，也不是负定。
+
+![](media/15916918238461/15916996897579.jpg)
+
+### 3. 计算量巨大
+
+## Improvements
+
+### 1. Stochastic Gradient Descent
+
+随机梯度下降是每一次随机选择一个点而不是用所有的点来计算梯度。这样的好处是可以提高运算速度。
+但随机梯度下降存在一些问题：
+* 无法找到全局最优，只会接近；
+* 当数据不平衡时，或者是无用的数据，选择随即梯度下降会大概率选择这些样本，从而导致梯度下降缓慢
+* 容易遇到噪声而陷入局部最优
+* 收敛过程波动很大，很难稳定收敛（可以使用early stopping）
+
+普通的梯度下降需要计算所有样本的梯度，来更新一次参数，而SGD每次只需要随机选取一个点的梯度来更新参数。所以，普通的梯度下降每次需要大量的计算，但迭代次数较少，且能通过矩阵运算。而SGD虽然每次计算量很小，但需要大量的迭代才能到达一个合适的值。
+
+### 2. Mini-batch Gradient Descent
+
+Mini-batch 是一种折中产物，它既没有普通GD的计算量大，也比SGD的精度高。
+
+优点：
+* 可以通过矩阵运算
+* 极大的减少迭代次数：假如SGD需要迭代10k次，如果batch size等于10，那么就只需要迭代1k次
+* 减小波动
+
+Batch size 在一定范围内时，增加batch size可以：
+* 减少迭代次数
+* 提高精度
+
+但当batch size过大时：
+* 减少的迭代次数无法抵消计算所消耗的时间
+* 达到同样精度的计算时间大大增加
+* 内存超载
+
+### 3. Normalization/ Standardization
+
+不同的特征值，取值范围也不同。理想状态下，将各个维度归一化后，使得在每一点的梯度下降方向都指向圆心，从而加快收敛。此时方差为1，期望/均值为0。
+
+如果数据是按照正态分布的，可以使用均值归一：
+
+$$
+z= \frac{x-\mu}{\sigma}
+$$
+
+## Advanced Gradient Descent Algorithms
+
+### 1. Momentum
+
+动量法可以加速收敛，并且不容易落入局部最优。直观的理解是，当石块从山上滚落时，石块滚落的速度不仅仅受到当前坡度（梯度）的影响，还受到上一时刻速度的影响。当石块到达一个山坳（局部最优）时，由于动量的关系，会继续往上滚动，从而跳出局部最优。而传统的梯度下降只考虑每一时刻的梯度。
+
+
+
+### 2. Adagrad: adaptive gradient
+
+### 3. AdaDelta
+
+### 4. Adam: adaptive moment estimation
+
+
+
+
+
+
+## References
+
+Wikipedia
+
+SIGAI-AI

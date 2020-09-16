@@ -52,6 +52,8 @@ $$
 
 ### 1.4 Pitfalls of Newton's method
 
+1. Computational expensive
+
 ## 2. Quasi-Newton method
 
 Newton's method requires computing Hessian Matrix every iteration, then computing a set of equations based on Hessian Matrix. Besides that, Hessian Matrix may not invertible. 
