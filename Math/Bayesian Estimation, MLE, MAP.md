@@ -1,8 +1,10 @@
-# Bayesian Estimation, MLE, MAP
+# Bayesian Estimation, MLE, MAP, Information Theory
 
 ## **1. Overview**
 
 Basic concepts of Bayesian Estimation, Maximum Likelihood Estimation, Maximum A Posteriori Estimation
+
+Then 
 
 ## **2. Background Knowledge**
 
@@ -20,9 +22,9 @@ Basic concepts of Bayesian Estimation, Maximum Likelihood Estimation, Maximum A 
 * **Statistical inference:** is the process of using data analysis from   **a sample of a population** to deduce properties of an underlying distribution of probability. Inferential statistical analysis infers properties of a population, for example by testing hypotheses and deriving estimates.
 
 **2.3 Joint Probability & Marginal Probability**
-* **Joint Probability:** is a statistical measure that calculates the likelihood of multiple events occurring together and at the same point in time.
+* **Joint Probability:** is a statistical measure that calculates the likelihood of multiple events occurring together at the same point of time.
 
-    Suppose there are 2 random variables A and B, $P(A=a,B=b)$ represents the probability of $A = a$ and $B = b$ happening **together**. And the probability of multiple events occurring together at the same time is called **Joint Probability**.
+    Suppose there are 2 random variables A and B, $P(A=a,B=b)$ represents the probability of $A = a$ and $B = b$ are happening **together**. And the probability of multiple events occurring together at the same time is called **Joint Probability**.
     
 * **Marginal Probability:** is the probability of an event irrespective of the outcome of another variable.
     $$
@@ -71,7 +73,7 @@ $$
 * $P(E\ |\ H)$ = ***Likelihood***, is the probability of observing E given H. As a function of E with H fixed, it indicates the compatibility of the evidence with the given hypothesis. The likelihood function is a function of the evidence, E, while the posterior probability is a function of the hypothesis, H.
 
 
-* $P(E)$ =  is sometimes termed the ***marginal likelihood*** or "model evidence". This factor is the same for all possible hypotheses being considered (as is evident from the fact that the hypothesis H does not appear anywhere in the symbol, unlike for all the other factors), so this factor does not enter into determining the relative probabilities of different hypotheses.
+* $P(E)$ =  is sometimes termed as the ***marginal likelihood*** or "model evidence". This factor is the same for all possible hypotheses being considered (as is evident from the fact that the hypothesis H does not appear anywhere in the symbol, unlike for all the other factors), so this factor does not enter into determining the relative probabilities of different hypotheses.
 
 $$\begin{align*}
 Posterior &= \frac{Likelihood * Priori}{Marginal\ Likelihood}\\\\
@@ -132,31 +134,35 @@ Conjugate priors are useful because they reduce Bayesian updating to modifying t
 
 We have a coin, and want to estimate the probability of heads $\theta$. In order to estimate it, we flip the coin for 10 times (independent & identically distributed i.i.d), and the results is 6 heads, 4 tails.
 
-## 3. Maximum Likelihood Estimation
+## 3. Maximum Likelihood Estimation (From Bernoulli Distribution)
 Given observations, MLE is to find a parameter that maximize the probability of the observations. 
 
 For a i.i.d sample set, the overall likelihood is the product of likelihood of every sample. And to estimate $\theta$ in the example question, we have likelihood function as
 $$
-L(\theta|x) = \prod_{i=1}^{N}P(x_i|\theta) = \theta^6(1-\theta)^4
+L(\theta|x) = \prod_{i=1}^{N}P(x_i|\theta) = \theta^k(1-\theta)^{n-k} = \theta^6(1-\theta)^4
 $$
 
 where $\theta$ is an unknown constant, and $x$ is a random variable.  
 For mathematical convenient, we convert likelihood function to log likelihood function:
 
-$$
-log\ L(\theta|x) = \sum_{i=1}^{N}log(P(x_i|\theta)) = 6log\theta + 4log(1-\theta)
+$$\begin{align*}
+log\ L(\theta|x) &= \sum_{i=1}^{N}log(P(x_i|\theta)) \\\\
+&= klog\theta + (n-k)log(1-\theta) \\\\
+&= 6log\theta + 4log(1-\theta)
+\end{align*}
 $$
 
 Then calculate the maximum likelihood by derivative:
 
 $$\begin{align*}
 & log\ L(\theta|x)' = 0\\\\
+\Rightarrow  &\frac{k}{\theta}-\frac{n-k}{1-\theta} = 0 \\\\
 \Rightarrow  &\frac{6}{\theta}-\frac{4}{1-\theta} = 0 \\\\
-\Rightarrow  &\theta = 0.6
+\Rightarrow  &\theta = \frac{k}{n} = 0.6
 \end{align*}
 $$
  
-#### MLE of Normal Distribution
+#### MLE of Gaussian Distribution
 Suppose a sample set follows normal distribution i.i.d. $N \sim (\mu, \sigma^2 )$, its likelihood function is
 $$
 L(\mu,\sigma^2)=\prod_{i=1}^{N}\frac{1}{\sqrt{2\pi}\sigma} e^{-\frac{(x_i-\mu)^2}{2\sigma^2}}
@@ -195,6 +201,7 @@ Now, we want to maximize $P(X|\theta)P(\theta)$. Since $P(X)$ is a fix value, we
 
 --------------
 NOTE: __MAP estimation as regularization of MLE, $P(\theta)$ is the regularizer.__
+
 --------------
 
 ***Equation:***
@@ -206,24 +213,32 @@ $$
 \end{align*}
 $$
 
-Back to the example, now we have a priori. We normally assume that the coin is a fair one, and it follows normal distribution. So we assume $\theta = 0.5$ and $\sigma^2=0.1$, and $P(\theta)$ is:
+Back to the example, now we have a priori. We normally assume that the coin is a fair one, and it follows Beta distribution. So we assume $\alpha$ and $\beta$ are known, and $\theta \sim Beta(\alpha,\beta)$ is:
 $$
-\frac{1}{\sqrt{2\pi}\sigma} e^{-\frac{(x_i-\mu)^2}{2\sigma^2}}=\frac{1}{\sqrt{0.2\pi}} e^{-\frac{(x_i-0.5)^2}{0.2}}
+Beta(\theta | \alpha,\beta) = \frac{1}{B(\alpha,\beta)} \theta^{\alpha -1} (1-\theta)^{\beta - 1}=\frac{\Gamma(\alpha,\beta)}{\Gamma(\alpha) \Gamma(\beta)} \theta^{\alpha -1} (1-\theta)^{\beta - 1}
 $$
 **Estimate $\hat\theta$:**
 $$
 \begin{align*}
 \hat\theta_{MAP} =\ &\underset{\theta}{argmax}\ P(X|\theta) P(\theta)\\\\
-=\  & \underset{\theta}{argmax}\ \theta^6\times(1-\theta)^4\times \frac{1}{\sqrt{0.2\pi}} e^{-\frac{(x_i-0.5)^2}{0.2}}\\\\
+=\  & \underset{\theta}{argmax}\ \theta^k\times(1-\theta)^{n-k}\times \frac{\Gamma(\alpha,\beta)}{\Gamma(\alpha) \Gamma(\beta)} \theta^{\alpha -1} (1-\theta)^{\beta - 1}\\\\
 \Rightarrow\ &\underset{\theta}{argmax}\ log\ P(X|\theta) P(\theta)
 \\\\
- =\ &\underset{\theta}{argmax}\ 6\theta + 4(1-\theta)+ log(\frac{1}{\sqrt{0.2\pi}}) - \frac{(x_i-0.5)^2}{0.2}\\\\
+ =\ &\underset{\theta}{argmax}\ k\log \theta + (n-k) \log (1-\theta)+ \frac{\alpha-1}{\theta} - \frac{\beta}{1-\mu}\\\\
  \end{align*}
 $$
 
-After Derivative, $\hat\theta_{MAP} \approx 0.529$
+After Derivative, $\hat\theta_{MAP} =  \frac{k+\alpha-1}{n + \alpha + \beta - 2}$
+
+**NOTE: MAP is MLE plus some prior parameter. And when $n$ is large enough, MLE is getting close to MAP.**
+
+#### MLE & MAP
+当MLE的数据量最够大时，逼近MAP。
 
 ## 5. Bayesian Estimation
+
+
+
 Bayesian Estimation is an extension of MAP. Similar to the MAP, Bayesian Estimation assumes that $\theta$ is a random variable, but instead of estimating a specific value for $\theta$, **it estimates the probability distribution of $\theta$. (This is the difference between MAP and Bayesian Estimation)**  In Bayesian Estimation, $P(X)$ ***can not be neglected.***
 
 In our example, we've already known $X$**(events)**, so the probability distribution of $\theta$ given events is $P(\theta|X)$, and this is a posterior distribution. 
@@ -243,7 +258,7 @@ P(\theta|X) &= \frac{P(X| \theta) \cdot P(\theta)}{\int_{\theta}P(X|\theta)P(\th
 \end{align*}
 $$
 
-It is impossible to calculate this integral $P(X) = \int_{\theta}P(X|\theta)P(\theta)d\theta$, the option is we choose using conjugate distribution. 
+It is almost impossible to calculate this integral $P(X) = \int_{\theta}P(X|\theta)P(\theta)d\theta$, the option is we choose using conjugate distribution. 
 
 # ***With a conjugate prior the posterior is of the same type, in our example, for binomial likelihood the beta prior becomes a beta posterior.***
 

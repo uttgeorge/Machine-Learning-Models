@@ -20,10 +20,10 @@ Email: <jin.qi1@northeastern.edu>
      <a href="https://github.com/uttgeorge/Machine-Learning-Models/blob/master/Math/Quadratic%20Form%20%26%20Quadratic%20Matrix%20Defferentiating.md"> 3. Quadratic Form & Quadratic Matrix Defferentiating</br></a>
      <a href="https://github.com/uttgeorge/Machine-Learning-Models/blob/master/Math/Jacobian%20%26%20Hessian%20Matrix.md"> 4. Jacobian & Hessian Matrix</br></a>
     <a href="https://github.com/uttgeorge/Machine-Learning-Models/blob/master/Math/Gradient%20Descent.md">5. Gradient Descent</br>
-    <a href="https://github.com/uttgeorge/Machine-Learning-Models/blob/master/Math/Newton's%20method%20%26%20Quasi-Newton%20method%20%EF%BC%88BFGS%20ongoing%EF%BC%89.md">6. Newton's Method & Quasi-Newton (BFGS ongoing)</br>
-    <a href=""> 7. Common Probability Distributions(Not Finished)</br></a>
-    <a href=""> 8. Probabilistic Graphical Model(Not Finished)</a></br>
-    <a href=""> 9. EM (Not Finished)</a></td>
+    <a href="https://github.com/uttgeorge/Machine-Learning-Models/blob/master/Math/Newton's%20method%20%26%20Quasi-Newton%20method%20%EF%BC%88BFGS%20ongoing%EF%BC%89.md">6. Newton's Method & Quasi-Newton<!-- (BFGS ongoing)--></br>
+<!--    <a href=""> 7. Common Probability Distributions(Not Finished)</br></a>
+    <a href=""> 8. Probabilistic Graphical Model(Not Finished)</a></br>-->
+    <a href=""> 7. EM </a></td>
     <td></td>
   </tr>
   <tr>
@@ -103,7 +103,7 @@ Email: <jin.qi1@northeastern.edu>
     </td>
   </tr>
    <tr>
-    <td>15. Clustering </td>
+ <!--   <td>15. Clustering </td>
     <td><a href="">1. K-Means (Not finished)</a></br>
     <a href="">2. Hierarchical (Not finished)</a>
     </br>
@@ -129,21 +129,21 @@ Email: <jin.qi1@northeastern.edu>
     </td>
   </tr>
   <tr>
-    <td>18. HMM</td>
+-->    <td>15. HMM</td>
     <td><a href="https://github.com/uttgeorge/Machine-Learning-Models/blob/master/HMM/Hidden%20Markov%20Model.md">HMM</a></td>
     <td><a href="">
   </a></br>
     </td>
   </tr>
    <tr>
-    <td>19. CRF</td>
+    <td>16. CRF</td>
     <td><a href="https://github.com/uttgeorge/Machine-Learning-Models/blob/master/CRF/Conditional%20Random%20Field.md">CRF</a></td>
     <td><a href="">
   </a></br>
     </td>
   </tr>
  <tr>
-    <td>20. NLP</td>
+    <td>17. NLP</td>
     <td><a href="https://github.com/uttgeorge/NLP/blob/master/1.%20Word%20Embedding.md">1. Word Embedding</a>
     <a href="https://github.com/uttgeorge/NLP/blob/master/2.%20Language%20model%2C%20RNNs%2C%20GRU%20%26%20LSTM.md"><br>2. Language model, RNNs, GRU & LSTM</a></td>
     <td><a href="">

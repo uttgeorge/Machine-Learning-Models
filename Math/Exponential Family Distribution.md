@@ -273,48 +273,47 @@ $$
 
 4. **经验分布下的最大熵**
 
-    已知一组数据，X\in{x_1,x_2,...,x_N}
-
-> 4.1 经验分布
-> 
-> 是对已知样本的描述，其概率密度函数为：
-> $$
-> \hat P(X=x)=\hat p(x)=\frac{count(x)}{N}
-> $$
-> 该函数的含义是：等于$x$的变量出现的频率。可以求出该分布的期望$E_{\hat P}[X]$，方差$Var_{\hat P}[X]$等。
-> 
-> 令$f(x)$是任意关于x的**函数向量**：
-> $$E_{\hat P}[f(x)]=\Delta$$
-> $\Delta$是一个向量，并且已知，这就是求最大熵的约束条件。
-
-> 4.2 最大熵
->
-> 信息熵公式：
-> $$\begin{align*}
-> min:\ H[P] &=\sum p(x)\log{p(x)}\\\\
-> s.t.\ &\sum p(x)=1\\\\
-> &E_{ P}[f(x)]=E_{\hat P}[f(x)]=\Delta
-> \end{align*}$$
-> 引入Lagrange Multiplier:
-> $$
-> L(p,\lambda)=\sum p(x)\log{p(x)} + \lambda_0(1-\sum p(x)) + \lambda^T(\Delta-E_{P}[f(x)])
-> $$
-> 对其求导：
-> $$\begin{align*}
-> \frac{\partial}{\partial p(x)}L(p,\lambda)=\sum (\log{p(x)} + 1)- \sum \lambda_0 - \sum\lambda^Tf(x)&=0\\\\
-> \sum \Big(\log{p(x)} + 1-  \lambda_0 - \lambda^Tf(x)\Big)&=0
-> \end{align*}
-> $$
-> 由于$p(x)$和$\lambda^T$实际上是向量，所以要保证每一项都为0，则：
-> $$\log{p(x)} + 1-  \lambda_0 - \lambda^Tf(x)=0$$
-> 得到：
-> $$\begin{align*}
-> \log{p(x)} &= \lambda^Tf(x)+\lambda_0-1\\\\
-> p(x)&=\exp \lbrace \lambda^Tf(x)-（1-\lambda_0） \rbrace\\\\
-> &=\exp\lbrace\eta^T\phi(x)-A(\eta)\rbrace
-> \end{align*}
-> $$
-> 由此可知，在有约束条件（经验分布）情况下，使其熵值最大的概率分布为指数族分布。
+    已知一组数据，$X\in\lbrace x_1,x_2,...,x_N\rbrace$
+    > 4.1 经验分布
+    > 
+    > 是对已知样本的描述，其概率密度函数为：
+    > $$
+    > \hat P(X=x)=\hat p(x)=\frac{count(x)}{N}
+    > $$
+    > 该函数的含义是：等于$x$的变量出现的频率。可以求出该分布的期望$E_{\hat P}[X]$，方差$Var_{\hat P}[X]$等。
+    > 
+    > 令$f(x)$是任意关于x的**函数向量**：
+    > $$E_{\hat P}[f(x)]=\Delta$$
+    > $\Delta$是一个向量，并且已知，这就是求最大熵的约束条件。
+    
+    > 4.2 最大熵
+    >
+    > 信息熵公式：
+    > $$\begin{align*}
+    > min:\ H[P] &=\sum p(x)\log{p(x)}\\\\
+    > s.t.\ &\sum p(x)=1\\\\
+    > &E_{ P}[f(x)]=E_{\hat P}[f(x)]=\Delta
+    > \end{align*}$$
+    > 引入Lagrange Multiplier:
+    > $$
+    > L(p,\lambda)=\sum p(x)\log{p(x)} + \lambda_0(1-\sum p(x)) + \lambda^T(\Delta-E_{P}[f(x)])
+    > $$
+    > 对其求导：
+    > $$\begin{align*}
+    > \frac{\partial}{\partial p(x)}L(p,\lambda)=\sum (\log{p(x)} + 1)- \sum \lambda_0 - \sum\lambda^Tf(x)&=0\\\\
+    > \sum \Big(\log{p(x)} + 1-  \lambda_0 - \lambda^Tf(x)\Big)&=0
+    > \end{align*}
+    > $$
+    > 由于$p(x)$和$\lambda^T$实际上是向量，所以要保证每一项都为0，则：
+    > $$\log{p(x)} + 1-  \lambda_0 - \lambda^Tf(x)=0$$
+    > 得到：
+    > $$\begin{align*}
+    > \log{p(x)} &= \lambda^Tf(x)+\lambda_0-1\\\\
+    > p(x)&=\exp \lbrace \lambda^Tf(x)-（1-\lambda_0） \rbrace\\\\
+    > &=\exp\lbrace\eta^T\phi(x)-A(\eta)\rbrace
+    > \end{align*}
+    > $$
+    > 由此可知，在有约束条件（经验分布）情况下，使其熵值最大的概率分布为指数族分布。
 
 ## 8. 共轭分布
 待补充
