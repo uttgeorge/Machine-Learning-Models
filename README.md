@@ -23,7 +23,7 @@ Email: <jin.qi1@northeastern.edu>
     <a href="https://github.com/uttgeorge/Machine-Learning-Models/blob/master/Math/Newton's%20method%20%26%20Quasi-Newton%20method%20%EF%BC%88BFGS%20ongoing%EF%BC%89.md">6. Newton's Method & Quasi-Newton<!-- (BFGS ongoing)--></br>
 <!--    <a href=""> 7. Common Probability Distributions(Not Finished)</br></a>
     <a href=""> 8. Probabilistic Graphical Model(Not Finished)</a></br>-->
-    <a href=""> 7. EM </a></td>
+    <a href="https://github.com/uttgeorge/Machine-Learning-Models/blob/master/EM/EM.pdf"> 7. EM </a></td>
     <td></td>
   </tr>
   <tr>
@@ -97,7 +97,7 @@ Email: <jin.qi1@northeastern.edu>
   </tr>
   <tr>
     <td>14. L1, L2 Regularization</td>
-    <td><a href="">L1, L2 Regularization(Not finished)</a></td>
+    <td><a href="">L1, L2 Regularization <!--(Not finished)--></a></td>
     <td><a href="">
   </a></br>
     </td>
